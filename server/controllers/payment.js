@@ -1,6 +1,7 @@
 const UserModel = require("../models/Users");
 const Razorpay = require("razorpay");
 const crypto = require("crypto");
+require("dotenv").config();
 
 //making instance for razorpay which has key and secret
 var instance = new Razorpay({
