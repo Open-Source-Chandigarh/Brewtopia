@@ -14,9 +14,6 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 const cookies = new Cookies();
 const user = cookies.get("username");
 
-//for different routes that user can route to and rendering it to root which is present in index.html
-//by selecting it
-
 root.render(
   <>
     <BrowserRouter>

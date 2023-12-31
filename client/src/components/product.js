@@ -1,8 +1,6 @@
 import {  useState , useEffect} from "react";
 import "../styles/App.css";
 import toast from "react-hot-toast";
-import Axios from "axios";
-import Cookies from "universal-cookie";
 
 export default function Product(props) {
   const { product, cartState, setCart, total, setTotal } = props;
