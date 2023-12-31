@@ -11,6 +11,7 @@ var instance = new Razorpay({
 
 const checkout =  async(req,res) =>{
 
+    console.log(process.env.RAZORPAY_API_KEY,process.env.RAZORPAY_API_SECRET);
     //making some options for razorpay
     try {
       const options = {
