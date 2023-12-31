@@ -20,6 +20,7 @@ const checkout =  async(req,res) =>{
     
       //creating an order with razorpay method
       const order = await instance.orders.create(options).catch((err) => console.log("here",err));
+      console.log(order);
       
       //sending true status to app and order also
       //to make it access there because request window will be made there
