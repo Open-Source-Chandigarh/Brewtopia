@@ -304,6 +304,7 @@ html{
 
 .range {
   display: flex;
+  width: 1%;
   justify-content: center;
   margin-top: 12px;
   align-items: center;
@@ -444,7 +445,6 @@ html{
 .item div {
   display: flex;
   justify-content: space-between;
-  width: 74%;
   align-items: center;
 }
 
