@@ -304,6 +304,7 @@ html{
 
 .range {
   display: flex;
+  width: 1%;
   justify-content: center;
   margin-top: 12px;
   align-items: center;
@@ -318,9 +319,8 @@ html{
 .range button {
   color: var(--text-color);
   background: white;
-  border: 1px solid;
   padding-left: 8px;
-  /* text-align: center; */
+  text-align: center;
   padding-right: 8px;
   padding-top: 1px;
   cursor: pointer;
@@ -444,7 +444,6 @@ html{
 .item div {
   display: flex;
   justify-content: space-between;
-  width: 74%;
   align-items: center;
 }
 
@@ -452,13 +451,14 @@ html{
   border: 0;
   font-weight: 600;
   color: black;
-  padding: 5px;
   padding-left: 11px;
   padding-right: 11px;
   border-radius: 17px;
   cursor: pointer;
   font-size: 15px;
   font-family: "Poppins";
+  border: 1px solid #111;
+  border-radius: 0;
 }
 
 .item div button:hover {

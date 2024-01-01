@@ -4,16 +4,15 @@ import { useState, useEffect } from "react";
 import Cookies from "universal-cookie";
 import { TiShoppingCart } from "react-icons/ti";
 import Axios from "axios";
-import { GoChecklist } from "react-icons/go"
+import { GoChecklist } from "react-icons/go";
 import { FaGithub } from "react-icons/fa";
 import { IoLogoLinkedin } from "react-icons/io5";
 import { FaTwitterSquare } from "react-icons/fa";
-import {hotclassics,chillers,delights,sweettooth} from "./menu.js"
+import { hotclassics, chillers, delights, sweettooth } from "./menu.js";
 import AllOrders from "./components/allOrders.js";
 import Cart from "./components/cart.js";
 
 function App() {
-
   //for user profile
   const [name, setName] = useState("");
   const [username, setuserName] = useState("");
@@ -25,7 +24,7 @@ function App() {
   //for components cart and orders to show
   const [showCart, setshowCart] = useState(false);
   const [showOrders, setshowOrders] = useState(false);
-  const [totalItems , settotalItems] = useState();
+  const [totalItems, settotalItems] = useState();
 
   const cookies = new Cookies();
 
@@ -33,50 +32,48 @@ function App() {
   useEffect(() => {
     const body = document.querySelector("body");
     // Set the overflow style based on the state variables
-    body.style.overflow = showCart || showOrders ? 'hidden' : 'auto';
+    body.style.overflow = showCart || showOrders ? "hidden" : "auto";
   }, [showCart, showOrders]);
 
   //making request to server for the data of user cart  and orders
   useEffect(() => {
-
     //setting username and name from cookies
     setuserName(cookies.get("username"));
     setName(cookies.get("name"));
 
     //request to server for cart
     const servercart = async () => {
-      const cart = await Axios.post("https://brewtopia.up.railway.app/getCart", {
-        username: username
-      })
+      const cart = await Axios.post(
+        "https://brewtopia.up.railway.app/getCart",
+        {
+          username: username,
+        }
+      );
       setCart(cart.data);
-    }
+    };
     servercart();
-
   }, [username]);
 
   //updating server cart and also updating total on server side
   useEffect(() => {
+    let total = 0;
+    cart.forEach((item) => {
+      total += item.price * item.count;
+    });
 
-    //updating total on client
-    var total = cart.reduce(
-      (acc, product) => acc + product.price * product.count,
-      0
-    );
     setTotal(total);
     settotalItems(cart.length);
 
     //posting server with updated cart
     Axios.post("https://brewtopia.up.railway.app/updateCart", {
-      "username": username,
-      "cart": cart,
-      "cartTotal": total
-    }
-    )
-  }, [cart]) //whenever cart changes these requests will be made to server
+      username: username,
+      cart: cart,
+      cartTotal: total,
+    });
+  }, [cart]); //whenever cart changes these requests will be made to server
 
   return (
     <div className="App">
-
       {/* Navbar of app */}
       <nav className="nav">
         <a href="/">Brewtopia</a>
@@ -86,21 +83,38 @@ function App() {
           <a href="#product3">ALL DAY DELIGHTS</a>
           <a href="#product4">SWEET TOOTH</a>
         </div>
-        <button onClick={() => setshowCart(true)}><TiShoppingCart size={20}></TiShoppingCart> Cart {totalItems ? <p className="total-items">{totalItems}</p> : ""}</button>
-        <button onClick={() => setshowOrders(true)}><GoChecklist size={20}></GoChecklist>Orders</button>
+        <button onClick={() => setshowCart(true)}>
+          <TiShoppingCart size={20}></TiShoppingCart> Cart{" "}
+          {totalItems ? <p className="total-items">{totalItems}</p> : ""}
+        </button>
+        <button onClick={() => setshowOrders(true)}>
+          <GoChecklist size={20}></GoChecklist>Orders
+        </button>
       </nav>
 
       {/* Showing all orders as popup */}
-      {showOrders && <AllOrders username={username} setshowOrders={setshowOrders}/>}
+      {showOrders && (
+        <AllOrders username={username} setshowOrders={setshowOrders} />
+      )}
 
       {/* showing cart items as popup */}
-      {showCart && <Cart name={name} username={username} setshowCart={setshowCart} cookies={cookies} cart={cart} total={total} setCart={setCart}/>}
+      {showCart && (
+        <Cart
+          name={name}
+          username={username}
+          setshowCart={setshowCart}
+          cookies={cookies}
+          cart={cart}
+          total={total}
+          setCart={setCart}
+        />
+      )}
 
       {/* Here we are mapping all the products in product1 grid -- it acts like wrap */}
       {/* then placing in product-container and mapping each category */}
       <main className="main">
         <div id="product1">
-        <h2>HOT CLASSICS</h2>
+          <h2>HOT CLASSICS</h2>
           <div className="product-container">
             {hotclassics.map(
               (classic, index = hotclassics.indexof(classic)) => {
@@ -182,16 +196,21 @@ function App() {
             drinks, including our signature lattes and cold brews, made with
             only the highest quality ingredients.
             <br />
-
           </p>
         </div>
 
         {/* for navigation */}
         <div className="col-2">
           <div class="socials">
-            <a href=""><FaGithub size={23}/></a>
-            <a href=""><IoLogoLinkedin size={25}/></a>
-            <a href=""><FaTwitterSquare size={25}/></a>
+            <a href="">
+              <FaGithub size={23} />
+            </a>
+            <a href="">
+              <IoLogoLinkedin size={25} />
+            </a>
+            <a href="">
+              <FaTwitterSquare size={25} />
+            </a>
           </div>
           <a href="">Cafe Policy</a>
           <span>© 2023 Published by Brewtopia cafe</span>
