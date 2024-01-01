@@ -6,7 +6,7 @@ import { TiShoppingCart } from "react-icons/ti";
 import Axios from "axios";
 import { GoChecklist } from "react-icons/go";
 import { FaGithub } from "react-icons/fa";
-import { IoLogoLinkedin } from "react-icons/io5";
+import { IoLogoLinkedin ,IoLogOut} from "react-icons/io5";
 import { FaTwitterSquare } from "react-icons/fa";
 import { hotclassics, chillers, delights, sweettooth } from "./menu.js";
 import AllOrders from "./components/allOrders.js";
@@ -27,6 +27,14 @@ function App() {
   const [totalItems, settotalItems] = useState();
 
   const cookies = new Cookies();
+  
+  const handleLogout =()=>{
+    cookies.remove("username");
+    cookies.remove("name");
+
+    window.location.reload();
+
+  }
 
   //setting overflow:hidden when Popups are showing
   useEffect(() => {
@@ -83,13 +91,9 @@ function App() {
           <a href="#product3">ALL DAY DELIGHTS</a>
           <a href="#product4">SWEET TOOTH</a>
         </div>
-        <button onClick={() => setshowCart(true)}>
-          <TiShoppingCart size={20}></TiShoppingCart> Cart{" "}
-          {totalItems ? <p className="total-items">{totalItems}</p> : ""}
-        </button>
-        <button onClick={() => setshowOrders(true)}>
-          <GoChecklist size={20}></GoChecklist>Orders
-        </button>
+        <button onClick={() => setshowCart(true)}><TiShoppingCart size={20}></TiShoppingCart> Cart {totalItems ? <p className="total-items">{totalItems}</p> : ""}</button>
+        <button onClick={() => setshowOrders(true)}><GoChecklist size={20}></GoChecklist>Orders</button>
+        <button onClick={() => handleLogout()}> <IoLogOut size={20} />LogOut</button>
       </nav>
 
       {/* Showing all orders as popup */}
