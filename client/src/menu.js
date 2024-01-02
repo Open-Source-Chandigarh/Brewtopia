@@ -86,8 +86,7 @@ const chillers = [
     },
     {
       name: "Iced Americano",
-      image:
-        "https://mrlukecy.com/wp-content/uploads/2020/05/ice-americano.png",
+      image:"https://img.freepik.com/premium-photo/iced-black-coffee-iced-americano-isolated-white-background_536380-64.jpg",
       quantity: "(240ml | 15kcal)",
       stars: "★★★★★",
       price: "140",
@@ -103,7 +102,7 @@ const chillers = [
     {
       name: "Iced Macchiato",
       image:
-        "https://www.starbucks.com.au/imagecache/bestfit/620x634/_files/product-images/iced-bev/sbx20181116-21519-icedcaramelmacchiato-onwhite-corelib-srgb.png",
+        "https://images.squarespace-cdn.com/content/v1/5cc2747eca525b7701b0c76d/cc0089d7-a280-4ebf-8099-ce6061c947e4/Summer+Promo_White+Choc+Coconut+Fusion_20.png?format=500w",
       quantity: "(240ml | 100kcal)",
       stars: "★★★★★",
       price: "160",
@@ -111,7 +110,7 @@ const chillers = [
     {
       name: "Iced Flat White",
       image:
-        "https://cayman.latinosmarketing.com/wp-content/uploads/2021/10/cedAlmondmilkHoneyFlatWhite-onGreen_CoreLib_sRGB.png",
+        "https://cdn3d.iconscout.com/3d/premium/thumb/iced-americano-10483435-8446908.png?f=webp",
       quantity: "(240ml | 155kcal)",
       stars: "★★★★★",
       price: "170",
@@ -177,7 +176,7 @@ const delights = [
     {
       name: "Scone Cream",
       image:
-        "https://ambersofamersham.com/wp-content/uploads/2015/07/scone1.png",
+        "https://media.istockphoto.com/id/153562941/photo/cream-tea-scone.jpg?s=612x612&w=0&k=20&c=SFcnL-VpbrJrebE5-AQGScOdztNSk5Q-LSFqbumOnB4=",
       quantity: "(1 scone | 300kcal)",
       stars: "★★★★☆",
       price: "160",
