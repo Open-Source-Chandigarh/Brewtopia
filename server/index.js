@@ -20,10 +20,23 @@ app.use(express.urlencoded({ extended: true }));
 //for json stringify
 app.use(express.json());
 
-//for cross site accessing
+// Define an array of allowed origins
+const allowedOrigins = ["https://brewtopia.netlify.app"];
+
+// Use a middleware function to set the header dynamically
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://brewtopia.netlify.app");
+  // Get the origin of the request
+  const origin = req.headers.origin;
+  // Check if the origin is in the list of allowed origins
+  if (allowedOrigins.includes(origin)) {
+    // Set the Access-Control-Allow-Origin header to the origin
+    res.header("Access-Control-Allow-Origin", origin);
+  }
+  // Set other CORS headers
   res.header("Access-Control-Allow-Credentials", true);
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+  // Call the next middleware function
   next();
 });
 
