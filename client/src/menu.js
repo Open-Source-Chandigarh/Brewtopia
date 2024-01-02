@@ -176,7 +176,7 @@ const delights = [
     {
       name: "Scone Cream",
       image:
-        "https://media.istockphoto.com/id/153562941/photo/cream-tea-scone.jpg?s=612x612&w=0&k=20&c=SFcnL-VpbrJrebE5-AQGScOdztNSk5Q-LSFqbumOnB4=",
+        "https://img.taste.com.au/EZ3_Ck8B/taste/2016/11/classic-scones-with-jam-and-cream-105148-1.jpeg",
       quantity: "(1 scone | 300kcal)",
       stars: "★★★★☆",
       price: "160",
