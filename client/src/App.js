@@ -202,13 +202,13 @@ function App() {
         {/* for navigation */}
         <div className="col-2">
           <div class="socials">
-            <a href="">
+            <a href="https://github.com/Varinder-Dhillon0">
               <FaGithub size={23} />
             </a>
-            <a href="">
+            <a href="https://www.linkedin.com/in/varinder-dhillon-5b8420263/">
               <IoLogoLinkedin size={25} />
             </a>
-            <a href="">
+            <a href="https://twitter.com/varinder_d0">
               <FaTwitterSquare size={25} />
             </a>
           </div>
