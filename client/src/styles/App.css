@@ -89,12 +89,13 @@ html{
   padding-right: 10px;
   z-index: -1;
   background-color: #54290c;
-  box-shadow: 6px 6px 0 black;
-  transform: skewX(-15deg);
+  border-radius: 3px;
+ 
 }
 
 .menu a:hover {
-  box-shadow: none;
+  box-shadow: 6px 6px 0 black;
+  transform: skewX(-15deg);
 }
 
 .nav button {
@@ -108,13 +109,17 @@ html{
   padding: 8px;
   padding-left: 0px;
   padding-right: 24px;
-  padding-top: 26px;
+  padding-top: 10px;
   align-items: center;
   font-size: 16px;
   border: 0;
   font-weight: 700;
+  align-items: center;
 }
-
+.nav button:hover{
+  transition: all 0.5s linear;
+  box-shadow: -1px 1px #3B2F2F;
+}
 
 .main {
   text-align: center;
