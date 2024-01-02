@@ -168,7 +168,7 @@ const delights = [
     {
       name: "Cinnamon Roll",
       image:
-        "https://i0.wp.com/www.cinnabonlawton.com/wp-content/uploads/2014/09/classic_roll.png?w=1080",
+      "https://img.taste.com.au/EZ3_Ck8B/taste/2016/11/classic-scones-with-jam-and-cream-105148-1.jpeg",
       quantity: "(1 roll | 400kcal)",
       stars: "★★★★★",
       price: "140",
@@ -176,7 +176,7 @@ const delights = [
     {
       name: "Scone Cream",
       image:
-        "https://img.taste.com.au/EZ3_Ck8B/taste/2016/11/classic-scones-with-jam-and-cream-105148-1.jpeg",
+        "https://i0.wp.com/www.cinnabonlawton.com/wp-content/uploads/2014/09/classic_roll.png?w=1080",
       quantity: "(1 scone | 300kcal)",
       stars: "★★★★☆",
       price: "160",
