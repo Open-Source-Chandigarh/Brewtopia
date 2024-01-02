@@ -124,6 +124,7 @@ html{
 .main {
   text-align: center;
   margin-top: 48px;
+ 
 }
 
 #product1,
@@ -132,6 +133,7 @@ html{
 #product4 {
   position: relative;
   padding-top: 66px;
+ 
 }
 
 .product-container {
@@ -142,9 +144,28 @@ html{
   justify-content: center;
   margin-top: 6px;
 }
+@media only screen and (max-width: 864px) {
+  .product {
+    
+    height: 400px;
+   
+  }
+  .product-container {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    margin: 0 10px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .product-container {
+    
+    margin: 0 20px;
+  }
+}
+
 
 .main h2 {
-    width: 11%;
+    width: 18%;
     font-weight: 900;
     font-size: 1.1rem;
     color: var(--secondary-text-color);
@@ -156,7 +177,19 @@ html{
     text-align: center;
     margin: 0 auto;
 }
-
+@media only screen and (max-width: 790px) {
+  .main h2 {
+    width: 25%;
+  }
+  
+}
+@media only screen and (max-width: 380px) {
+  .main h2 {
+    width: 35%;
+    font-size: 0.8rem;
+  }
+  
+}
 .main div a {
   text-decoration: none;
   color: var(--text-color);
@@ -233,6 +266,14 @@ html{
   margin-top: 3px;
   background-color: var(--secondary-text-color);
   z-index: 2;
+}
+@media only screen and (max-width: 864px) {
+  .product {
+    
+    height: 200px;
+   
+  }
+ 
 }
 
 .product img {
