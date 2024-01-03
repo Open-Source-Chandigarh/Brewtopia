@@ -15,7 +15,7 @@ Check it out live at https://brewtopia.netlify.app/
 - Don't create multiple issue request for one issue.
 
 ### _**❌ Your code making any errors in production will result in pr revert**_
-### _**✅ Test yourself in local environment before making a pr**_
+### _**✅ Test by yourself in local environment before making a pr**_
 
 ## Getting Started
 
