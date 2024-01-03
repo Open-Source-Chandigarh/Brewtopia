@@ -215,14 +215,32 @@ html{
   background-color: var(--secondary-bg);
   backdrop-filter: blur(13px);
 }
+@media only screen and (max-width: 750px) {
+  .footer {
+    align-items: center;
+  }
+ 
+}
+@media only screen and (max-width: 630px) {
+  .footer {
+    flex-direction: column;
+  }
+  .col-1{
+    width: 100%;
+    margin: 1rem;
+  }
+ 
+}
+
 
 .col-1 {
-  width: 43%;
+  width: 70%;
 }
 
 .col-1 p {
   font-weight: 600;
   font-size: 1rem;
+  margin-bottom: 1rem;
 }
 
 .col-2 {
@@ -233,6 +251,29 @@ html{
   padding-bottom: 11px;
   z-index: 1;
   width: 20%;
+}
+@media only screen and (max-width: 1077px) {
+  .col-2{
+    align-self: center;
+  }
+}
+@media only screen and (max-width: 630px) {
+  /* .footer{
+    height: 40vh;
+
+  } */
+ 
+  .col-1{
+    width: 100%;
+    margin: 0.2rem;
+  }
+  .col-2{
+    margin-top: 2rem;
+    align-self: flex-start;
+    width: 100%;
+   
+  }
+ 
 }
 
 .col-2 a {
@@ -250,6 +291,12 @@ html{
   align-items: center;
 }
 
+.socials a:hover {
+  color: #54290c;
+
+  scale: 1.2;
+  transition: all 0.5s ease-in-out;
+}
 .col-2 .socials a{
   padding-right: 10px;
 }
@@ -269,9 +316,7 @@ html{
 }
 @media only screen and (max-width: 864px) {
   .product {
-    
     height: 200px;
-   
   }
  
 }
