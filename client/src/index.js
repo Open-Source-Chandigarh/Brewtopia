@@ -19,7 +19,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={user ? <App /> : <Navigate replace to="/login" />} />
-        <Route exact path="/login" element={user ? <App/> : <Login/>} />
+        <Route exact path="/login" element={user ? <Navigate replace to="/"/> : <Login/>} />
         <Route path="/sign-up" element={<Sign />}></Route>
         <Route path="/paymentsuccess" element={<PaymentSuccess/>}></Route>
       </Routes>
