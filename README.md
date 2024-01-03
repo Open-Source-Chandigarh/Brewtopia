@@ -1,4 +1,4 @@
-<img src="https://github.com/Open-Source-Chandigarh/Brewtopia/assets/98728916/61268f15-14be-4565-aab8-50f462e5f6c9" height="300" width="700" />
+<img src="https://github.com/Open-Source-Chandigarh/Brewtopia/assets/98728916/61268f15-14be-4565-aab8-50f462e5f6c9" height="290" width="600" />
 
 # 🤎Brewtopia🤎
 
