@@ -87,7 +87,7 @@ const chillers = [
     {
       name: "Iced Americano",
       image:
-        "https://mrlukecy.com/wp-content/uploads/2020/05/ice-americano.png",
+        "https://img.freepik.com/premium-photo/iced-coffee-with-poured-cream-isolated-white-background_185193-16501.jpg?size=626&ext=jpg&ga=GA1.1.1413502914.1696464000&semt=ais",
       quantity: "(240ml | 15kcal)",
       stars: "★★★★★",
       price: "140",
@@ -103,7 +103,7 @@ const chillers = [
     {
       name: "Iced Macchiato",
       image:
-        "https://www.starbucks.com.au/imagecache/bestfit/620x634/_files/product-images/iced-bev/sbx20181116-21519-icedcaramelmacchiato-onwhite-corelib-srgb.png",
+        "https://img.freepik.com/premium-photo/iced-black-coffee-iced-americano-isolated-white-background_536380-64.jpg",
       quantity: "(240ml | 100kcal)",
       stars: "★★★★★",
       price: "160",
@@ -111,7 +111,7 @@ const chillers = [
     {
       name: "Iced Flat White",
       image:
-        "https://cayman.latinosmarketing.com/wp-content/uploads/2021/10/cedAlmondmilkHoneyFlatWhite-onGreen_CoreLib_sRGB.png",
+        "https://media.istockphoto.com/id/497897580/photo/iced-coffee-in-takeaway-cup.jpg?s=612x612&w=0&k=20&c=IR0HtWlIcCa_ryIp4l3TMUetuNqWlNxiJxaXPPXJbQc=",
       quantity: "(240ml | 155kcal)",
       stars: "★★★★★",
       price: "170",
@@ -177,7 +177,7 @@ const delights = [
     {
       name: "Scone Cream",
       image:
-        "https://ambersofamersham.com/wp-content/uploads/2015/07/scone1.png",
+        "https://media.istockphoto.com/id/153562941/photo/cream-tea-scone.jpg?s=612x612&w=0&k=20&c=SFcnL-VpbrJrebE5-AQGScOdztNSk5Q-LSFqbumOnB4=",
       quantity: "(1 scone | 300kcal)",
       stars: "★★★★☆",
       price: "160",
