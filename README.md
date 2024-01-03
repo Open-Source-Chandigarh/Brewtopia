@@ -6,6 +6,17 @@ Brewtopia, a MERN stack-powered cafe management platform. Seamlessly add coffee 
 
 Check it out live at https://brewtopia.netlify.app/
 
+## Contributing Guidelines
+- The contributors _will be allowed to work on the issue **ONLY** after it has been assigned to them_.
+- The contributions will be counted only for the time period of the event, after the time period ends contributions can be taken in but wont be counted for the final evaluation.
+- Tampering or any unethical behaviour to the files or other participants will result in immediate disqualification.
+- Each PR must be associated with only ONE issue.
+- Don't open pull requests with minor text edits on other people's repositories.
+- Don't create multiple issue request for one issue.
+
+### _**❌ Your code making any errors in production will result in pr revert**_
+### _**✅ Test yourself in local environment before making a pr**_
+
 ## Getting Started
 
 To run this application on your local machine, follow the steps below:
