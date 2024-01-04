@@ -25,6 +25,7 @@ const hotclassics = [
       quantity: "(30ml | 3kcal)",
       stars: "★★★★★",
       price: "100",
+      
     },
     {
       name: "Americano",
@@ -33,6 +34,7 @@ const hotclassics = [
       quantity: "(240ml | 15kcal)",
       stars: "★★★★☆",
       price: "120",
+      
     },
     {
       name: "Macchiato",
@@ -41,6 +43,7 @@ const hotclassics = [
       quantity: "(30ml | 13kcal)",
       stars: "★★★★★",
       price: "110",
+      
     },
     {
       name: "Mocha",
@@ -49,6 +52,7 @@ const hotclassics = [
       quantity: "(240ml | 290kcal)",
       stars: "★★★★☆",
       price: "170",
+      
     },
     {
       name: "Flat White",
@@ -57,6 +61,7 @@ const hotclassics = [
       quantity: "(160ml | 155kcal)",
       stars: "★★★★★",
       price: "180",
+      
     },
     {
       name: "Cortado",
@@ -64,6 +69,7 @@ const hotclassics = [
       quantity: "(60ml | 25kcal)",
       stars: "★★★★☆",
       price: "140",
+      
     },
   ];
   
@@ -75,6 +81,7 @@ const chillers = [
       quantity: "(240ml | 100kcal)",
       stars: "★★★★☆",
       price: "150",
+      
     },
     {
       name: "Iced Mocha",
@@ -83,6 +90,7 @@ const chillers = [
       quantity: "(240ml | 230kcal)",
       stars: "★★★★☆",
       price: "160",
+      
     },
     {
       name: "Iced Americano",
@@ -91,6 +99,7 @@ const chillers = [
       quantity: "(240ml | 15kcal)",
       stars: "★★★★★",
       price: "140",
+      
     },
     {
       name: "Iced Cappuccino",
@@ -99,6 +108,7 @@ const chillers = [
       quantity: "(240ml | 120kcal)",
       stars: "★★★★☆",
       price: "150",
+      
     },
     {
       name: "Iced Macchiato",
@@ -107,6 +117,7 @@ const chillers = [
       quantity: "(240ml | 100kcal)",
       stars: "★★★★★",
       price: "160",
+      
     },
     {
       name: "Iced Flat White",
@@ -115,6 +126,7 @@ const chillers = [
       quantity: "(240ml | 155kcal)",
       stars: "★★★★★",
       price: "170",
+      
     },
     {
       name: "Iced Chai Latte",
@@ -123,6 +135,7 @@ const chillers = [
       quantity: "(120ml | 45kcal)",
       stars: "★★★★☆",
       price: "160",
+      
     },
     {
       name: "Iced Tea",
@@ -131,6 +144,7 @@ const chillers = [
       quantity: "(60ml | 10kcal)",
       stars: "★★★★★",
       price: "140",
+      
     },
   ];
 
@@ -142,6 +156,7 @@ const delights = [
       quantity: "(1 muffin | 360kcal)",
       stars: "★★★★☆",
       price: "150",
+      
     },
     {
       name: "Chocolate chip",
@@ -150,6 +165,7 @@ const delights = [
       quantity: "(1 cookie | 200kcal)",
       stars: "★★★★☆",
       price: "100",
+      
     },
     {
       name: "Croissant",
@@ -157,6 +173,7 @@ const delights = [
       quantity: "(1 croissant | 260kcal)",
       stars: "★★★★★",
       price: "120",
+      
     },
     {
       name: "Bagel Cream",
@@ -165,6 +182,7 @@ const delights = [
       quantity: "(1 bagel | 350kcal)",
       stars: "★★★★☆",
       price: "130",
+     
     },
     {
       name: "Cinnamon Roll",
@@ -173,6 +191,7 @@ const delights = [
       quantity: "(1 roll | 400kcal)",
       stars: "★★★★★",
       price: "140",
+      
     },
     {
       name: "Scone Cream",
@@ -181,6 +200,7 @@ const delights = [
       quantity: "(1 scone | 300kcal)",
       stars: "★★★★☆",
       price: "160",
+      
     },
     {
       name: "Brownie",
@@ -189,6 +209,7 @@ const delights = [
       quantity: "(1 brownie | 350kcal)",
       stars: "★★★★★",
       price: "150",
+      
     },
     {
       name: "Cheesecake",
@@ -197,6 +218,7 @@ const delights = [
       quantity: "(1 slice | 400kcal)",
       stars: "★★★★☆",
       price: "200",
+      
     },
   ];
 
@@ -208,6 +230,7 @@ const sweettooth = [
       quantity: "(1 slice | 350kcal)",
       stars: "★★★★☆",
       price: "150",
+      
     },
     {
       name: "Apple Pie",
@@ -215,6 +238,7 @@ const sweettooth = [
       quantity: "(1 slice | 300kcal)",
       stars: "★★★★☆",
       price: "140",
+      
     },
     {
       name: "Ice Cream Sundae",
@@ -223,6 +247,7 @@ const sweettooth = [
       quantity: "(1 sundae | 450kcal)",
       stars: "★★★★★",
       price: "160",
+      
     },
     {
       name: "Tiramisu",
@@ -231,6 +256,7 @@ const sweettooth = [
       quantity: "(1 slice | 400kcal)",
       stars: "★★★★☆",
       price: "170",
+      
     },
     {
       name: "Chocolate Truffles",
@@ -239,6 +265,7 @@ const sweettooth = [
       quantity: "(3 truffles | 250kcal)",
       stars: "★★★★★",
       price: "180",
+      
     },
     {
       name: "Fruit Tart",
@@ -247,6 +274,7 @@ const sweettooth = [
       quantity: "(1 tart | 300kcal)",
       stars: "★★★★☆",
       price: "150",
+      
     },
     {
       name: "Creme Brulee",
@@ -255,6 +283,7 @@ const sweettooth = [
       quantity: "(1 serving | 350kcal)",
       stars: "★★★★★",
       price: "160",
+      
     },
     {
       name: "Panna Cotta",
