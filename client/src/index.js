@@ -8,6 +8,8 @@ import Cookies from "universal-cookie";
 import { Toaster } from "react-hot-toast";
 import { Navigate } from "react-router-dom";
 import PaymentSuccess from "./paymentsuccess";
+import Dashboard from "./Admin/Dashboard";
+import Sidebar from "./Admin/Sidebar";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -22,6 +24,9 @@ root.render(
         <Route exact path="/login" element={user ? <Navigate replace to="/"/> : <Login/>} />
         <Route path="/sign-up" element={user ? <Navigate replace to="/"/>:<Sign/>}></Route>
         <Route path="/paymentsuccess" element={<PaymentSuccess/>}></Route>
+        <Route path="/admin">
+          <Route path="/admin/dashboard" element={<Sidebar><Dashboard/></Sidebar>}></Route>
+        </Route>
         <Route exact path="/*" element={user ? <Navigate replace to="/" /> : <Navigate replace to="/login" />} />
       </Routes>
     </BrowserRouter>
