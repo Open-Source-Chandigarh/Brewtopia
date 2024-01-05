@@ -3,7 +3,7 @@ import "../styles/App.css";
 import toast from "react-hot-toast";
 
 export default function Product(props) {
-  const { product, cartState, setCart, total, setTotal } = props;
+  const { product, cartState, setCart, total, setTotal, searchedItems } = props;
   const [clicked, setclicked] = useState(false);
 
   //used to update total and cart items
@@ -26,13 +26,13 @@ export default function Product(props) {
   //on change in items of cart this function fires
   useEffect(() => {
     itemincart()? setclicked(true) : setclicked(false)
-  },[cartState])
+  },[cartState,searchedItems])
   
   //checking if item is already in cart to give button 
   //clicked or not clicked state
   function itemincart(){
     for(var i=0; i<cartState.length; i++){
-        if(cartState[i].name == product.name){
+        if(cartState[i].name === product.name){
           return true
         };
         

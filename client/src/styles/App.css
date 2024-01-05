@@ -45,7 +45,7 @@ html{
   justify-content: space-between;
   padding-left: 1em;
   padding-right: 1em;
-  position: fixed;
+  position: sticky;
   width: 100%;
   top: 0;
   height: 78px;
@@ -54,6 +54,43 @@ html{
   backdrop-filter: blur(13px);
   z-index: 999;
   background-color: var(--secondary-bg);
+}
+
+.search-bar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.search-input{
+  height: 30px;
+  width: 400px;
+  border-radius: 10px;
+  border: none;
+  padding: 20px;
+  border: 0.1px solid brown;
+}
+
+.search-btn{
+  display: inline-block;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  background-color: brown;
+  transition: background-color 0.3s, color 0.3s;
+  margin-left: 5px;
+}
+
+.search-btn:hover {
+  background-color: white;
+  color: brown;
 }
 
 .nav a {
@@ -123,7 +160,6 @@ html{
 
 .main {
   text-align: center;
-  margin-top: 48px;
  
 }
 
