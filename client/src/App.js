@@ -93,20 +93,25 @@ function App() {
     <div className="App">
       {/* Navbar of app */}
       <nav className="nav">
-        <a href="/">Brewtopia</a>
-        <div className="menu">
-          <a href="#product1">HOT CLASSICS</a>
-          <a href="#product2">ALL TIME CHILLERS</a>
-          <a href="#product3">ALL DAY DELIGHTS</a>
-          <a href="#product4">SWEET TOOTH</a>
+        <div>
+          <a href="/">Brewtopia</a>
         </div>
-        <button onClick={() => setshowCart(true)}>
-          <TiShoppingCart size={20}></TiShoppingCart> Cart{" "}
-          {totalItems ? <p className="total-items">{totalItems}</p> : ""}
-        </button>
-        <button onClick={() => setshowOrders(true)}>
-          <GoChecklist size={20}></GoChecklist>Orders
-        </button>
+        <div className="menu">
+          <div><a href="#product1">HOT CLASSICS</a></div>
+          <div><a href="#product2">ALL TIME CHILLERS</a></div>
+          <div><a href="#product3">ALL DAY DELIGHTS</a></div>
+          <div><a href="#product4">SWEET TOOTH</a></div>
+        </div>
+        <div className="cartOrders">
+          <button onClick={() => setshowCart(true)}>
+            <TiShoppingCart size={20}></TiShoppingCart> Cart{" "}
+            {totalItems ? <p className="total-items">{totalItems}</p> : ""}
+          </button>
+        
+          <button onClick={() => setshowOrders(true)}>
+            <GoChecklist size={20}></GoChecklist>Orders
+          </button>
+        </div>
       </nav>
 
       {/* Showing all orders as popup */}
