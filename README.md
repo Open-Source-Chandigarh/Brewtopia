@@ -1,5 +1,7 @@
+# Live Website
 
-<img src="https://github.com/Open-Source-Chandigarh/Brewtopia/assets/98728916/61268f15-14be-4565-aab8-50f462e5f6c9" height="290" width="600" />
+<img src="https://github.com/nandita27iitp/Brewtopia/assets/94813932/a9aa824e-14b2-4a5d-a3ce-b8dd188b5452" height="300" width="500" />
+<img src="https://github.com/nandita27iitp/Brewtopia/assets/94813932/8d5d6ff0-7cbd-4a2f-a9de-16aac93bee07" height="300" width="500" />
 
 # 🤎Brewtopia🤎
 
