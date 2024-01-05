@@ -11,7 +11,7 @@ import { FaTwitterSquare } from "react-icons/fa";
 import { hotclassics, chillers, delights, sweettooth } from "./menu.js";
 import AllOrders from "./components/allOrders.js";
 import Cart from "./components/cart.js";
-import Sidebar from "./components/Admin/Sidebar.js";
+
 function App() {
   //for user profile
   const [name, setName] = useState("");
@@ -268,7 +268,6 @@ function App() {
           <span>© 2023 Published by Brewtopia cafe</span>
         </div>
       </footer>
-      {/* <Sidebar/> */}
     </div>
   );
 }
