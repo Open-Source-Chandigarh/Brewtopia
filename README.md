@@ -102,7 +102,8 @@ npm start
 
 ### That's it you are good to go
 
-# Contributors
+# ✨ Contributors
+
 <a href="https://github.com/Open-Source-Chandigarh/Brewtopia/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Open-Source-Chandigarh/Brewtopia" />
 </a>
