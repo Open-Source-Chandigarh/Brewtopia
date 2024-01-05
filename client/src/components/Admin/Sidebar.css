@@ -1,0 +1,131 @@
+.sidebar {
+    width: 20vw;
+    font-size: 22px;
+    height: 100vw;
+    padding: 10px;
+    background-color: var(--secondary-bg);
+    color: #54290c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+
+  }
+  .sidebar a{
+    font-family: "handcheera" ,serif;
+    font-size: 3.2rem;
+    text-decoration: none;
+    color:black;
+  }
+
+   .dropdown-arrow {
+    cursor: pointer;
+    margin-left: 5px;
+  }
+  
+ .dropdown.open {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  background-color: #555;
+  position: block;
+  top: 100%;
+  left: 0;
+  width: 100%;
+ 
+}
+  .dropdown .open li {
+    padding: 10px;
+    cursor: pointer;
+  }  
+
+  .sidebar.compact {
+    width: 50px;
+  }
+  
+  .toggle-button {
+    cursor: pointer;
+    font-size: 20px;
+    align-items: center;
+    padding: 5px;
+    /* margin-bottom: 10px; */
+  }
+  
+  ul {
+    list-style: none;
+    padding: 10px;
+    margin: 10;
+    text-align: center;
+  }
+  
+  li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  span {
+    margin-left: 10px;
+  }
+  .inner {display :flex;
+    flex-direction: column;
+    width:100%;
+    /* justify-content: space-between; */
+}
+.outer{
+    display: flex;
+}
+.nav-div{
+    display :flex;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
+  .navbar{
+    display :flex;
+    justify-content: space-between;
+    padding: 5px;
+    color: #54290c;
+    align-items: center;
+    background-color: var(--secondary-bg);
+  }
+  .side-div{
+    padding:5px;
+    display: flex;
+    align-self:right;
+    align-items:center;
+  }
+  .admin-btn{
+    color:white;
+    background-color: #54290c;
+    border-radius: 5px;
+    padding: 5px;
+    margin:5px 20px;
+  }
+  .notif-div{
+    padding: 5px;
+    margin-left:10px;
+    margin:5px 10px;
+  }
+  .div-search{
+   align-items: center;
+    display: flex;
+    margin-left:20px;
+
+  }
+  .search-btn{
+    background-color: #54290c;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
+    align-content: center;
+    
+  }
+  .input-search{
+    padding: 5px;
+    border: #54290c;
+    height: 30px;
+    border-radius: 5px  ;
+  }
