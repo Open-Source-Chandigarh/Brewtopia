@@ -3,6 +3,7 @@ import Product from "./components/product.js";
 import { useState, useEffect } from "react";
 import Cookies from "universal-cookie";
 import { TiShoppingCart } from "react-icons/ti";
+import { FiAlignJustify } from "react-icons/fi";
 import Axios from "axios";
 import { GoChecklist } from "react-icons/go";
 import { hotclassics, chillers, delights, sweettooth } from "./menu.js";
@@ -28,6 +29,9 @@ function App() {
   const [showCart, setshowCart] = useState(false);
   const [showOrders, setshowOrders] = useState(false);
   const [totalItems, settotalItems] = useState();
+
+  // Hamburger Menu
+  const [showMenu, setShowMenu] = useState(false);
 
   const cookies = new Cookies();
 
@@ -75,6 +79,16 @@ function App() {
     });
   }, [cart]); //whenever cart changes these requests will be made to server
 
+  // update menu state on hamburger click
+  useEffect(() => {
+    const menu = document.querySelector(".menu");
+    if(showMenu)
+      menu.classList.add("visible");
+    else
+      menu.classList.remove("visible");
+
+  }, [showMenu])
+
   //search items function
   const searchFunction = () =>{
     setSearchedItems([])
@@ -86,8 +100,8 @@ function App() {
     setSearchedItems(searchItems)
     setSearchItemName("")
   }
-  
 
+  
   return (
     <div className="App">
       {/* Navbar of app */}
@@ -101,17 +115,25 @@ function App() {
           <div><a href="#product3">ALL DAY DELIGHTS</a></div>
           <div><a href="#product4">SWEET TOOTH</a></div>
         </div>
-        
-        <div className="cartOrders">
-          <button onClick={() => setshowCart(true)}>
-            <TiShoppingCart size={20}></TiShoppingCart> Cart{" "}
-            {totalItems ? <p className="total-items">{totalItems}</p> : ""}
-          </button>
-        
-          <button onClick={() => setshowOrders(true)}>
-            <GoChecklist size={20}></GoChecklist>Orders
-          </button>
+
+        <div className="flex">
+          <div className="cartOrders">
+            <button onClick={() => setshowCart(true)}>
+              <TiShoppingCart size={20}></TiShoppingCart> Cart{" "}
+              {totalItems ? <p className="total-items">{totalItems}</p> : ""}
+            </button>
+          
+            <button onClick={() => setshowOrders(true)}>
+              <GoChecklist size={20}></GoChecklist>Orders
+            </button>
+          </div>
+          <div className="hamburgerMenu">
+            <button onClick={() => setShowMenu(!showMenu)}>
+              <FiAlignJustify size={20} ></FiAlignJustify>
+            </button>
+          </div>
         </div>
+        
       </nav>
 
       {/* Showing all orders as popup */}
