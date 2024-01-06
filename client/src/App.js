@@ -5,13 +5,11 @@ import Cookies from "universal-cookie";
 import { TiShoppingCart } from "react-icons/ti";
 import Axios from "axios";
 import { GoChecklist } from "react-icons/go";
-import { FaGithub } from "react-icons/fa";
-import { IoLogoLinkedin } from "react-icons/io5";
-import { FaTwitterSquare } from "react-icons/fa";
 import { hotclassics, chillers, delights, sweettooth } from "./menu.js";
 import AllOrders from "./components/allOrders.js";
 import Cart from "./components/cart.js";
 import ScrollToTop from "./components/scrolltoTop";
+import Footer from "./components/footer.js";
 
 function App() {
   //for user profile
@@ -243,38 +241,7 @@ function App() {
         }
       </main>
       <ScrollToTop/>
-
-      {/* footer starts here */}
-      <footer className="footer">
-        <div className="col-1">
-          <p>
-            Brewtopia is a cozy and inviting cafe that offers a wide range of
-            delicious coffee and tea beverages, as well as tasty snacks and
-            treats. Our welcoming atmosphere and friendly staff make Brewtopia
-            the perfect place to relax. Our menu features a variety of specialty
-            drinks, including our signature lattes and cold brews, made with
-            only the highest quality ingredients.
-            <br />
-          </p>
-        </div>
-
-        {/* for navigation */}
-        <div className="col-2">
-          <div class="socials">
-            <a href="https://github.com/Varinder-Dhillon0">
-              <FaGithub size={23} />
-            </a>
-            <a href="https://www.linkedin.com/in/varinder-dhillon-5b8420263/">
-              <IoLogoLinkedin size={25} />
-            </a>
-            <a href="https://twitter.com/varinder_d0">
-              <FaTwitterSquare size={25} />
-            </a>
-          </div>
-          <a href="">Cafe Policy</a>
-          <span>© 2023 Published by Brewtopia cafe</span>
-        </div>
-      </footer>
+      <Footer/>
     </div>
   );
 }
