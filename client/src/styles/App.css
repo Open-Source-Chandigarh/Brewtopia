@@ -828,3 +828,32 @@ html {
     margin: 0 10px;
   }
 }
+
+/* loader for checkout var */
+.loader {
+  width: 17px;
+  height: 17px;
+  margin: 0 auto;
+  border: 3.5px solid #FFF;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+.loaderBlack{
+  width: 20px;
+  height: 20px;
+  border: 3.5px solid black !important;
+  border-bottom-color: transparent !important;
+}
+
+  @keyframes rotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+  } 
