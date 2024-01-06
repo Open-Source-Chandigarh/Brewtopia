@@ -57,6 +57,12 @@ export default function Sign() {
     }
   },[username_check,name_check,Navigation])
 
+  const handleEnterKey = (e) => {
+    if (e.key === "Enter") {
+      handlesubmit(e);
+    }
+  };
+
   return (
     <div className="login-wrapper">
       <div className="login_card">
@@ -71,18 +77,21 @@ export default function Sign() {
           type="text"
           placeholder="Name"
           onChange={(e) => setname(e.target.value)}
+          onKeyDown={handleEnterKey}
         />
         <input
           className="input"
           type="text"
           placeholder="Username"
           onChange={(e) => setusername(e.target.value)}
+          onKeyDown={handleEnterKey}
         />
         <input
           className="input"
           type="password"
           placeholder="Password"
           onChange={(e) => {setpassword(e.target.value)}}
+          onKeyDown={handleEnterKey}
         />
         <p className="redirect">
           Already a user ? <a href="/login">Login</a>

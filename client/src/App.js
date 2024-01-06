@@ -8,6 +8,7 @@ import { GoChecklist } from "react-icons/go";
 import { hotclassics, chillers, delights, sweettooth } from "./menu.js";
 import AllOrders from "./components/allOrders.js";
 import Cart from "./components/cart.js";
+import ScrollToTop from "./components/scrolltoTop";
 import Footer from "./components/footer.js";
 
 function App() {
@@ -239,6 +240,7 @@ function App() {
           </div>
         }
       </main>
+      <ScrollToTop/>
       <Footer/>
     </div>
   );
