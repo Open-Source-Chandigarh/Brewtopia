@@ -112,7 +112,7 @@ export default function Cart({name,username,setshowCart,cookies,cart,total,setCa
 
           {/* showing user profile with logout button */}
           <div className="user">
-            <img src={profilepic} alt="profile picture" />
+            <img src={profilepic} alt="profile" />
             <div className="username">
               <h3>{name}</h3>
               <p>@{username}</p>
