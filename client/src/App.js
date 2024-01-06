@@ -11,6 +11,7 @@ import { FaTwitterSquare } from "react-icons/fa";
 import { hotclassics, chillers, delights, sweettooth } from "./menu.js";
 import AllOrders from "./components/allOrders.js";
 import Cart from "./components/cart.js";
+import ScrollToTop from "./components/scrolltoTop";
 
 function App() {
   //for user profile
@@ -184,6 +185,7 @@ function App() {
           </div>
         </div>
       </main>
+      <ScrollToTop/>
 
       {/* footer starts here */}
       <footer className="footer">
