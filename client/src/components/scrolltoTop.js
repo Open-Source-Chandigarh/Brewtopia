@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Styles from "./scrolltoTop.module.css";
-import { GrLinkTop } from "react-icons/gr";
+import Styles from "../styles/scrolltoTop.module.css";
+import { AiOutlineUp } from "react-icons/ai";
+
 const GoTop = () => {
   const [showButton, setShowButton] = useState(false);
 
@@ -28,7 +29,7 @@ const GoTop = () => {
       className={`${Styles.goTop} ${showButton ? "" : Styles.inactive}`}
       onClick={() => scrollToTop()}
     >
-        <GrLinkTop />
+      <AiOutlineUp color="white" style={{ background: "#54290C", borderRadius: "50%", padding: "10px" }} fontSize={40} />
     </div>
   );
 };

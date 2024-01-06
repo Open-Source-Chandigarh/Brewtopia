@@ -101,6 +101,7 @@ function App() {
           <div><a href="#product3">ALL DAY DELIGHTS</a></div>
           <div><a href="#product4">SWEET TOOTH</a></div>
         </div>
+        
         <div className="cartOrders">
           <button onClick={() => setshowCart(true)}>
             <TiShoppingCart size={20}></TiShoppingCart> Cart{" "}

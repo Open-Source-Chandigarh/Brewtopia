@@ -1,6 +1,6 @@
 .goTop {
-    right: 2%;
-    top: 90%;
+    right: 4vw;
+    bottom: 5%;
     position: fixed;
     z-index: 10;
     cursor: pointer;

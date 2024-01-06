@@ -1,5 +1,4 @@
 import { FaGithub, FaTwitterSquare, FaLinkedin } from "react-icons/fa";
-// import { IoLogoLinkedin } from "react-icons/io5";
 import Styles from "../styles/footer.module.css";
 
 const Footer = () => {

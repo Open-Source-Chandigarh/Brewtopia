@@ -5,6 +5,11 @@
   src: url("../fonts/HandycheeraRegular.otf");
 }
 
+@font-face {
+  font-family: poppinso;
+  src: url("../fonts/Poppins-Medium.ttf");
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -47,17 +52,17 @@ html {
   justify-content: space-between;
   padding-left: 1em;
   padding-right: 1em;
-  padding-bottom: 0.5em;;
   position: sticky;
   width: 100%;
   top: 0;
-  height:auto;
+  height: 78px;
   align-items: center;
   -webkit-backdrop-filter: blur(13px);
   backdrop-filter: blur(13px);
   z-index: 999;
   background-color: var(--secondary-bg);
 }
+
 .cartOrders{
   display: flex;
   flex-direction: row;
@@ -115,11 +120,11 @@ html {
 }
 
 .nav a {
-  font-size: 2rem;
+  font-size: 3.2rem;
   margin: 0;
   text-decoration: none;
   color: black;
-  font-family: "handcheera", serif;
+  font-family: "handcheera" ,serif;
   font-weight: 900;
   padding-left: 17px;
   padding-top: 16px;
@@ -135,6 +140,7 @@ html {
   align-items: flex-end;
   height: 40%;
 }
+
 .menu div{
   margin-left:0.5rem;
   width:auto;
@@ -142,6 +148,7 @@ html {
   text-align: center;
   padding:2px 7px 2px 7px;
   border-radius: 3px;
+  transition: 0.3s ease-in-out;
 }
 
 .menu a {
@@ -150,12 +157,11 @@ html {
   font-family: poppins, sans-serif;
   text-decoration: none;
   color: white;
-  transition: 0.5s;
   font-weight: 700;
   z-index: -1;
 }
 
-.menu a:hover {
+.menu div:hover {
   box-shadow: 6px 6px 0 black;
   transform: skewX(-15deg);
 }
@@ -202,7 +208,7 @@ html {
   display: grid;
   grid-template-columns: 414px 414px;
   grid-template-rows: 1fr 1fr 1fr 1fr;
-  gap: 12px 20px;
+  gap: 12px 0px;
   justify-content: center;
   margin-top: 6px;
 }

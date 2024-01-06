@@ -1,5 +1,6 @@
+
 .footerContainer {
-    color: #fff;
+    color: #fef3da;
     padding: 2rem;
     margin-top: 2rem;
     background-color: var(--secondary-bg);
@@ -18,17 +19,20 @@
 }
 
 h2 {
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #54290C;
+    font-weight: 900;
+    font-family: poppinso,sans-serif;
 }
 
 .socialIcons {
     display: flex;
-    gap: 3.2rem;
+    gap: 0.5rem;
 }
 
 .iconLink {
-    color: #fff;
+    color: #54290C;
     transition: color 0.3s ease;
 }
 
@@ -38,11 +42,15 @@ h2 {
 }
 
 .navLink {
-    color: #fff;
+    color: #fef3da;
     text-decoration: none;
     display: block;
     margin-bottom: 8px;
     transition: color 0.3s ease;
+    padding: 2px;
+    padding-left: 6px;
+    padding-right: 6px;
+    background-color: #54290C;
 }
 
 .navLink:hover, .iconLink:hover{
