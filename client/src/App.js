@@ -19,6 +19,10 @@ function App() {
   const [total, setTotal] = useState(0);
   const [cart, setCart] = useState([]);
 
+  //for search Items
+  const[searchItemName,setSearchItemName] = useState("")
+  const[searchedItems,setSearchedItems] = useState([])
+
   //for components cart and orders to show
   const [showCart, setshowCart] = useState(false);
   const [showOrders, setshowOrders] = useState(false);
@@ -70,24 +74,42 @@ function App() {
     });
   }, [cart]); //whenever cart changes these requests will be made to server
 
+  //search items function
+  const searchFunction = () =>{
+    setSearchedItems([])
+    const allItems = [...hotclassics, ...chillers, ...delights, ...sweettooth ]
+    //console.log(newArray)
+    const searchItems = allItems.filter(
+      (value) => searchItemName.toLowerCase() === value.name.toLowerCase()
+    )
+    setSearchedItems(searchItems)
+    setSearchItemName("")
+  }
+  
+
   return (
     <div className="App">
       {/* Navbar of app */}
       <nav className="nav">
-        <a href="/">Brewtopia</a>
-        <div className="menu">
-          <a href="#product1">HOT CLASSICS</a>
-          <a href="#product2">ALL TIME CHILLERS</a>
-          <a href="#product3">ALL DAY DELIGHTS</a>
-          <a href="#product4">SWEET TOOTH</a>
+        <div>
+          <a href="/">Brewtopia</a>
         </div>
-        <button onClick={() => setshowCart(true)}>
-          <TiShoppingCart size={20}></TiShoppingCart> Cart{" "}
-          {totalItems ? <p className="total-items">{totalItems}</p> : ""}
-        </button>
-        <button onClick={() => setshowOrders(true)}>
-          <GoChecklist size={20}></GoChecklist>Orders
-        </button>
+        <div className="menu">
+          <div><a href="#product1">HOT CLASSICS</a></div>
+          <div><a href="#product2">ALL TIME CHILLERS</a></div>
+          <div><a href="#product3">ALL DAY DELIGHTS</a></div>
+          <div><a href="#product4">SWEET TOOTH</a></div>
+        </div>
+        <div className="cartOrders">
+          <button onClick={() => setshowCart(true)}>
+            <TiShoppingCart size={20}></TiShoppingCart> Cart{" "}
+            {totalItems ? <p className="total-items">{totalItems}</p> : ""}
+          </button>
+        
+          <button onClick={() => setshowOrders(true)}>
+            <GoChecklist size={20}></GoChecklist>Orders
+          </button>
+        </div>
       </nav>
 
       {/* Showing all orders as popup */}
@@ -107,11 +129,44 @@ function App() {
           setCart={setCart}
         />
       )}
+        
+       {/* Search box*/}
+       <div className="search-bar">
+        <input type="text" value={searchItemName} placeholder="Search Your Items"  className="search-input" 
+         onChange={(e) => setSearchItemName(e.target.value)}
+        /> <button onClick={searchFunction} className="search-btn">Search</button>
+       </div>
 
       {/* Here we are mapping all the products in product1 grid -- it acts like wrap */}
       {/* then placing in product-container and mapping each category */}
       <main className="main">
-        <div id="product1">
+        {/* Search Items */}
+
+        {
+          searchedItems.length >0
+           ?
+          <div className="search">
+            <div className="product-container">
+            {searchedItems.map(
+              (item, index) => {
+                return (
+                  <Product
+                    key={index}
+                    product={item}
+                    cartState={cart}
+                    setCart={setCart}
+                    total={total}
+                    setTotal={setTotal}
+                    searchedItems={searchedItems}
+                  ></Product>
+                );
+              }
+            )}
+          </div>
+          </div>
+          :
+          <div>
+          <div id="product1">
           <h2>HOT CLASSICS</h2>
           <div className="product-container">
             {hotclassics.map(
@@ -181,6 +236,8 @@ function App() {
             })}
           </div>
         </div>
+          </div>
+        }
       </main>
       <Footer/>
     </div>

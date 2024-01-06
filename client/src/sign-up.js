@@ -59,6 +59,7 @@ export default function Sign() {
 
   return (
     <div className="login-wrapper">
+      <div className="login_card">
       <div className="background">
         <div className="shape" />
         <div className="shape" />
@@ -90,6 +91,7 @@ export default function Sign() {
           Sign Up
         </button>
       </form>
+      </div>
     </div>
   );
 }

@@ -25,6 +25,7 @@ const hotclassics = [
       quantity: "(30ml | 3kcal)",
       stars: "★★★★★",
       price: "100",
+      
     },
     {
       name: "Americano",
@@ -33,6 +34,7 @@ const hotclassics = [
       quantity: "(240ml | 15kcal)",
       stars: "★★★★☆",
       price: "120",
+      
     },
     {
       name: "Macchiato",
@@ -41,6 +43,7 @@ const hotclassics = [
       quantity: "(30ml | 13kcal)",
       stars: "★★★★★",
       price: "110",
+      
     },
     {
       name: "Mocha",
@@ -49,6 +52,7 @@ const hotclassics = [
       quantity: "(240ml | 290kcal)",
       stars: "★★★★☆",
       price: "170",
+      
     },
     {
       name: "Flat White",
@@ -57,6 +61,7 @@ const hotclassics = [
       quantity: "(160ml | 155kcal)",
       stars: "★★★★★",
       price: "180",
+      
     },
     {
       name: "Cortado",
@@ -64,6 +69,7 @@ const hotclassics = [
       quantity: "(60ml | 25kcal)",
       stars: "★★★★☆",
       price: "140",
+      
     },
   ];
   
@@ -75,6 +81,7 @@ const chillers = [
       quantity: "(240ml | 100kcal)",
       stars: "★★★★☆",
       price: "150",
+      
     },
     {
       name: "Iced Mocha",
@@ -83,14 +90,16 @@ const chillers = [
       quantity: "(240ml | 230kcal)",
       stars: "★★★★☆",
       price: "160",
+      
     },
     {
       name: "Iced Americano",
       image:
-        "https://mrlukecy.com/wp-content/uploads/2020/05/ice-americano.png",
+        "https://img.freepik.com/premium-photo/iced-coffee-with-poured-cream-isolated-white-background_185193-16501.jpg?size=626&ext=jpg&ga=GA1.1.1413502914.1696464000&semt=ais",
       quantity: "(240ml | 15kcal)",
       stars: "★★★★★",
       price: "140",
+      
     },
     {
       name: "Iced Cappuccino",
@@ -99,22 +108,25 @@ const chillers = [
       quantity: "(240ml | 120kcal)",
       stars: "★★★★☆",
       price: "150",
+      
     },
     {
       name: "Iced Macchiato",
       image:
-        "https://www.starbucks.com.au/imagecache/bestfit/620x634/_files/product-images/iced-bev/sbx20181116-21519-icedcaramelmacchiato-onwhite-corelib-srgb.png",
+        "https://img.freepik.com/premium-photo/iced-black-coffee-iced-americano-isolated-white-background_536380-64.jpg",
       quantity: "(240ml | 100kcal)",
       stars: "★★★★★",
       price: "160",
+      
     },
     {
       name: "Iced Flat White",
       image:
-        "https://cayman.latinosmarketing.com/wp-content/uploads/2021/10/cedAlmondmilkHoneyFlatWhite-onGreen_CoreLib_sRGB.png",
+        "https://media.istockphoto.com/id/497897580/photo/iced-coffee-in-takeaway-cup.jpg?s=612x612&w=0&k=20&c=IR0HtWlIcCa_ryIp4l3TMUetuNqWlNxiJxaXPPXJbQc=",
       quantity: "(240ml | 155kcal)",
       stars: "★★★★★",
       price: "170",
+      
     },
     {
       name: "Iced Chai Latte",
@@ -123,6 +135,7 @@ const chillers = [
       quantity: "(120ml | 45kcal)",
       stars: "★★★★☆",
       price: "160",
+      
     },
     {
       name: "Iced Tea",
@@ -131,6 +144,7 @@ const chillers = [
       quantity: "(60ml | 10kcal)",
       stars: "★★★★★",
       price: "140",
+      
     },
   ];
 
@@ -142,6 +156,7 @@ const delights = [
       quantity: "(1 muffin | 360kcal)",
       stars: "★★★★☆",
       price: "150",
+      
     },
     {
       name: "Chocolate chip",
@@ -150,6 +165,7 @@ const delights = [
       quantity: "(1 cookie | 200kcal)",
       stars: "★★★★☆",
       price: "100",
+      
     },
     {
       name: "Croissant",
@@ -157,6 +173,7 @@ const delights = [
       quantity: "(1 croissant | 260kcal)",
       stars: "★★★★★",
       price: "120",
+      
     },
     {
       name: "Bagel Cream",
@@ -165,6 +182,7 @@ const delights = [
       quantity: "(1 bagel | 350kcal)",
       stars: "★★★★☆",
       price: "130",
+     
     },
     {
       name: "Cinnamon Roll",
@@ -173,14 +191,16 @@ const delights = [
       quantity: "(1 roll | 400kcal)",
       stars: "★★★★★",
       price: "140",
+      
     },
     {
       name: "Scone Cream",
       image:
-        "https://ambersofamersham.com/wp-content/uploads/2015/07/scone1.png",
+        "https://media.istockphoto.com/id/153562941/photo/cream-tea-scone.jpg?s=612x612&w=0&k=20&c=SFcnL-VpbrJrebE5-AQGScOdztNSk5Q-LSFqbumOnB4=",
       quantity: "(1 scone | 300kcal)",
       stars: "★★★★☆",
       price: "160",
+      
     },
     {
       name: "Brownie",
@@ -189,6 +209,7 @@ const delights = [
       quantity: "(1 brownie | 350kcal)",
       stars: "★★★★★",
       price: "150",
+      
     },
     {
       name: "Cheesecake",
@@ -197,6 +218,7 @@ const delights = [
       quantity: "(1 slice | 400kcal)",
       stars: "★★★★☆",
       price: "200",
+      
     },
   ];
 
@@ -208,6 +230,7 @@ const sweettooth = [
       quantity: "(1 slice | 350kcal)",
       stars: "★★★★☆",
       price: "150",
+      
     },
     {
       name: "Apple Pie",
@@ -215,6 +238,7 @@ const sweettooth = [
       quantity: "(1 slice | 300kcal)",
       stars: "★★★★☆",
       price: "140",
+      
     },
     {
       name: "Ice Cream Sundae",
@@ -223,6 +247,7 @@ const sweettooth = [
       quantity: "(1 sundae | 450kcal)",
       stars: "★★★★★",
       price: "160",
+      
     },
     {
       name: "Tiramisu",
@@ -231,6 +256,7 @@ const sweettooth = [
       quantity: "(1 slice | 400kcal)",
       stars: "★★★★☆",
       price: "170",
+      
     },
     {
       name: "Chocolate Truffles",
@@ -239,6 +265,7 @@ const sweettooth = [
       quantity: "(3 truffles | 250kcal)",
       stars: "★★★★★",
       price: "180",
+      
     },
     {
       name: "Fruit Tart",
@@ -247,6 +274,7 @@ const sweettooth = [
       quantity: "(1 tart | 300kcal)",
       stars: "★★★★☆",
       price: "150",
+      
     },
     {
       name: "Creme Brulee",
@@ -255,6 +283,7 @@ const sweettooth = [
       quantity: "(1 serving | 350kcal)",
       stars: "★★★★★",
       price: "160",
+      
     },
     {
       name: "Panna Cotta",

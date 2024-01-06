@@ -1,43 +1,48 @@
-//requiring all the modules
 const express = require("express");
-const app = express();
 const cors = require("cors");
+const connectDb = require("./config/db.js");
+const dotenv = require("dotenv");
 
-const connectDb = require("./config/db.js")
+dotenv.config();
 
-const userRouter = require("./routes/user.js")
-const cartRouter = require("./routes/cart.js")
-const paymentRouter = require("./routes/payment.js")
-const ordersRouter = require("./routes/orders.js")
-const keysRouter = require("./routes/keys.js")
+const app = express();
+const PORT = process.env.PORT || 5000;
 
-require("dotenv").config();
-
+// Connect to the database
 connectDb();
 
+// Middleware
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
-//for json stringify
 app.use(express.json());
 
-//for cross site accessing
+// CORS configuration
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "https://brewtopia.netlify.app");
   res.header("Access-Control-Allow-Credentials", true);
   next();
 });
 
+// Routes
+const userRouter = require("./routes/user.js");
+const cartRouter = require("./routes/cart.js");
+const paymentRouter = require("./routes/payment.js");
+const ordersRouter = require("./routes/orders.js");
+const keysRouter = require("./routes/keys.js");
+
 app.use(userRouter);
-
 app.use(cartRouter);
-
 app.use(paymentRouter);
-
 app.use(ordersRouter);
-
 app.use(keysRouter);
 
-//server will be listening at port 5000
-app.listen( process.env.PORT, () => {
-  console.log(`server is listening on ${process.env.PORT}`);
+// Error Handling Middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Something went wrong!");
+});
+
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server is listening on port ${PORT}`);
 });
