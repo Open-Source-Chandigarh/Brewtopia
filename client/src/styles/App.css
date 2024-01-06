@@ -165,19 +165,6 @@ html{
   width: 0 !important
 }
 
-.footer {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 51px;
-  padding-left: 0.7em;
-  padding-right: 1.2em;
-  align-items: flex-end;
-  padding-top: 22px;
-  padding-bottom: 10px;
-  background-color: var(--secondary-bg);
-  backdrop-filter: blur(13px);
-}
-
 .col-1 {
   width: 43%;
 }
@@ -205,15 +192,6 @@ html{
   font-weight: 300;
   font-size: 0.8rem;
   text-decoration: underline;
-}
-
-.col-2 .socials{
-  display: flex;
-  align-items: center;
-}
-
-.col-2 .socials a{
-  padding-right: 10px;
 }
 
 .product {
