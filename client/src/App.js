@@ -12,6 +12,8 @@ import Cart from "./components/cart.js";
 import ScrollToTop from "./components/scrolltoTop";
 import Footer from "./components/footer.js";
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 function App() {
   //for user profile
   const [name, setName] = useState("");
@@ -51,7 +53,7 @@ function App() {
     //request to server for cart
     const servercart = async () => {
       const cart = await Axios.post(
-        "https://brewtopia.up.railway.app/getCart",
+        apiUrl + "/getCart",
         {
           username: username,
         }
@@ -72,7 +74,7 @@ function App() {
     settotalItems(cart.length);
 
     //posting server with updated cart
-    Axios.post("https://brewtopia.up.railway.app/updateCart", {
+    Axios.post(apiUrl + "/updateCart", {
       username: username,
       cart: cart,
       cartTotal: total,
@@ -93,7 +95,7 @@ function App() {
   const searchFunction = () =>{
     setSearchedItems([])
     const allItems = [...hotclassics, ...chillers, ...delights, ...sweettooth ]
-    //console.log(newArray)
+
     const searchItems = allItems.filter(
       (value) => searchItemName.toLowerCase() === value.name.toLowerCase()
     )

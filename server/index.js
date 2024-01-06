@@ -1,48 +1,52 @@
+//requiring all the modules
 const express = require("express");
-const cors = require("cors");
-const connectDb = require("./config/db.js");
-const dotenv = require("dotenv");
-
-dotenv.config();
-
 const app = express();
-const PORT = process.env.PORT || 5000;
+const cors = require("cors");
 
-// Connect to the database
+const connectDb = require("./config/db.js")
+
+const userRouter = require("./routes/user.js")
+const cartRouter = require("./routes/cart.js")
+const paymentRouter = require("./routes/payment.js")
+const ordersRouter = require("./routes/orders.js")
+const keysRouter = require("./routes/keys.js")
+
+require("dotenv").config();
+
 connectDb();
 
-// Middleware
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
+//for json stringify
 app.use(express.json());
 
-// CORS configuration
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://brewtopia.netlify.app");
-  res.header("Access-Control-Allow-Credentials", true);
-  next();
-});
+//allowed origins
+const allowedOrigin = process.env.ACCESS_URL;
 
-// Routes
-const userRouter = require("./routes/user.js");
-const cartRouter = require("./routes/cart.js");
-const paymentRouter = require("./routes/payment.js");
-const ordersRouter = require("./routes/orders.js");
-const keysRouter = require("./routes/keys.js");
+// Use a middleware function to set the header dynamically
+app.use((req, res, next) => {
+
+  res.header("Access-Control-Allow-Origin", allowedOrigin);
+  // Set other CORS headers
+  res.header("Access-Control-Allow-Credentials", true);
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+  // Call the next middleware function
+  next();
+
+});
 
 app.use(userRouter);
+
 app.use(cartRouter);
+
 app.use(paymentRouter);
+
 app.use(ordersRouter);
+
 app.use(keysRouter);
 
-// Error Handling Middleware
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send("Something went wrong!");
-});
-
-// Start the server
-app.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}`);
+//server will be listening at port 5000
+app.listen( process.env.PORT, () => {
+  console.log(`server is listening on ${process.env.PORT}`);
 });

@@ -100,7 +100,7 @@ const paymentverification = async (req, res) => {
 
     //redirecting to success payment page with payment_id
     res.redirect(
-      `http://localhost:3000/paymentsuccess?reference=${razorpay_payment_id}`
+      `${process.env.ACCESS_URL}/paymentsuccess?reference=${razorpay_payment_id}`
     );
   } else {
     //if not matched we will give error
