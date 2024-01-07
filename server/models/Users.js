@@ -29,7 +29,7 @@ const UserSchema = new mongoose.Schema({
         method : { type: String},
         time : { type: String}
     }]
-})
+}, { validateBeforeSave: true })
 
 const UserModel = mongoose.model("users",UserSchema);
 module.exports =  UserModel;

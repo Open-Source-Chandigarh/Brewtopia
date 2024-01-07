@@ -5,6 +5,11 @@
   src: url("../fonts/HandycheeraRegular.otf");
 }
 
+@font-face {
+  font-family: poppinso;
+  src: url("../fonts/Poppins-Medium.ttf");
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -33,6 +38,8 @@ html {
   color: var(--text-color);
   font-size: 1em;
   background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
 }
 
 .nav button,
@@ -48,12 +55,32 @@ html {
   position: sticky;
   width: 100%;
   top: 0;
-  height: 78px;
   align-items: center;
   -webkit-backdrop-filter: blur(13px);
   backdrop-filter: blur(13px);
   z-index: 999;
   background-color: var(--secondary-bg);
+}
+
+.cartOrders{
+  display: flex;
+  flex-direction: row;
+}
+
+.flex {
+  display:flex;
+  justify-content: space-between;
+}
+
+.hamburgerMenu {
+  display: none;
+}
+
+@media screen and (max-width: 881px) {
+
+  .menu div{
+    margin-left: 1rem;
+  }
 }
 
 .search-bar{
@@ -114,39 +141,44 @@ html {
   margin: 0;
   text-decoration: none;
   color: black;
-  font-family: "handcheera", serif;
+  font-family: "handcheera" ,serif;
   font-weight: 900;
   padding-left: 17px;
   padding-top: 16px;
 }
 
 .menu {
+  position: relative;
   display: flex;
-  width: 58%;
-  margin-left: 30px;
-  justify-content: space-between;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
   z-index: 99;
   align-items: flex-end;
   height: 40%;
 }
 
+.menu div{
+  margin-left:0.5rem;
+  width:auto;
+  background-color: #54290c;
+  text-align: center;
+  padding:2px 7px 2px 7px;
+  border-radius: 3px;
+  transition: 0.3s ease-in-out;
+}
+
 .menu a {
   font-size: 1.07rem;
-  padding: 0;
+  padding: 2px;
   font-family: poppins, sans-serif;
   text-decoration: none;
   color: white;
-  padding-left: 15px;
-  transition: 0.5s;
   font-weight: 700;
-  padding-right: 10px;
   z-index: -1;
-  background-color: #54290c;
-  border-radius: 3px;
-
 }
 
-.menu a:hover {
+.menu div:hover {
   box-shadow: 6px 6px 0 black;
   transform: skewX(-15deg);
 }
@@ -193,7 +225,7 @@ html {
   display: grid;
   grid-template-columns: 414px 414px;
   grid-template-rows: 1fr 1fr 1fr 1fr;
-  gap: 12px 20px;
+  gap: 12px 0px;
   justify-content: center;
   margin-top: 6px;
 }
@@ -226,36 +258,6 @@ html {
   width: 0 !important
 }
 
-.footer {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 51px;
-  padding-left: 0.7em;
-  padding-right: 1.2em;
-  align-items: flex-end;
-  padding-top: 22px;
-  padding-bottom: 10px;
-  background-color: var(--secondary-bg);
-  backdrop-filter: blur(13px);
-}
-@media only screen and (max-width: 750px) {
-  .footer {
-    align-items: center;
-  }
- 
-}
-@media only screen and (max-width: 630px) {
-  .footer {
-    flex-direction: column;
-  }
-  .col-1{
-    width: 100%;
-    margin: 1rem;
-  }
- 
-}
-
-
 .col-1 {
   width: 70%;
 }
@@ -280,11 +282,40 @@ html {
     align-self: center;
   }
 }
+
+@media only screen and (max-width: 1120px) {
+  .menu {
+    display: none;
+  }
+
+  .nav div:nth-child(2){
+    order: 4;
+  }
+
+  .nav{
+    flex-wrap: wrap;
+    width:100%;
+  }
+
+  .menu.visible {
+    display: inline-block;
+  }
+
+  .hamburgerMenu {
+    display: block;
+  }
+}
+
 @media only screen and (max-width: 630px) {
   /* .footer{
     height: 40vh;
 
   } */
+  .flex {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    width: 100%;
+  }
  
   .col-1{
     width: 100%;
@@ -307,21 +338,6 @@ html {
   font-weight: 300;
   font-size: 0.8rem;
   text-decoration: underline;
-}
-
-.col-2 .socials {
-  display: flex;
-  align-items: center;
-}
-
-.socials a:hover {
-  color: #54290c;
-
-  scale: 1.2;
-  transition: all 0.5s ease-in-out;
-}
-.col-2 .socials a{
-  padding-right: 10px;
 }
 
 .product-card {
@@ -858,3 +874,32 @@ html {
     margin: 0 10px;
   }
 }
+
+/* loader for checkout var */
+.loader {
+  width: 17px;
+  height: 17px;
+  margin: 0 auto;
+  border: 3.5px solid #FFF;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+.loaderBlack{
+  width: 20px;
+  height: 20px;
+  border: 3.5px solid black !important;
+  border-bottom-color: transparent !important;
+}
+
+  @keyframes rotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+  } 

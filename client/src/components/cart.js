@@ -5,8 +5,15 @@ import { BiLogOut } from "react-icons/bi"
 import Axios from "axios";
 import { TiShoppingCart } from "react-icons/ti";
 import toast from "react-hot-toast";
+import Loader from "../Loaders/loader";
+import { useState } from "react";
+
+const apiUrl = process.env.REACT_APP_API_URL;
 
 export default function Cart({name,username,setshowCart,cookies,cart,total,setCart}){
+
+    const [loading,setloading] = useState(false);
+
       //logout function 
     function logout() {
         cookies.remove("username");
@@ -21,18 +28,21 @@ export default function Cart({name,username,setshowCart,cookies,cart,total,setCa
     //handling payment when clicked on checkout button
     const handlePayment = async (total, username) => {
 
+      setloading(true);
+
       try{
         //checking if cart has items
         if (cart.length === 0) {
-        return toast.error("Cart is empty");
+          setloading(false);
+          return toast.error("Cart is empty");
         }
 
         //getting razorpay key from server
-        const { data: { key } } = await Axios.get("https://brewtopia.up.railway.app/getKey");
+        const { data: { key } } = await Axios.get(apiUrl + "/getKey");
 
         console.log(key);
         //posting server with amount 
-        const { data: { order } } = await Axios.post("https://brewtopia.up.railway.app/checkout", {
+        const { data: { order } } = await Axios.post(apiUrl + "/checkout", {
         amount: total
         })
 
@@ -47,7 +57,7 @@ export default function Cart({name,username,setshowCart,cookies,cart,total,setCa
         description: "Test Transaction",
         image: "https://avatars.githubusercontent.com/u/98728916?v=4",
         order_id: order.id,
-        callback_url: `https://brewtopia.up.railway.app/paymentverification?username=${username}`,
+        callback_url: `${apiUrl}/paymentverification?username=${username}`,
         prefill: {
             name: { username },
             email: { username },
@@ -65,7 +75,10 @@ export default function Cart({name,username,setshowCart,cookies,cart,total,setCa
         //because we put script tag of razorpay in index.html
         var razor = new window.Razorpay(options);
         razor.open();
+        setloading(false);
       }catch(err){
+        toast.error("an error occured");
+        setloading(false);
         console.log(err);
       };
 
@@ -105,14 +118,15 @@ export default function Cart({name,username,setshowCart,cookies,cart,total,setCa
           <div className="cart-total">
             <p>Total : {total}</p>
             <button type="button" onClick={() => handlePayment(total, username)}>
-              <TiShoppingCart color="white" style={{ fontSize: "1.2rem" }}></TiShoppingCart>
-              Checkout
+            {loading ? <Loader/>:
+              <><TiShoppingCart color="white" style={{ fontSize: "1.2rem" }}></TiShoppingCart>
+              Checkout</>}
             </button>
           </div>
 
           {/* showing user profile with logout button */}
           <div className="user">
-            <img src={profilepic} alt="profile picture" />
+            <img src={profilepic} alt="profile" />
             <div className="username">
               <h3>{name}</h3>
               <p>@{username}</p>

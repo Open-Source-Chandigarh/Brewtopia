@@ -4,6 +4,9 @@ import { useState ,useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import  toast from "react-hot-toast";
+import LoaderBlack from "./Loaders/loaderblack";
+
+const apiUrl = process.env.REACT_APP_API_URL;
 
 export default function Sign() {
   const Navigation = useNavigate();
@@ -11,12 +14,14 @@ export default function Sign() {
 
   const [username, setusername] = useState("");
   const [password, setpassword] = useState("");
+  const [loading,setloading] = useState(false);
 
   const cookies = new Cookies();
   let username_check = cookies.get('username');
   let name_check = cookies.get('name');
 
-  const handlesubmit = (e) => {
+  const handlesubmit = async (e) => {
+
     e.preventDefault();
 
     if(!name){
@@ -29,25 +34,25 @@ export default function Sign() {
       return toast.error("Password must be atleast 7 characters long")
     }
 
+    //display loader
+    setloading(true)
+
     //posting data to api
-    const newUserPromise = Axios.post("https://brewtopia.up.railway.app/createUser", {
-      name: name,
+    await Axios.post(apiUrl + "/createUser", {
+      name: name, 
       username: username,
       password: password,
     })
       .then((res) => {
-        if(!res.data){
-          throw new Error();
-        }else{
+        if(res.data.username){
+          toast.success("registered successfully")
           Navigation("/login");
+        }else{
+          toast.error(res.data.error || "an error occured")
+          setloading(false);
         }
-      })
+      }).catch(err => console.log(err))
 
-    toast.promise(newUserPromise, {
-      loading: 'Signing up',
-      success: 'Signed successfully',
-      error: 'User already exists',
-    });
   };
 
   useEffect(() => {
@@ -56,6 +61,12 @@ export default function Sign() {
       Navigation("/");
     }
   },[username_check,name_check,Navigation])
+
+  const handleEnterKey = (e) => {
+    if (e.key === "Enter") {
+      handlesubmit(e);
+    }
+  };
 
   return (
     <div className="login-wrapper">
@@ -71,24 +82,27 @@ export default function Sign() {
           type="text"
           placeholder="Name"
           onChange={(e) => setname(e.target.value)}
+          onKeyDown={handleEnterKey}
         />
         <input
           className="input"
           type="text"
           placeholder="Username"
           onChange={(e) => setusername(e.target.value)}
+          onKeyDown={handleEnterKey}
         />
         <input
           className="input"
           type="password"
           placeholder="Password"
           onChange={(e) => {setpassword(e.target.value)}}
+          onKeyDown={handleEnterKey}
         />
         <p className="redirect">
           Already a user ? <a href="/login">Login</a>
         </p>
         <button type="button" onClick={handlesubmit} className="button">
-          Sign Up
+          {loading? <LoaderBlack/>:"Sign Up"}
         </button>
       </form>
       </div>

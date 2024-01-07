@@ -1,6 +1,8 @@
-<img src="https://github.com/Open-Source-Chandigarh/Brewtopia/assets/98728916/61268f15-14be-4565-aab8-50f462e5f6c9" height="290" width="600" />
+# Live Website
+<img src="https://github.com/nandita27iitp/Brewtopia/assets/94813932/a9aa824e-14b2-4a5d-a3ce-b8dd188b5452" height="300" width="70%" />
 
 # 🤎Brewtopia🤎
+
 
 Brewtopia, a MERN stack-powered cafe management platform. Seamlessly add coffee and tea blends to your cart, with secure checkout and swift delivery. Join a tech-savvy community, leverage personalized recommendations, and elevate your cafe experience with our cutting-edge MERN architecture. Explore, code, and brew with Brewtopia!
 
@@ -99,3 +101,9 @@ npm start
 ```
 
 ### That's it you are good to go
+
+# ✨ Contributors
+
+<a href="https://github.com/Open-Source-Chandigarh/Brewtopia/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Open-Source-Chandigarh/Brewtopia" />
+</a>

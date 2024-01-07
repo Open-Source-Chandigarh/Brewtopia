@@ -1,0 +1,12 @@
+.goTop {
+    right: 4vw;
+    bottom: 5%;
+    position: fixed;
+    z-index: 10;
+    cursor: pointer;
+    font-size: 2rem;
+  }
+  .inactive {
+    display: none;
+  }
+  
