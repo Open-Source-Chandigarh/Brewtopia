@@ -55,7 +55,6 @@ html {
   position: sticky;
   width: 100%;
   top: 0;
-  height: 78px;
   align-items: center;
   -webkit-backdrop-filter: blur(13px);
   backdrop-filter: blur(13px);
@@ -68,15 +67,17 @@ html {
   flex-direction: row;
 }
 
-@media screen and (max-width: 881px) {
-  .nav div:nth-child(2){
-    order: 4;
-  }
+.flex {
+  display:flex;
+  justify-content: space-between;
+}
 
-  .nav{
-    flex-wrap: wrap;
-    width:100%;
-  }
+.hamburgerMenu {
+  display: none;
+}
+
+@media screen and (max-width: 881px) {
+
   .menu div{
     margin-left: 1rem;
   }
@@ -265,11 +266,40 @@ html {
     align-self: center;
   }
 }
+
+@media only screen and (max-width: 1120px) {
+  .menu {
+    display: none;
+  }
+
+  .nav div:nth-child(2){
+    order: 4;
+  }
+
+  .nav{
+    flex-wrap: wrap;
+    width:100%;
+  }
+
+  .menu.visible {
+    display: inline-block;
+  }
+
+  .hamburgerMenu {
+    display: block;
+  }
+}
+
 @media only screen and (max-width: 630px) {
   /* .footer{
     height: 40vh;
 
   } */
+  .flex {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    width: 100%;
+  }
  
   .col-1{
     width: 100%;
