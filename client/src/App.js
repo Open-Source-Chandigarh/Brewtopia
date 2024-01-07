@@ -23,8 +23,8 @@ function App() {
   const [cart, setCart] = useState([]);
 
   //for search Items
-  const[searchItemName,setSearchItemName] = useState("")
-  const[searchedItems,setSearchedItems] = useState([])
+  const [searchItemName, setSearchItemName] = useState("")
+  const [searchedItems, setSearchedItems] = useState([])
 
   //for components cart and orders to show
   const [showCart, setshowCart] = useState(false);
@@ -78,9 +78,9 @@ function App() {
   }, [cart]); //whenever cart changes these requests will be made to server
 
   //search items function
-  const searchFunction = () =>{
+  const searchFunction = () => {
     setSearchedItems([])
-    const allItems = [...hotclassics, ...chillers, ...delights, ...sweettooth ]
+    const allItems = [...hotclassics, ...chillers, ...delights, ...sweettooth]
 
     const searchItems = allItems.filter(
       (value) => searchItemName.toLowerCase() === value.name.toLowerCase()
@@ -88,7 +88,7 @@ function App() {
     setSearchedItems(searchItems)
     setSearchItemName("")
   }
-  
+
 
   return (
     <div className="App">
@@ -103,13 +103,13 @@ function App() {
           <div><a href="#product3">ALL DAY DELIGHTS</a></div>
           <div><a href="#product4">SWEET TOOTH</a></div>
         </div>
-        
+
         <div className="cartOrders">
           <button onClick={() => setshowCart(true)}>
             <TiShoppingCart size={20}></TiShoppingCart> Cart{" "}
             {totalItems ? <p className="total-items">{totalItems}</p> : ""}
           </button>
-        
+
           <button onClick={() => setshowOrders(true)}>
             <GoChecklist size={20}></GoChecklist>Orders
           </button>
@@ -133,13 +133,23 @@ function App() {
           setCart={setCart}
         />
       )}
-        
-       {/* Search box*/}
-       <div className="search-bar">
-        <input type="text" value={searchItemName} placeholder="Search Your Items"  className="search-input" 
-         onChange={(e) => setSearchItemName(e.target.value)}
-        /> <button onClick={searchFunction} className="search-btn">Search</button>
-       </div>
+
+      {/* Search box*/}
+      <div className="search-bar">
+        <input 
+        type="text" 
+        value={searchItemName} 
+        placeholder="Search Your Items" 
+        className="search-input"
+        onChange={(e) => setSearchItemName(e.target.value)}
+        onKeyDown={(e)=>{
+          if(e.code==='Enter')
+          {
+            searchFunction()
+          }
+        }}
+        /> 
+      </div>
 
       {/* Here we are mapping all the products in product1 grid -- it acts like wrap */}
       {/* then placing in product-container and mapping each category */}
@@ -147,104 +157,104 @@ function App() {
         {/* Search Items */}
 
         {
-          searchedItems.length >0
-           ?
-          <div className="search">
-            <div className="product-container">
-            {searchedItems.map(
-              (item, index) => {
-                return (
-                  <Product
-                    key={index}
-                    product={item}
-                    cartState={cart}
-                    setCart={setCart}
-                    total={total}
-                    setTotal={setTotal}
-                    searchedItems={searchedItems}
-                  ></Product>
-                );
-              }
-            )}
-          </div>
-          </div>
-          :
-          <div>
-          <div id="product1">
-          <h2>HOT CLASSICS</h2>
-          <div className="product-container">
-            {hotclassics.map(
-              (classic, index = hotclassics.indexof(classic)) => {
-                return (
-                  <Product
-                    key={index}
-                    product={classic}
-                    cartState={cart}
-                    setCart={setCart}
-                    total={total}
-                    setTotal={setTotal}
-                  ></Product>
-                );
-              }
-            )}
-          </div>
-        </div>
-        <div id="product2">
-          <h2>ALL TIME CHILLERS</h2>
-          <div className="product-container">
-            {chillers.map((classic, index = chillers.indexof(classic) * 2) => {
-              return (
-                <Product
-                  key={index}
-                  product={classic}
-                  cartState={cart}
-                  setCart={setCart}
-                  total={total}
-                  setTotal={setTotal}
-                ></Product>
-              );
-            })}
-          </div>
-        </div>
-        <div id="product3">
-          <h2>ALL DAY DELIGHTS</h2>
-          <div className="product-container">
-            {delights.map((classic, index = delights.indexof(classic) * 3) => {
-              return (
-                <Product
-                  key={index}
-                  product={classic}
-                  cartState={cart}
-                  setCart={setCart}
-                  total={total}
-                  setTotal={setTotal}
-                ></Product>
-              );
-            })}
-          </div>
-        </div>
-        <div id="product4">
-          <h2>SWEET TOOTH</h2>
-          <div className="product-container">
-            {sweettooth.map((classic, index = sweettooth.indexof(classic)) => {
-              return (
-                <Product
-                  key={index}
-                  product={classic}
-                  cartState={cart}
-                  setCart={setCart}
-                  total={total}
-                  setTotal={setTotal}
-                ></Product>
-              );
-            })}
-          </div>
-        </div>
-          </div>
+          searchedItems.length > 0
+            ?
+            <div className="search">
+              <div className="product-container">
+                {searchedItems.map(
+                  (item, index) => {
+                    return (
+                      <Product
+                        key={index}
+                        product={item}
+                        cartState={cart}
+                        setCart={setCart}
+                        total={total}
+                        setTotal={setTotal}
+                        searchedItems={searchedItems}
+                      ></Product>
+                    );
+                  }
+                )}
+              </div>
+            </div>
+            :
+            <div>
+              <div id="product1">
+                <h2>HOT CLASSICS</h2>
+                <div className="product-container">
+                  {hotclassics.map(
+                    (classic, index = hotclassics.indexof(classic)) => {
+                      return (
+                        <Product
+                          key={index}
+                          product={classic}
+                          cartState={cart}
+                          setCart={setCart}
+                          total={total}
+                          setTotal={setTotal}
+                        ></Product>
+                      );
+                    }
+                  )}
+                </div>
+              </div>
+              <div id="product2">
+                <h2>ALL TIME CHILLERS</h2>
+                <div className="product-container">
+                  {chillers.map((classic, index = chillers.indexof(classic) * 2) => {
+                    return (
+                      <Product
+                        key={index}
+                        product={classic}
+                        cartState={cart}
+                        setCart={setCart}
+                        total={total}
+                        setTotal={setTotal}
+                      ></Product>
+                    );
+                  })}
+                </div>
+              </div>
+              <div id="product3">
+                <h2>ALL DAY DELIGHTS</h2>
+                <div className="product-container">
+                  {delights.map((classic, index = delights.indexof(classic) * 3) => {
+                    return (
+                      <Product
+                        key={index}
+                        product={classic}
+                        cartState={cart}
+                        setCart={setCart}
+                        total={total}
+                        setTotal={setTotal}
+                      ></Product>
+                    );
+                  })}
+                </div>
+              </div>
+              <div id="product4">
+                <h2>SWEET TOOTH</h2>
+                <div className="product-container">
+                  {sweettooth.map((classic, index = sweettooth.indexof(classic)) => {
+                    return (
+                      <Product
+                        key={index}
+                        product={classic}
+                        cartState={cart}
+                        setCart={setCart}
+                        total={total}
+                        setTotal={setTotal}
+                      ></Product>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
         }
       </main>
-      <ScrollToTop/>
-      <Footer/>
+      <ScrollToTop />
+      <Footer />
     </div>
   );
 }
