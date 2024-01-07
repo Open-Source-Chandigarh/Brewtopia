@@ -10,11 +10,21 @@
     background-color: #ecd3bd;
     width: 100vw;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
-
+.login_card{
+    width:30%;
+    height:75%;
+    min-width:370px;
+    position: relative;
+}
 .background {
-    width: 430px;
-    height: 520px;
+    width: 100%;
+    min-width:370px;
+    height: 100%;
     position: absolute;
     transform: translate(-50%, -50%);
     left: 50%;
@@ -22,8 +32,8 @@
 }
 
 .background .shape {
-    height: 200px;
-    width: 200px;
+    height: 12.5rem;
+    width: 12.5rem;
     position: absolute;
     border-radius: 50%;
 }
@@ -31,23 +41,23 @@
 .shape:first-child {
     background: linear-gradient(#1845ad,
             #23a2f6);
-    left: -80px;
-    top: -80px;
+    left: -5rem;
+    top: -5rem;
 }
 
 .shape:last-child {
     background: linear-gradient(to right,
             #ff512f,
             #f09819);
-    right: -30px;
-    bottom: -80px;
+    right: -5rem;
+    bottom: -5rem;
 }
 
 .form {
-    height: 520px;
-    width: 400px;
+    position: relative;
+    height: 95%;
+    width: 90%;
     background-color: rgba(255, 255, 255, 0.13);
-    position: absolute;
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
@@ -56,7 +66,7 @@
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-    padding: 38px 35px;
+    padding: 2.375rem 2.188rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -71,7 +81,8 @@
 }
 
 .form h3 {
-    font-size: 32px;
+    position: relative;
+    font-size: 2.1rem;
     font-weight: 500;
     line-height: 42px;
     text-align: center;
@@ -79,6 +90,7 @@
 }
 
 .input {
+    position: relative;
     display: block;
     height: 50px;
     width: 100%;
@@ -86,7 +98,7 @@
     border-radius: 3px;
     padding: 0 10px;
     margin-top: 14px;
-    font-size: 14px;
+    font-size: 0.875;
     font-weight: 300;
 }
 
