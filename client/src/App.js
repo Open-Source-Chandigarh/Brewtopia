@@ -19,6 +19,12 @@ function App() {
   const [name, setName] = useState("");
   const [username, setuserName] = useState("");
 
+  //for storing items
+  const[hotclassicsItems,setHotclassicsItems] = useState(hotclassics)
+  const[chillersItems,setChillersItems] = useState(chillers)
+  const[delightsItems,setDelightsItems] = useState(delights)
+  const[sweettoothItems,setSweettoothItems] = useState(sweettooth)
+
   //for cart added items track
   const [total, setTotal] = useState(0);
   const [cart, setCart] = useState([]);
@@ -102,7 +108,27 @@ function App() {
     setSearchedItems(searchItems)
     setSearchItemName("")
   }
+  
+  //for Sort by price function
 
+  const sortByPrice = () =>{
+    const newArrHotClassics =  [...hotclassicsItems]
+    newArrHotClassics.sort((a,b) => a.price - b.price)
+    setHotclassicsItems(newArrHotClassics)
+
+    const newArrChillers = [...chillersItems]
+    newArrChillers.sort((a,b) => a.price - b.price)
+    setChillersItems(newArrChillers)
+
+    const newArrDelights = [...delightsItems]
+    newArrDelights.sort((a,b) => a.price - b.price)
+    setDelightsItems(newArrDelights)
+
+    const newArraySweettooth = [...sweettoothItems]
+    newArraySweettooth.sort((a,b) => a.price - b.price)
+    setSweettoothItems(newArraySweettooth)
+
+  }
   
   return (
     <div className="App">
@@ -160,7 +186,9 @@ function App() {
        <div className="search-bar">
         <input type="text" value={searchItemName} placeholder="Search Your Items"  className="search-input" 
          onChange={(e) => setSearchItemName(e.target.value)}
-        /> <button onClick={searchFunction} className="search-btn">Search</button>
+        /> 
+        <button onClick={searchFunction} className="search-btn">Search</button>
+        <button onClick={sortByPrice} className="sort-btn">Sort By Price</button>
        </div>
 
       {/* Here we are mapping all the products in product1 grid -- it acts like wrap */}
@@ -195,7 +223,7 @@ function App() {
           <div id="product1">
           <h2>HOT CLASSICS</h2>
           <div className="product-container">
-            {hotclassics.map(
+            {hotclassicsItems.map(
               (classic, index = hotclassics.indexof(classic)) => {
                 return (
                   <Product
@@ -214,7 +242,7 @@ function App() {
         <div id="product2">
           <h2>ALL TIME CHILLERS</h2>
           <div className="product-container">
-            {chillers.map((classic, index = chillers.indexof(classic) * 2) => {
+            {chillersItems.map((classic, index = chillers.indexof(classic) * 2) => {
               return (
                 <Product
                   key={index}
@@ -231,7 +259,7 @@ function App() {
         <div id="product3">
           <h2>ALL DAY DELIGHTS</h2>
           <div className="product-container">
-            {delights.map((classic, index = delights.indexof(classic) * 3) => {
+            {delightsItems.map((classic, index = delights.indexof(classic) * 3) => {
               return (
                 <Product
                   key={index}
@@ -248,7 +276,7 @@ function App() {
         <div id="product4">
           <h2>SWEET TOOTH</h2>
           <div className="product-container">
-            {sweettooth.map((classic, index = sweettooth.indexof(classic)) => {
+            {sweettoothItems.map((classic, index = sweettooth.indexof(classic)) => {
               return (
                 <Product
                   key={index}

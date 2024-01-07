@@ -120,6 +120,22 @@ html {
   color: brown;
 }
 
+.sort-btn{
+  display: inline-block;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  background-color: brown;
+  transition: background-color 0.3s, color 0.3s;
+  margin-left: 5px;
+}
+
 .nav a {
   font-size: 3.2rem;
   margin: 0;
