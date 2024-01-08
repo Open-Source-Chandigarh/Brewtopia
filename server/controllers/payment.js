@@ -10,9 +10,6 @@ var instance = new Razorpay({
 });
 
 const checkout = async (req, res) => {
-  console.log(process.env.RAZORPAY_API_KEY, process.env.RAZORPAY_API_SECRET);
-  console.log("instance", instance);
-
   //making some options for razorpay
   try {
     const options = {
@@ -23,8 +20,7 @@ const checkout = async (req, res) => {
     //creating an order with razorpay method
     const order = await instance.orders
       .create(options)
-      .catch((err) => console.log("here", err));
-    console.log(order);
+      .catch((err) => console.error("Error while creating razor pay order:", err));
     //sending true status to app and order also
     //to make it access there because request window will be made there
     res.status(200).json({
@@ -32,7 +28,7 @@ const checkout = async (req, res) => {
       order,
     });
   } catch (error) {
-    console.log(error);
+    console.error("Error while creating razor pay order:", error);
     res.status(500).json({
       success: false,
       error: "Error creating Razorpay order",
@@ -95,7 +91,7 @@ const paymentverification = async (req, res) => {
         );
       })
       .catch((error) => {
-        console.log(error);
+        console.error("Error while fetching payment details:",error);
       });
 
     //redirecting to success payment page with payment_id

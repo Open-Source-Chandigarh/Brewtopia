@@ -51,7 +51,7 @@ export default function Sign() {
           toast.error(res.data.error || "an error occured")
           setloading(false);
         }
-      }).catch(err => console.log(err))
+      }).catch(err => console.error("Error while creating user:",err))
 
   };
 
