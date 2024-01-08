@@ -31,6 +31,7 @@ const createUser = async (req, res) => {
     res.status(201).json({username : newUser.username});
 
   } catch (err) {
+    console.error("Error while creating user:", err)
     res.json({error : "Server error"})
   }
 }
@@ -67,6 +68,7 @@ const getUser = async (req, res) => {
     });
 
   } catch (err) {
+    console.error("Error while getting user details:", err)
     return res.json({ error: "Server error" });
   }
 };
