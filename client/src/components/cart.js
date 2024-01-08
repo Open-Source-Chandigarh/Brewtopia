@@ -40,13 +40,10 @@ export default function Cart({name,username,setshowCart,cookies,cart,total,setCa
         //getting razorpay key from server
         const { data: { key } } = await Axios.get(apiUrl + "/getKey");
 
-        console.log(key);
         //posting server with amount 
         const { data: { order } } = await Axios.post(apiUrl + "/checkout", {
         amount: total
         })
-
-        console.log(order);
 
         //options for razorpay window [...all copied from razorpay setup sdk]
         var options = {
