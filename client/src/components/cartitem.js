@@ -21,10 +21,6 @@ export default function CartItem({ item, cart, setCart }) {
     toast.error("Removed from cart");
   };
 
-  console.log("Item:", item);
-  console.log("Counter:", counter);
-  console.log("Cart:", cart);
-
   return (
     <div className="item">
       <img src={item.photo} width={50} alt={`${item.name} thumbnail`} />

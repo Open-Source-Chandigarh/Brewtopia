@@ -20,7 +20,7 @@ const createUser = async (req, res) => {
     }
 
     const salt = await bcryptjs.genSalt(11)
-    const hashedPassword = await bcryptjs.hash(password, salt).catch(err => console.log(err))
+    const hashedPassword = await bcryptjs.hash(password, salt).catch(err => console.error("Error hashing password:", err));
 
     user.password = hashedPassword;
     //creating new user in usermodel
@@ -28,11 +28,10 @@ const createUser = async (req, res) => {
 
     //saving user 
     await newUser.save();
-    console.log(newUser);
     res.status(201).json({username : newUser.username});
 
   } catch (err) {
-    console.log(err);
+    console.error("Error while creating user:", err)
     res.json({error : "Server error"})
   }
 }
@@ -69,7 +68,7 @@ const getUser = async (req, res) => {
     });
 
   } catch (err) {
-    console.log(err);
+    console.error("Error while getting user details:", err)
     return res.json({ error: "Server error" });
   }
 };

@@ -12,8 +12,6 @@ export default function AllOrders({username, setshowOrders}){
     const[orders, setOrders] = useState([]);
     const [loading,setloading] = useState(true);
 
-    console.log(username);
-
     useEffect(() => {
         
         async function fetchOrders() {
