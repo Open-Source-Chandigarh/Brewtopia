@@ -28,7 +28,6 @@ const createUser = async (req, res) => {
 
     //saving user 
     await newUser.save();
-    console.log(newUser);
     res.status(201).json({username : newUser.username});
 
   } catch (err) {

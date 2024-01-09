@@ -26,7 +26,6 @@ const updateCart = async (req,res) =>{
 
     //finding user in database and updating cart and carttotal
     await UserModel.findOneAndUpdate({username: username}, {cart: cart, cartTotal : total});
-    console.log(cart,username)
 
     //sending response to client side
     res.send("Success");
