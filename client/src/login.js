@@ -4,6 +4,7 @@ import LoaderBlack from "./Loaders/loaderblack";
 import Axios from "axios";
 import Cookies from "universal-cookie";
 import toast from "react-hot-toast";
+import { IoEyeOutline,IoEyeOffOutline  } from "react-icons/io5";
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -11,6 +12,7 @@ export default function Login() {
   const [username, setusername] = useState("");
   const [password, setpassword] = useState("");
   const [loading, setloading] = useState(false);
+  const [showPassword,setShowPassword]=useState(false);
 
   const cookies = new Cookies();
 
@@ -49,6 +51,9 @@ export default function Login() {
       setloading(false);
     }
     };
+    const handleToggle=()=>{
+      setShowPassword(((prev)=>!prev));
+    }
 
     //whenever user presses enter key
     const handleEnterKey = (e) => {
@@ -74,15 +79,18 @@ export default function Login() {
               onChange={(e) => setusername(e.target.value)}
               onKeyDown={handleEnterKey}
             />
+            <div className="passwordinput">
             <input
               className="input"
-              type="password"
+              type= {showPassword ? "text":"password"}
               placeholder="Password"
               id="password"
               onChange={(e) => setpassword(e.target.value)}
               onKeyDown={handleEnterKey}
 
             />
+            <button type="button" className="togglebutton" onClick={handleToggle}>{showPassword ? <IoEyeOffOutline size={16} />: <IoEyeOutline size={16} />}</button>
+            </div>
             <p className="redirect">
               Not a user ? <a href="/sign-up">sign up</a>
             </p>
