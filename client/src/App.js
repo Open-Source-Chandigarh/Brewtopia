@@ -184,11 +184,17 @@ function App() {
         
        {/* Search box*/}
        <div className="search-bar">
-        <input type="text" value={searchItemName} placeholder="Search Your Items"  className="search-input" 
-         onChange={(e) => setSearchItemName(e.target.value)}
-        /> 
-        <button onClick={searchFunction} className="search-btn">Search</button>
-        <button onClick={sortByPrice} className="sort-btn">Sort By Price</button>
+        <div className="search-box">
+          <input type="text" value={searchItemName} placeholder="Search Your Items"  className="search-input" 
+          onChange={(e) => setSearchItemName(e.target.value)}
+          /> 
+          <button onClick={searchFunction} className="search-btn">Search</button>
+        </div>
+       
+        <div>
+          <button onClick={sortByPrice} className="sort-btn">Sort By Price</button>
+        </div>
+        
        </div>
 
       {/* Here we are mapping all the products in product1 grid -- it acts like wrap */}

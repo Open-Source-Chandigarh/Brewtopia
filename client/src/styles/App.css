@@ -85,17 +85,23 @@ html {
 
 .search-bar{
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
   margin-top: 20px;
+}
+
+.search-box {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
 }
 
 .search-input{
   height: 30px;
-  width: 400px;
+  width: 100%;
   border-radius: 10px;
   border: none;
   padding: 20px;
+  margin: 5px;
   border: 0.1px solid brown;
 }
 
@@ -826,6 +832,22 @@ html {
     width: 40px;
   }
 
+}
+
+@media only screen and (min-width: 630px) {
+  .search-bar{
+    flex-direction: row;
+    align-items: center;
+    justify-content:center;
+  }
+  
+  .search-box {
+    margin-bottom: 0px;
+  }
+  
+  .search-input{
+    width: 400px;
+  }
 }
 
 @media only screen and (max-width: 640px) {
