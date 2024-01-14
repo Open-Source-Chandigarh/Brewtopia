@@ -30,8 +30,8 @@ function App() {
   const [cart, setCart] = useState([]);
 
   //for search Items
-  const[searchItemName,setSearchItemName] = useState("")
-  const[searchedItems,setSearchedItems] = useState([])
+  const [searchItemName, setSearchItemName] = useState("")
+  const [searchedItems, setSearchedItems] = useState([])
 
   //for components cart and orders to show
   const [showCart, setshowCart] = useState(false);
@@ -98,9 +98,9 @@ function App() {
   }, [showMenu])
 
   //search items function
-  const searchFunction = () =>{
+  const searchFunction = () => {
     setSearchedItems([])
-    const allItems = [...hotclassics, ...chillers, ...delights, ...sweettooth ]
+    const allItems = [...hotclassics, ...chillers, ...delights, ...sweettooth]
 
     const searchItems = allItems.filter(
       (value) => searchItemName.toLowerCase() === value.name.toLowerCase()
@@ -181,21 +181,26 @@ function App() {
           setCart={setCart}
         />
       )}
-        
-       {/* Search box*/}
-       <div className="search-bar">
-        <div className="search-box">
-          <input type="text" value={searchItemName} placeholder="Search Your Items"  className="search-input" 
-          onChange={(e) => setSearchItemName(e.target.value)}
-          /> 
-          <button onClick={searchFunction} className="search-btn">Search</button>
-        </div>
-       
+
+      {/* Search box*/}
+      <div className="search-bar">
+        <input 
+        type="text" 
+        value={searchItemName} 
+        placeholder="Search Your Items" 
+        className="search-input"
+        onChange={(e) => setSearchItemName(e.target.value)}
+        onKeyDown={(e)=>{
+          if(e.code==='Enter')
+          {
+            searchFunction()
+          }
+        }}
+        /> 
         <div>
           <button onClick={sortByPrice} className="sort-btn">Sort By Price</button>
         </div>
-        
-       </div>
+      </div>
 
       {/* Here we are mapping all the products in product1 grid -- it acts like wrap */}
       {/* then placing in product-container and mapping each category */}
@@ -203,6 +208,7 @@ function App() {
         {/* Search Items */}
 
         {
+
           searchedItems.length >0
            ?
           <div className="search">
@@ -299,8 +305,8 @@ function App() {
           </div>
         }
       </main>
-      <ScrollToTop/>
-      <Footer/>
+      <ScrollToTop />
+      <Footer />
     </div>
   );
 }
