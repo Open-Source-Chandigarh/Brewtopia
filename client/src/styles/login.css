@@ -52,7 +52,42 @@
     right: -5rem;
     bottom: -5rem;
 }
-
+.shape:first-child {
+  animation: ShapeMotion 5s ease infinite ;
+}
+.shape:last-child{
+    animation: ShapeMotionInverse 5s ease infinite ;
+}
+@keyframes ShapeMotion{
+    0%,100% {
+        transform: translateX(0);
+    }
+    25% {
+       transform: translateX(15px);
+    }
+    50%{
+        transform: translateX(-10px);
+        transform: scale(.95);
+    }
+    75%{
+        transform: translateX(10px);
+    }
+}
+@keyframes ShapeMotionInverse{
+    0%,100% {
+        transform: translateX(0);
+    }
+    25% {
+       transform: translateX(15px);
+    }
+    50%{
+        transform: translateX(10px);
+        transform: scale(1.025);
+    }
+    75%{
+        transform: translateX(-20px);
+    }
+}
 .form {
     position: relative;
     height: 95%;
@@ -88,7 +123,26 @@
     text-align: center;
     margin-bottom: 50px;
 }
-
+.passwordinput{
+    display: flex;
+    position: relative;
+     }
+     .togglebutton {
+       
+        position: absolute;
+        top: 65%;
+        right: 10px;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+    }
+    
+    .togglebutton:focus {
+        outline: none; /* Remove the default focus outline */
+    }
+    
 .input {
     position: relative;
     display: block;

@@ -55,7 +55,6 @@ html {
   position: sticky;
   width: 100%;
   top: 0;
-  height: 78px;
   align-items: center;
   -webkit-backdrop-filter: blur(13px);
   backdrop-filter: blur(13px);
@@ -68,15 +67,17 @@ html {
   flex-direction: row;
 }
 
-@media screen and (max-width: 881px) {
-  .nav div:nth-child(2){
-    order: 4;
-  }
+.flex {
+  display:flex;
+  justify-content: space-between;
+}
 
-  .nav{
-    flex-wrap: wrap;
-    width:100%;
-  }
+.hamburgerMenu {
+  display: none;
+}
+
+@media screen and (max-width: 881px) {
+
   .menu div{
     margin-left: 1rem;
   }
@@ -84,17 +85,23 @@ html {
 
 .search-bar{
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
   margin-top: 20px;
+}
+
+.search-box {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
 }
 
 .search-input{
   height: 30px;
-  width: 400px;
+  width: 100%;
   border-radius: 10px;
   border: none;
   padding: 20px;
+  margin: 5px;
   border: 0.1px solid brown;
 }
 
@@ -117,6 +124,22 @@ html {
 .search-btn:hover {
   background-color: white;
   color: brown;
+}
+
+.sort-btn{
+  display: inline-block;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  background-color: brown;
+  transition: background-color 0.3s, color 0.3s;
+  margin-left: 5px;
 }
 
 .nav a {
@@ -265,11 +288,40 @@ html {
     align-self: center;
   }
 }
+
+@media only screen and (max-width: 1120px) {
+  .menu {
+    display: none;
+  }
+
+  .nav div:nth-child(2){
+    order: 4;
+  }
+
+  .nav{
+    flex-wrap: wrap;
+    width:100%;
+  }
+
+  .menu.visible {
+    display: inline-block;
+  }
+
+  .hamburgerMenu {
+    display: block;
+  }
+}
+
 @media only screen and (max-width: 630px) {
   /* .footer{
     height: 40vh;
 
   } */
+  .flex {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    width: 100%;
+  }
  
   .col-1{
     width: 100%;
@@ -780,6 +832,22 @@ html {
     width: 40px;
   }
 
+}
+
+@media only screen and (min-width: 630px) {
+  .search-bar{
+    flex-direction: row;
+    align-items: center;
+    justify-content:center;
+  }
+  
+  .search-box {
+    margin-bottom: 0px;
+  }
+  
+  .search-input{
+    width: 400px;
+  }
 }
 
 @media only screen and (max-width: 640px) {

@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import  toast from "react-hot-toast";
 import LoaderBlack from "./Loaders/loaderblack";
+import { IoEyeOutline,IoEyeOffOutline  } from "react-icons/io5";
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -15,6 +16,7 @@ export default function Sign() {
   const [username, setusername] = useState("");
   const [password, setpassword] = useState("");
   const [loading,setloading] = useState(false);
+  const [showPassword,setShowPassword]=useState(false);
 
   const cookies = new Cookies();
   let username_check = cookies.get('username');
@@ -67,6 +69,9 @@ export default function Sign() {
       handlesubmit(e);
     }
   };
+  const handleToggle=()=>{
+    setShowPassword(((prev)=>!prev));
+  };
 
   return (
     <div className="login-wrapper">
@@ -91,13 +96,16 @@ export default function Sign() {
           onChange={(e) => setusername(e.target.value)}
           onKeyDown={handleEnterKey}
         />
+        <div className="passwordinput">
         <input
           className="input"
-          type="password"
+          type= {showPassword ? "text":"password"}
           placeholder="Password"
           onChange={(e) => {setpassword(e.target.value)}}
           onKeyDown={handleEnterKey}
         />
+         <button type="button" className="togglebutton" onClick={handleToggle}>{showPassword ? <IoEyeOffOutline size={16} />: <IoEyeOutline size={16} />}</button>
+            </div>
         <p className="redirect">
           Already a user ? <a href="/login">Login</a>
         </p>
