@@ -103,7 +103,7 @@ function App() {
     const allItems = [...hotclassics, ...chillers, ...delights, ...sweettooth]
 
     const searchItems = allItems.filter(
-      (value) => searchItemName.toLowerCase() === value.name.toLowerCase()
+      (value) => searchItemName.toLowerCase().trim() === value.name.toLowerCase()
     )
     setSearchedItems(searchItems)
     setSearchItemName("")
