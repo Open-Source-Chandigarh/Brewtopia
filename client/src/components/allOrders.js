@@ -5,17 +5,17 @@ import { useEffect, useState } from "react";
 import Axios  from "axios";
 import {ReactComponent as Rolling} from "../Loaders/RollingLoadersvg.svg"
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 export default function AllOrders({username, setshowOrders}){
 
     const[orders, setOrders] = useState([]);
     const [loading,setloading] = useState(true);
 
-    console.log(username);
-
     useEffect(() => {
         
         async function fetchOrders() {
-            const AllOrders = await Axios.post("https://brewtopia.up.railway.app/getOrders", {
+            const AllOrders = await Axios.post(apiUrl + "/getOrders", {
                 username: username
             });
             setOrders(AllOrders.data);

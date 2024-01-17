@@ -33,8 +33,7 @@ export default function CartItem({ item, cart, setCart }) {
         <button className="redbtn"
           type="button"
           onClick={() =>
-            setCounter((prevCounter) => Math.max(prevCounter - 1, 1))} style={{borderRadius: "20px", backgroundColor: "#FF6969", fontWeight: "600"}}
-            >
+            setCounter((prevCounter) => Math.max(prevCounter - 1, 1))} style={{borderRadius: "20px", backgroundColor: "#FF6969", fontWeight: "600"}}>
           -
         </button>
         <p style={{fontWeight: "600", fontSize: "medium" }}>{counter}</p>
