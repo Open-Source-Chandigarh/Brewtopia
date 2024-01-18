@@ -204,7 +204,7 @@ body {
   color: #000;
   padding: 0.8rem 1rem;
   display: flex;
-  background-color: var(--color-sidebar-item);
+  /* background-color: var(--color-sidebar-item); */
   margin-bottom: 1rem;
   border-radius: 0.8rem;
 }
