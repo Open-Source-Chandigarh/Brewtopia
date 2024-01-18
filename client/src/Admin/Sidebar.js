@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import {  FaUser, FaCog, FaArrowRight, FaSignOutAlt, FaBell, FaSearch, FaCoffee } from 'react-icons/fa'; // Import your desired icons
 import {  BsPeople, BsGear } from "react-icons/bs";
 import { AiOutlineHome } from "react-icons/ai";
@@ -8,6 +8,7 @@ import { Link }from "react-router-dom";
 import "./Dashboard.css";
 
 import { SidebarContext } from '../lib/sidebarConext';
+import useScreenSize from '../lib/useScreenSize';
 
 const sidebarItems = [
   {
@@ -17,26 +18,48 @@ const sidebarItems = [
   },
   {
     name: "App",
-    to: "/#app",
+    to: "/admin/dashboard",
     icon: BsPeople,
   },
   {
     name: "Settings",
-    to: "/mails",
+    to: "/admin/dashboard",
     icon: BsGear,
   },
   {
     name: "Contact",
-    to: "/contact",
+    to: "/admin/dashboard",
     icon: TiContacts,
   },
 ];
 
 const Sidebar = () => {
-  const { isCollapsed, toggleSidebarcollapse } = useContext(SidebarContext);
+  const {width} = useScreenSize()
+  const { isCollapsed, toggleTab, toggleSidebarcollapse } = useContext(SidebarContext);
+  const ref = useRef(null);
+
+  useEffect(() => {  // useEffect for Outside click detecting
+    const handler = (event) => {
+      if (width< 940 && !isCollapsed && ref.current && !ref.current.contains(event.target)) {
+        toggleSidebarcollapse()
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => {
+      // Cleanup the event listener
+      document.removeEventListener("mousedown", handler);
+    };
+  }, [isCollapsed]);
+
+  const handleToggles =(name) => {
+    toggleTab(name) 
+    if(width < 940){
+    toggleSidebarcollapse()
+    }
+  }
 
   return (
-    <div className="sidebar__wrapper">
+    <div className="sidebar__wrapper" ref={ref}>
       <aside className={` ${isCollapsed ? 'sidebar': 'active_sidebar'}`} data-collapse={isCollapsed}>
         <ul className="sidebar__list">
           {sidebarItems.map(({ name, to, icon: Icon }) => {
@@ -45,6 +68,7 @@ const Sidebar = () => {
                 <Link
                   className={`sidebar__link `}
                   to={to}
+                  onClick={() =>handleToggles(name)}
                 >
                   <span className="sidebar__icon">
                     <Icon />

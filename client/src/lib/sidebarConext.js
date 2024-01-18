@@ -1,18 +1,26 @@
 import { createContext, useState } from "react";
 
-const initialValue = { isCollapsed: false };
+const initialValue = {
+  isCollapsed: false,
+  tab: 'Dashboard'
+   
+};
 
 const SidebarContext = createContext(initialValue);
-console.log('clicked')
+console.log(initialValue)
 const SidebarProvider = ({ children }) => {
   const [isCollapsed, setCollapse] = useState(false);
+  const [tab, setTab] = useState('initialValue.tab');
 
   const toggleSidebarcollapse = () => {
     setCollapse((prevState) => !prevState);
   };
+  const toggleTab = (name) => {
+    setTab(name);
+  };
 
   return (
-    <SidebarContext.Provider value={{ isCollapsed, toggleSidebarcollapse }}>
+    <SidebarContext.Provider value={{ isCollapsed, toggleSidebarcollapse, toggleTab, tab }}>
       {children}
     </SidebarContext.Provider>
   );

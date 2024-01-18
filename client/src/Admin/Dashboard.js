@@ -11,8 +11,7 @@ import DashboardComponents from "./AdminComponents/DashboardCards";
 import Sidebar from "./Sidebar";
 
 const Dashboard = () => {
-  const { isCollapsed, toggleSidebarcollapse } = useContext(SidebarContext);
-
+  const { isCollapsed, toggleSidebarcollapse,tab } = useContext(SidebarContext);
   return (
     <div className="layout">
       <div className="adminNav">
@@ -45,7 +44,18 @@ const Dashboard = () => {
       <main className="layout__main-content">
         <Sidebar />
         <div  className="dashboard__content__container">
-          <DashboardComponents />
+          {
+            tab === 'Dashboard' && <DashboardComponents />
+          }
+          {
+            tab === 'App' && ( <div>App section</div> )
+          }
+          {
+            tab === 'Settings' && ( <div>Settings section</div> )
+          }
+          {
+            tab === 'Contact' && ( <div>Contact section</div> )
+          }
         </div>
       </main>
     </div>
