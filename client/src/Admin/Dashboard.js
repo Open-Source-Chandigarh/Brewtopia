@@ -1,89 +1,65 @@
-import React from 'react'
+import { useContext } from "react";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight, MdMessage } from "react-icons/md";
+import { FaBell, FaSearch } from "react-icons/fa";
 import { BsFillCupFill } from "react-icons/bs";
+
+import "./AdminComponents/DashboardComponents.css";
 import "./Dashboard.css";
 
-export default function Dashboard() {
-  return (
-    <>
-      <div className='dash-bar'>
-        <div className='dashboard'>
-          <h2>Dashboard</h2>
-          Welcome to Brewtopia Admin!
-          <div className='Cardno'>
-            <div className="card">
-              <div className='card-icon'>
-                <BsFillCupFill size={30} /></div>
-              <div className='cardfield'>
-                <div className='head-1'>56</div>
-                TOTAL MENUS
-              </div></div>
-            <div className="card">
-              <div className='card-icon'>
-                <BsFillCupFill size={30} /></div>
-              <div className='cardfield'>
-                <div className='head-1'>12k</div>
-                TOTAL REVENUE
-              </div></div>
-            <div className="card">
-              <div className='card-icon'>
-                <BsFillCupFill size={30} /></div>
-              <div className='cardfield'>
-                <div className='head-1'>20</div>
-                TOTAL ORDERS
-              </div></div>
-            <div className="card">
-              <div className='card-icon'>
-                <BsFillCupFill size={30} /></div>
-              <div className='cardfield'>
-                <div className='head-1'>40</div>
-                TOTAL CLIENTS
-              </div></div>
-          </div>
-          <div className='summary'>
-            <div className='order-sum'>
-              <h2>Order Summary</h2>
-              <p>lorem ipsum dolor sit amet, conset</p>
-              <div className='order-card'>
-                <div className="card">
-                  <div className='cardfield'>
-                    <div className='head-1'>25</div>
-                    On Delivery
-                  </div></div>
-                <div className="card">
+import { SidebarContext } from "../lib/sidebarConext";
+import DashboardComponents from "./AdminComponents/DashboardCards";
+import Sidebar from "./Sidebar";
 
-                  <div className='cardfield'>
-                    <div className='head-1'>60</div>
-                    Delivered
-                  </div></div>
-                <div className="card">
-                  <div className='cardfield'>
-                    <div className='head-1'>7</div>
-                    Cancelled
-                  </div></div>
+const Dashboard = () => {
+  const { isCollapsed, toggleSidebarcollapse,tab } = useContext(SidebarContext);
+  return (
+    <div className="layout">
+      <div className="adminNav">
+        <button className={` ${isCollapsed ? 'btn': 'activeBtn'}`} onClick={toggleSidebarcollapse}>
+          {isCollapsed ? <MdKeyboardArrowRight /> : <MdKeyboardArrowLeft />}
+        </button>
+        <div className="nav__logo">
+          <BsFillCupFill className='cup' size={48} color='#2831ce' />
+          <p className={` ${isCollapsed ? 'nav__logo-name': 'activenav__logo-name'}`}>Brewtopia</p>
+        </div>
+        <div className="nav__container">
+            <div className="search__div">
+              <input className='input-search' type='text' placeholder='Search here...' />
+              <FaSearch className="search_icon" size={18} />
+            </div>
+            <div className="nav__items__container">
+              < MdMessage className="nav__items" size={40} color="blue"/>
+              <FaBell className="nav__items" size={40} color="pink"/>
+              <div className=" hello_admin" >
+               <p>Hello, {"admin"}</p>
+                <img
+                src="/favicon.jpg"
+                alt="img"
+                />
               </div>
             </div>
-            <div className='revenue'>
-              <h2>Revenue</h2>
-              <p>lorem ipsum dolor sit amet, conset</p>
-              <div className='order-card'>
-                <div className="card">
-                  <div className='cardfield'>
-                    <div className='head-1'>25K</div>
-                    Last Month
-                  </div></div>
-                <div className="card">
+        </div>
+      </div>
 
-                  <div className='cardfield'>
-                    <div className='head-1'>60K</div>
-                    Last 2nd
-                  </div></div>
-                <div className="card">
-                  <div className='cardfield'>
-                    <div className='head-1'>7L</div>
-                    Last year
-                  </div></div>
-              </div>
-            </div></div></div>
-      </div></>
-  )
-}
+      <main className="layout__main-content">
+        <Sidebar />
+        <div  className="dashboard__content__container">
+          {
+            tab === 'Dashboard' && <DashboardComponents />
+          }
+          {
+            tab === 'App' && ( <div>App section</div> )
+          }
+          {
+            tab === 'Settings' && ( <div>Settings section</div> )
+          }
+          {
+            tab === 'Contact' && ( <div>Contact section</div> )
+          }
+        </div>
+      </main>
+    </div>
+  ); 
+};
+
+export default Dashboard;

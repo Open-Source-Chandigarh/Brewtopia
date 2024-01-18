@@ -1,79 +1,87 @@
-import React, { useState } from 'react';
-import { FaUser, FaCog, FaArrowRight, FaSignOutAlt, FaBell, FaSearch } from 'react-icons/fa'; // Import your desired icons
-import "./Sidebar.css";
-import { IoReorderThree } from "react-icons/io5";
-import { MdDashboard, MdMessage } from "react-icons/md";
-import { BsFillCupFill } from "react-icons/bs";
+import React, { useContext, useEffect, useRef } from 'react';
+import {  FaUser, FaCog, FaArrowRight, FaSignOutAlt, FaBell, FaSearch, FaCoffee } from 'react-icons/fa'; // Import your desired icons
+import {  BsPeople, BsGear } from "react-icons/bs";
+import { AiOutlineHome } from "react-icons/ai";
+import { TiContacts } from "react-icons/ti";
+import { Link }from "react-router-dom";
 
-export default function Sidebar({ children }) {
-  const [isCompact, setIsCompact] = useState(false);
-  const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
+import "./Dashboard.css";
 
-  //toggle sidebar
-  const toggleCompactMode = () => {
-    setIsCompact(!isCompact);
-  };
+import { SidebarContext } from '../lib/sidebarConext';
+import useScreenSize from '../lib/useScreenSize';
 
+const sidebarItems = [
+  {
+    name: "Dashboard",
+    to: "/admin/dashboard",
+    icon: AiOutlineHome,
+  },
+  {
+    name: "App",
+    to: "/admin/dashboard",
+    icon: BsPeople,
+  },
+  {
+    name: "Settings",
+    to: "/admin/dashboard",
+    icon: BsGear,
+  },
+  {
+    name: "Contact",
+    to: "/admin/dashboard",
+    icon: TiContacts,
+  },
+];
 
-  const toggleUserDropdown = () => {
-    setIsUserDropdownOpen(!isUserDropdownOpen);
-  };
+const Sidebar = () => {
+  const {width} = useScreenSize()
+  const { isCollapsed, toggleTab, toggleSidebarcollapse } = useContext(SidebarContext);
+  const ref = useRef(null);
+
+  useEffect(() => {  // useEffect for Outside click detecting
+    const handler = (event) => {
+      if (width< 940 && !isCollapsed && ref.current && !ref.current.contains(event.target)) {
+        toggleSidebarcollapse()
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => {
+      // Cleanup the event listener
+      document.removeEventListener("mousedown", handler);
+    };
+  }, [isCollapsed]);
+
+  const handleToggles =(name) => {
+    toggleTab(name) 
+    if(width < 940){
+    toggleSidebarcollapse()
+    }
+  }
 
   return (
-    <>
-      <div className='outer'>
-        <div className={`sidebar ${isCompact ? 'compact' : ''}`}>
-          <ul>
-            <li>
-              <BsFillCupFill size={30} />
-              {!isCompact && <span><a href="/">Brewtopia</a></span>}
-            </li>
-            <li>
-              <MdDashboard />
-              {!isCompact && <span>Dashboard</span>}
-            </li>
-            <li className='dropdown-li' onClick={toggleUserDropdown}>
-              <FaUser />
-              {!isCompact && (
-                <>
-                  <span>Apps</span>
-                </>
-              )}
-            </li>
-            <li>
-              <FaCog />
-              {!isCompact && <span>Settings</span>}
-            </li>
-            <li>
-              <FaSignOutAlt />
-              {!isCompact && <span>Charts</span>}
-            </li>
-          </ul>
-        </div>
-
-        <div className='inner'>
-          {/* navbar for admin  */}
-          <div className='navbar'>
-            <div className='nav-div'>
-              <div className="toggle-button" onClick={toggleCompactMode}>
-                {isCompact ? <FaArrowRight size={25} /> : <IoReorderThree size={35} />}
-              </div>
-              <div className='div-search'>
-                <input className='input-search' type='text' placeholder='Search here...' />
-                <div className='search-btn'> <FaSearch size={25} /></div>
-              </div> </div>
-            <div className='side-div'>
-              <MdMessage size={25} />
-              <div className='notif-div'>
-                <FaBell size={25} /></div>
-              <button className='admin-btn'>Hello Admin </button>
-            </div>
-          </div>
-          
-          {/* to render childs based on route */}
-          {children}
-        </div>
-      </div>
-    </>
+    <div className="sidebar__wrapper" ref={ref}>
+      <aside className={` ${isCollapsed ? 'sidebar': 'active_sidebar'}`} data-collapse={isCollapsed}>
+        <ul className="sidebar__list">
+          {sidebarItems.map(({ name, to, icon: Icon }) => {
+            return (
+              <li className="sidebar__item" key={name}>
+                <Link
+                  className={`sidebar__link `}
+                  to={to}
+                  onClick={() =>handleToggles(name)}
+                >
+                  <span className="sidebar__icon">
+                    <Icon />
+                  </span>
+                  <span className="sidebar__name">{name}</span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </aside>
+    </div>
   );
 };
+
+export default Sidebar;
