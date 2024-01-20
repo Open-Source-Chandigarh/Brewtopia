@@ -2,7 +2,22 @@
 <img src="https://github.com/nandita27iitp/Brewtopia/assets/94813932/a9aa824e-14b2-4a5d-a3ce-b8dd188b5452" width="600" />
 
 # 🤎Brewtopia🤎
-
+<p align='left'>
+ <p align='left'>
+    <a href='https://github.com/Open-Source-Chandigarh/Brewtopia/stargazers'><img alt='Stars' src='https://img.shields.io/github/stars/Open-Source-Chandigarh/Brewtopia?color=abc0d3'/></a>
+    <a href='https://github.com/Open-Source-Chandigarh/Brewtopia/forks'><img alt='Forks' src='https://img.shields.io/github/forks/Open-Source-Chandigarh/Brewtopia?color=abc0d3'/></a>
+    <a href='https://github.com/Open-Source-Chandigarh/Brewtopia/blob/main/LICENSE'><img alt='License' src='https://img.shields.io/github/license/Open-Source-Chandigarh/Brewtopia?color=abc0d3'/></a>
+    <a href="https://github.com/Open-Source-Chandigarh/Brewtopia/graphs/contributors">
+      <img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/Open-Source-Chandigarh/Brewtopia" />
+    </a>
+    <a href="https://github.com/Open-Source-Chandigarh/Brewtopia/issues">
+      <img alt="Issues" src="https://img.shields.io/github/issues/Open-Source-Chandigarh/Brewtopia?color=0088ff" />
+    </a>
+    <a href="https://github.com/Open-Source-Chandigarh/Brewtopia/pulls">
+      <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/Open-Source-Chandigarh/Brewtopia?color=0088ff" />
+    </a>
+ </p>
+</p>
 
 Brewtopia, a MERN stack-powered cafe management platform. Seamlessly add coffee and tea blends to your cart, with secure checkout and swift delivery. Join a tech-savvy community, leverage personalized recommendations, and elevate your cafe experience with our cutting-edge MERN architecture. Explore, code, and brew with Brewtopia!
 
