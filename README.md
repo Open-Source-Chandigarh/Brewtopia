@@ -57,8 +57,13 @@ Change into the project directory using the following command:
 ```bash
 cd client
 ```
+### 4. Make .env file below is the Example
 
-### 4. Install dependencies
+```bash
+REACT_APP_API_URL=http://localhost:5000
+```
+
+### 5. Install dependencies
 
 Install the project dependencies by running the following command:
 
@@ -72,30 +77,31 @@ or
 yarn install
 ```
 
-### 5. Run the Client Application
+### 6. Run the Client Application
 
 ```bash
 npm start
 ```
 
-### 6. Now, Navigate to the Server Directory
+### 7. Now, Navigate to the Server Directory
 
 ```bash
 cd server
 ```
 
-### 7. Make .env file below is the Example
+### 8. Make .env file below is the Example
 
 ```bash
 PORT = 5000
 DB =  YOUR_MONGODB_TESTING_URL
 RAZORPAY_API_KEY = YOUR_API_KEY
 RAZORPAY_API_SECRET= YOUR_API_SECRET
+ACCESS_URL=http://localhost:3000
 ```
 
 To generate your RAZORPAY Key's you can refer this video - https://youtu.be/7TX7DErMvVE?si=QWtLVXLPRNpdUovk
 
-### 8. Install dependencies
+### 9. Install dependencies
 
 Install the server dependencies by running the following command:
 
@@ -109,7 +115,7 @@ or
 yarn install
 ```
 
-### 9.Run the Server
+### 10.Run the Server
 
 ```bash
 npm start
