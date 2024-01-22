@@ -169,6 +169,8 @@
     font-size: 18px;
     font-weight: 600;
     border-radius: 5px;
+    margin: auto;
+    margin-top: 10px;
     cursor: pointer;
 }
 
