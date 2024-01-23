@@ -1,7 +1,7 @@
 import "../styles/App.css";
 import toast from "react-hot-toast";
 import { useState, useEffect } from "react";
-import { MdDeleteOutline } from "react-icons/md";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 
 export default function CartItem({ item, cart, setCart }) {
   const [counter, setCounter] = useState(item.count || 1);
@@ -23,14 +23,36 @@ export default function CartItem({ item, cart, setCart }) {
 
   return (
     <div className="item">
-      <img src={item.photo} width={50} alt={`${item.name} thumbnail`} />
-      <div>
-        <h4>
+      <div style={{ width: "10.9vw" }}>
+        <div style={{ display: "flex" }}>
+          <img src={item.photo} width={65} alt={`${item.name} thumbnail`} />
+          <button  onClick={() => removeItem()} style={{ color: "red", fontSize: "18px", cursor: "pointer", background: "none", border: "none", borderRadius: "50%", marginTop: "-10%" }}>
+          <AiOutlineCloseCircle></AiOutlineCloseCircle>
+          </button>
+        </div>
+        <h4 style={{ fontSize: "15px", marginTop: "2%", marginLeft: "-3%" }}>
           {item.name} x {counter}
         </h4>
       </div>
-      <div className="range">
+      <div>
+      <p style={{ margin: "3% 0 0 0", fontWeight: "900", fontSize: "large", paddingLeft: "4px", paddingTop: "5px"}}>₹ {item.price * counter}</p>
         <button className="redbtn"
+            type="button"
+            onClick={() =>
+            setCounter((prevCounter) => Math.max(prevCounter - 1, 1))} style={{ marginTop:"20%", borderTopLeftRadius: "20px", borderBottomLeftRadius: "20px", fontWeight: "600"}}
+          >
+            -
+          </button>
+          <button className="greenbtn"
+            type="button"
+            onClick={() => 
+            setCounter((prevCounter) => prevCounter + 1)} style={{ borderTopRightRadius: "20px", borderBottomRightRadius: "20px", fontWeight: "600"}}
+          >
+            +
+          </button>
+      </div>
+      {/* <div className="range">
+      <button className="redbtn"
           type="button"
           onClick={() =>
             setCounter((prevCounter) => Math.max(prevCounter - 1, 1))} style={{borderRadius: "20px", fontWeight: "600"}}
@@ -44,13 +66,12 @@ export default function CartItem({ item, cart, setCart }) {
         >
           +
         </button>
-      </div>
-      <div>
-        <p style={{fontWeight: "600", fontSize: "large", paddingLeft: "4px", paddingTop: "5px"}}>₹ {item.price * counter}</p>
+      </div> */}
+      {/* <div>
         <button className="redbtn" type="button" onClick={removeItem} style={{borderRadius: "20px", fontWeight: "600", fontSize: "medium"}}>
           <MdDeleteOutline></MdDeleteOutline>
         </button>
-      </div>
+      </div> */}
     </div>
   );
 }
