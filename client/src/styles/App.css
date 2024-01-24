@@ -236,7 +236,6 @@ html {
   margin-top: 6px;
 }
 
-
 .main h2 {
   width: 18%;
   font-weight: 900;
@@ -493,7 +492,7 @@ html {
   display: flex;
   width: 1%;
   justify-content: center;
-  margin-top: 12px;
+  /* margin-top: 12px; */
   align-items: center;
   font-size: 0.8rem;
 }
@@ -501,17 +500,6 @@ html {
 .range p {
   margin-left: 10px;
   margin-right: 10px;
-}
-
-.range button {
-  color: var(--text-color);
-  background: white;
-  padding-left: 8px;
-  text-align: center;
-  padding-right: 8px;
-  padding-top: 1px;
-  cursor: pointer;
-  transition: 0.2s;
 }
 
 /* Cart items component */
@@ -538,8 +526,8 @@ html {
 
 .cart {
   background: white;
-  width: 374px;
-  height: 467px;
+  width: 404px;
+  height: 527px;
   left: auto;
   padding: 23px;
   border-radius: 28px;
@@ -552,13 +540,15 @@ html {
 .user {
   display: flex;
   position: absolute;
-  bottom: 13px;
+  bottom: 14px;
   width: 82%;
   height: 47px;
 }
 
 .user img {
-  width: 13%;
+  width: 16%;
+  border: 3px solid #54290c;
+  border-radius: 50%;
   object-fit: contain;
 }
 
@@ -569,36 +559,41 @@ html {
 
 .username h3 {
   font-size: 16.5px;
+  font-weight: 600;
   text-transform: capitalize;
 }
 
 .username p {
   font-size: 14px;
+  padding-top: 5px;
 }
 
 .user button {
-  color: var(--text-color);
-  margin-top: 4px;
-  box-sizing: border-box;
+  right: 5px;
+  border: 0;
   cursor: pointer;
-  transition: 0.3s ease-out;
+  margin-top: 4px;
+  font-weight: 600;
+  font-family: 25px;
+  border: 2px solid #000;
+  color: var(--text-color);
+  box-sizing: border-box;
+  transition: 0.2s ease-out;
   font-family: "Poppins";
   position: absolute;
-  right: 0;
-  border: 0;
-  padding: 10px;
-  border-radius: 22px;
+  padding: 6px 8px 3px 6px;
+  border-radius: 30px;
+  transition: 0.2s all;
 }
 
-
 .user button:hover {
-  background-color: rgba(255, 0, 0, 0.539);
+  box-shadow: 0 0 3px 2px rgba(255, 0, 0, 0.539);
 }
 
 .cart-items {
   margin-top: 5px;
   overflow-y: scroll;
-  height: 290px;
+  height: 300px;
 }
 
 /* width */
@@ -624,55 +619,80 @@ html {
 }
 
 .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   border-bottom: 2px solid;
-  width: 93%;
+  width: 95%;
   padding: 8px;
 }
 
-.item div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.item div button {
-  border: 0;
-  font-weight: 600;
-  color: black;
-  padding-left: 11px;
-  padding-right: 11px;
-  border-radius: 17px;
+.redbtn {
+  color: var(--text-color);
+  background: white;
   cursor: pointer;
+  transition: 0.2s;
   font-size: 15px;
+  font-weight: 600;
+  /* margin-left: 2rem; */
+  padding-left: 10px;
+  padding-right: 10px;
+  transition: 0.2s all;
   font-family: "Poppins";
-  border: 1px solid #111;
-  border-radius: 0;
+  /* border: 2px solid #111; */
 }
 
-.item div button:hover {
-  background-color: rgba(255, 0, 0, 0.539);
+.greenbtn {
+  color: var(--text-color);
+  background: white;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 15px;
+  border: none;
+  font-weight: 600;
+  padding-left: 10px;
+  padding-right: 10px;
+  transition: 0.2s all;
+  font-family: "Poppins";
+  border-top: 2px solid #111;
+  border-right: 2px solid #111;
+  border-bottom: 2px solid #111;
+}
+
+.redbtn:hover {
+  box-shadow: 0 0 3px 2px rgba(255, 0, 0, 0.539);
+}
+
+.greenbtn:hover{
+  box-shadow: 0 0 3px 2px rgba(9, 218, 44, 0.539);
 }
 
 .cart-total {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 15px;
   width: 95%;
+  font-weight: 600;
+  margin-top: 15px;
+  font-size: large;
   align-items: center;
-  font-size: 1.05rem;
+  justify-content: space-between;
 }
 
 .cart-total button {
-  background: black;
-  color: white;
+  background-color: #54290c;
+  color: #fff;
   display: flex;
   align-items: center;
-  width: 97px;
+  width: 100%;
   padding: 7px;
-  justify-content: space-between;
+  font-weight: 600;
+  justify-content: center;
   font-size: 14px;
-  border-radius: 16px;
+  border-radius: 50px;
   cursor: pointer;
+  transition: 0.2s all;
+}
+
+.cart-total button:hover{
+  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.7);
 }
 
 .success-wrap {
@@ -733,7 +753,7 @@ html {
 
 .orders {
   overflow-y: scroll;
-  height: 361px;
+  height: 381px;
   width: 103%;
   display: flex;
   flex-flow: wrap;
@@ -924,4 +944,4 @@ html {
   100% {
       transform: rotate(360deg);
   }
-  } 
+  }

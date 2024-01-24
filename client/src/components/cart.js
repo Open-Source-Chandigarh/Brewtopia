@@ -89,6 +89,7 @@ export default function Cart({name,username,setshowCart,cookies,cart,total,setCa
             position: "absolute",
             right: "24px",
             top: "20px",
+            color: "#54290C",
             fontSize: "26px",
             cursor: "pointer"
           }}></AiOutlineCloseCircle>
@@ -113,8 +114,8 @@ export default function Cart({name,username,setshowCart,cookies,cart,total,setCa
           </div>
           {/* showing cart total  */}
           <div className="cart-total">
-            <p>Total : ₹{total}</p>
-            <button type="button" onClick={() => handlePayment(total, username)}>
+            <p style={{paddingLeft: "10px"}}>Total : <a style={{margin: "0 0 0 60%"}}>₹ {total}</a></p>
+            <button type="button" onClick={() => handlePayment(total, username)} style={{ marginTop: "2%" }}>
             {loading ? <Loader/>:
               <><TiShoppingCart color="white" style={{ fontSize: "1.2rem" }}></TiShoppingCart>
               Checkout</>}
