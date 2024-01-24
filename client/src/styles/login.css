@@ -121,7 +121,8 @@
     font-weight: 500;
     line-height: 42px;
     text-align: center;
-    margin-bottom: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 .passwordinput{
     display: flex;
@@ -146,13 +147,13 @@
 .input {
     position: relative;
     display: block;
-    height: 50px;
+    height: 30px;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.09);
     border-radius: 3px;
-    padding: 0 10px;
+    padding: 10px 10px;
     margin-top: 14px;
-    font-size: 0.875;
+    font-size: 14px;
     font-weight: 300;
 }
 
