@@ -10,7 +10,8 @@ import { Navigate } from "react-router-dom";
 import PaymentSuccess from "./paymentsuccess";
 import Dashboard from "./Admin/Dashboard";
 import Sidebar from "./Admin/Sidebar";
-import { SidebarProvider } from "./lib/sidebarConext";
+import { SidebarProvider } from "./context/sidebarContext";
+import { FilterProvider } from "./context/FilterContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -19,6 +20,7 @@ const user = cookies.get("username");
 
 root.render(
   <>
+  <FilterProvider>
   <SidebarProvider>
     <BrowserRouter>
       <Routes>
@@ -83,5 +85,6 @@ root.render(
       }}
     />
     </SidebarProvider>
+    </FilterProvider>
   </>
 );
