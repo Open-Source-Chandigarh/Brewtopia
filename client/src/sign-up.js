@@ -132,7 +132,7 @@ export default function Sign() {
         <p className="redirect">
           Already a user ? <a href="/login">Login</a>
         </p>
-        <button type="button" onClick={handlesubmit} className="button">
+        <button type="button" onClick={handlesubmit} className="login_button">
           {loading? <LoaderBlack/>:"Sign Up"}
         </button>
       </form>

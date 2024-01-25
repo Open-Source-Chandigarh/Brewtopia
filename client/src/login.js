@@ -29,7 +29,7 @@ export default function Login() {
       }
 
       setloading(true);
-
+      console.log(apiUrl);
       //getting data from backend port
       await Axios.post(apiUrl + "/getUser", {
         username: username,
@@ -69,7 +69,7 @@ export default function Login() {
             <div className="shape" />
             <div className="shape" />
           </div>
-          <form className="form" onSubmit={handleLogin}>
+          <form className="form form_login" onSubmit={handleLogin}>
             <h3>Login Here</h3>
             <input
               className="input"
@@ -97,7 +97,7 @@ export default function Login() {
             <button
               type="button"
               onClick={handleLogin}
-              className="button"
+              className="login_button"
             >
               {loading ? <LoaderBlack /> : "Log In"}
             </button>
