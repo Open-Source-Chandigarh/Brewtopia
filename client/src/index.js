@@ -23,7 +23,7 @@ root.render(
   <SidebarProvider>
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={user ? <App /> : <Navigate replace to="/login" />} />
+        <Route exact path="/" element={user ? <App /> : <Navigate replace to="/login"/> } />
         <Route exact path="/login" element={user ? <Navigate replace to="/"/> : <Login/>} />
         <Route path="/sign-up" element={user ? <Navigate replace to="/"/>:<Sign/>}></Route>
         <Route path="/paymentsuccess" element={<PaymentSuccess/>}></Route>
