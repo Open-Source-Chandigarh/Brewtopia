@@ -11,6 +11,7 @@ import PaymentSuccess from "./paymentsuccess";
 import Dashboard from "./Admin/Dashboard";
 import Sidebar from "./Admin/Sidebar";
 import { SidebarProvider } from "./lib/sidebarConext";
+import Forgetpassword from "./Forgetpassword";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -26,6 +27,7 @@ root.render(
         <Route exact path="/login" element={user ? <Navigate replace to="/"/> : <Login/>} />
         <Route path="/sign-up" element={user ? <Navigate replace to="/"/>:<Sign/>}></Route>
         <Route path="/paymentsuccess" element={<PaymentSuccess/>}></Route>
+        <Route path="/Forgetpassword" element={<Forgetpassword/>}></Route>
         <Route path="/admin">
           <Route path="/admin/dashboard" element={<Dashboard/>}></Route>
         </Route>

@@ -5,6 +5,7 @@ import Axios from "axios";
 import Cookies from "universal-cookie";
 import toast from "react-hot-toast";
 import { IoEyeOutline,IoEyeOffOutline  } from "react-icons/io5";
+import { Navigate,Link } from "react-router-dom";
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -91,6 +92,12 @@ export default function Login() {
             />
             <button type="button" className="togglebutton" onClick={handleToggle}>{showPassword ? <IoEyeOffOutline size={16} />: <IoEyeOutline size={16} />}</button>
             </div>
+            <button></button>
+            <p  className="redirect">
+           
+            <a href="/Forgetpassword" style={{textAlign:"right",paddingTop:"10px"}}  >Forgot Password?</a>
+            </p>
+            
             <p className="redirect">
               Not a user ? <a href="/sign-up">sign up</a>
             </p>
