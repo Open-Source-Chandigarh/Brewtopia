@@ -6,9 +6,9 @@ import { BsFillCupFill } from "react-icons/bs";
 import "./AdminComponents/DashboardComponents.css";
 import "./Dashboard.css";
 
-import { SidebarContext } from "../lib/sidebarConext";
 import DashboardComponents from "./AdminComponents/DashboardCards";
 import Sidebar from "./Sidebar";
+import { SidebarContext } from "../context/sidebarContext";
 
 const Dashboard = () => {
   const { isCollapsed, toggleSidebarcollapse,tab } = useContext(SidebarContext);
