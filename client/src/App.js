@@ -11,12 +11,10 @@ import AllOrders from "./components/allOrders.js";
 import Cart from "./components/cart.js";
 import ScrollToTop from "./components/scrolltoTop";
 import Footer from "./components/footer.js";
-import { FilterContext } from "./context/FilterContext.js";
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
 function App() {
-  const {setFilterValuesState, values , pro} = useContext(FilterContext);
   const [filterOpenState, setfilterOpenstate] = useState(false);
 
 
@@ -29,10 +27,7 @@ function App() {
   const[chillersItems,setChillersItems] = useState(chillers)
   const[delightsItems,setDelightsItems] = useState(delights)
   const[sweettoothItems,setSweettoothItems] = useState(sweettooth)
-const allItems = [...hotclassics, ...chillers, ...delights, ...sweettooth]
-const minimumPrice = Math.min(...allItems.map(item => Number(item.price)))
-const maximumPrice = Math.max(...allItems.map(item => Number(item.price)));
-console.log('max: ', maximumPrice)
+
   //for cart added items track
   const [total, setTotal] = useState(0);
   const [cart, setCart] = useState([]);
@@ -139,9 +134,6 @@ console.log('max: ', maximumPrice)
     setSweettoothItems(newArraySweettooth)
 
   }
-
-  console.log(values)
-  // console.log(filteredPro)
   return (
     
     <div className="App">
@@ -178,71 +170,7 @@ console.log('max: ', maximumPrice)
       </nav>
 
         {/* Filter state management goes here */}
-      <div className="filter__div">
-          <button onClick={sortByPrice} className="sort-btn">Filter</button>
-          <div className={`${filterOpenState ? 'active_filter__menu' : 'filter__menu'}`}>
-            <input type="text" 
-            className="search_filter__input"
-            placeholder="search"  
-            value={values.searchTerm} 
-            onChange={(e) => setFilterValuesState({...values, searchTerm: e.target.value})} 
-            
-            />
-            <label htmlFor="price">
-              price: {values.maxPrice}
-            </label>
-        <input name="price" type="range" min={minimumPrice} max={maximumPrice}  onChange={(e)=> setFilterValuesState({
-            ...values,
-            minPrice:0,
-            maxPrice:e.target.value,
-          })}>
-            
-          </input>
-          <button onClick={()=> setFilterValuesState({
-            ...values,
-          sortOrder: 'desc'
-          })}>
-          high to low
-          </button>
-
-          <button onClick={()=> setFilterValuesState({
-          ...values,
-          sortOrder: 'asc'
-          })}>
-          low to high
-          </button>
-
-          <div className="category_div" onClick={()=> setFilterValuesState({
-            ...values,
-          category: 'chillers'
-          })}>
-          Chillers
-          </div>
-
-          <div className="category_div" onClick={()=> setFilterValuesState({
-            ...values,
-          category: 'delights'
-          })}>
-          Delights
-          </div>
-
-          <div className="category_div" onClick={()=> setFilterValuesState({
-            ...values,
-          category: 'sweet_tooth'
-          })}>
-          sweet_tooth
-          </div>
-
-          <div className="category_div" onClick={()=> setFilterValuesState({
-            ...values,
-          category: 'hot_classics'
-          })}>
-          Hot Classics
-          </div>
-          
-          </div>
-      </div>
-
+ 
       {/* Showing all orders as popup */}
       {showOrders && (
         <AllOrders username={username} setshowOrders={setshowOrders} />
@@ -286,33 +214,10 @@ console.log('max: ', maximumPrice)
         {/* Search Items */}
 
         {
-          
 
-          filterOpenState ? (
-            
-          <div className="product-container">
-            {values.filteredProducts.map(
-              (item, index) => {
-                return (
-                  <Product
-                    key={index}
-                    product={item}
-                    cartState={cart}
-                    setCart={setCart}
-                    total={total}
-                    setTotal={setTotal}
-                    searchedItems={searchedItems}
-                  ></Product>
-                );
-              }
-            )}
-          </div>
-
-
-            ) : (
-              searchedItems.length > 0
+          searchedItems.length >0
            ?
-          (<div className="search">
+          <div className="search">
             <div className="product-container">
             {searchedItems.map(
               (item, index) => {
@@ -330,9 +235,9 @@ console.log('max: ', maximumPrice)
               }
             )}
           </div>
-          </div>)
+          </div>
           :
-          (<div>
+          <div>
           <div id="product1">
           <h2>HOT CLASSICS</h2>
           <div className="product-container">
@@ -403,7 +308,7 @@ console.log('max: ', maximumPrice)
             })}
           </div>
         </div>
-          </div>))
+          </div>
         }
       </main>
       <ScrollToTop />
