@@ -32,6 +32,9 @@
 html {
   scroll-behavior: smooth;
 }
+body{
+  background: #ecd3bd;
+}
 
 .App {
   font-family: 'Poppins', sans-serif;

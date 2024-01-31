@@ -147,6 +147,7 @@ function App() {
           <div><a href="#product2">ALL TIME CHILLERS</a></div>
           <div><a href="#product3">ALL DAY DELIGHTS</a></div>
           <div><a href="#product4">SWEET TOOTH</a></div>
+          <div><a href="/search">Search</a></div>
         </div>
 
         <div className="flex">
