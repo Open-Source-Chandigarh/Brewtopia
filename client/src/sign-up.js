@@ -50,13 +50,13 @@ export default function Sign() {
     setloading(true)
 
     //posting data to api
-    await Axios.post(apiUrl + "/createUser", {
+    await Axios.post(apiUrl+"/createUser", {
       name: name, 
       username: username,
       password: password
     })
       .then((res) => {
-        if(res.data.username && res.data.password==res.data.confirmpassword){
+        if(res.data.username && res.data.password===res.data.confirmpassword){
           toast.success("registered successfully")
           Navigation("/login");
         }else{

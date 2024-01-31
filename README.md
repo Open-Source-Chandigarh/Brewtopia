@@ -98,9 +98,13 @@ DB =  YOUR_MONGODB_TESTING_URL
 RAZORPAY_API_KEY = YOUR_API_KEY
 RAZORPAY_API_SECRET= YOUR_API_SECRET
 ACCESS_URL=http://localhost:3000
+FROM_EMAIL_ADDRESS=YOUR_EMAIL_ADDRESS
+GOOGLE_APP_PASSWORD=YOUR_GOOGLE_APP_PASSWORD
 ```
 
 To generate your RAZORPAY Key's you can refer this video - https://youtu.be/7TX7DErMvVE?si=QWtLVXLPRNpdUovk
+
+To generate your google app password go to security tab in your settings and find app passwords and set it there.
 
 ### 9. Install dependencies
 

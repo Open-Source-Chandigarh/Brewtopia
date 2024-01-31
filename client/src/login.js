@@ -32,7 +32,7 @@ export default function Login() {
       setloading(true);
       console.log(apiUrl);
       //getting data from backend port
-      await Axios.post(apiUrl + "/getUser", {
+      await Axios.post(  apiUrl+"/getUser", {
         username: username,
         password: password,
       }).then((res) => {

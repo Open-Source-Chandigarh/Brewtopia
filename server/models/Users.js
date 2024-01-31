@@ -23,6 +23,7 @@ const UserSchema = new mongoose.Schema({
     cartTotal : {
         type : Number
     },
+    Tokens: [{ type: String }],
     AllOrders:[{
         order_id : { type: String},
         amount : { type: Number},

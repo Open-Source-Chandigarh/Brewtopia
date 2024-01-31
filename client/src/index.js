@@ -12,6 +12,10 @@ import Dashboard from "./Admin/Dashboard";
 import Sidebar from "./Admin/Sidebar";
 import { SidebarProvider } from "./lib/sidebarConext";
 import Forgetpassword from "./Forgetpassword";
+import ResetPassword from "./ResetPassword";
+import PasswordResetConfirmation from "./PasswordResetConfirmation";
+import EmailSentConfirmation from "./EmailSentConfirmation";
+import PasswordResetLinkExpired from "./PasswordResetLinkExpired";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -28,6 +32,10 @@ root.render(
         <Route path="/sign-up" element={user ? <Navigate replace to="/"/>:<Sign/>}></Route>
         <Route path="/paymentsuccess" element={<PaymentSuccess/>}></Route>
         <Route path="/Forgetpassword" element={<Forgetpassword/>}></Route>
+        <Route path="/resetpassword" element={<ResetPassword/>}></Route>
+        <Route path="/emailconfirmation" element={<EmailSentConfirmation/>}></Route>
+        <Route path="/resetpasswordconfirmation" element={<PasswordResetConfirmation/>}></Route>
+        <Route path="/resetlinkexpired" element={<PasswordResetLinkExpired/>}></Route>
         <Route path="/admin">
           <Route path="/admin/dashboard" element={<Dashboard/>}></Route>
         </Route>
