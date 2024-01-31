@@ -58,12 +58,9 @@ const getUser = async (req, res) => {
     if (!user) {
       return res.json({ error: "User not found" });
     }
-    console.log(username+"username")
-    console.log(user.password+"expected password")
-    console.log(password+"entered password")
    
     const isValidhashedPassword =  bcryptjs.compare(password.trim(), user.password.trim());
-console.log(isValidhashedPassword+"valid password")
+
     // Incorrect password
     if (!isValidhashedPassword) {
       return res.json({ error: "Incorrect password" });
@@ -202,11 +199,9 @@ const resetPassword=async(req,res)=>{
 
 
     res.json({status:true})
-    console.log(`Password updated for user with username ${username}`);
   } else {
     res.json({status:false})
 
-    console.log(`User with username ${username} not found`);
   }
 }
 catch(error){
