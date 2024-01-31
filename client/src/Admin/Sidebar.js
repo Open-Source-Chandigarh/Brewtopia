@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef } from 'react';
-import {  FaUser, FaCog, FaArrowRight, FaSignOutAlt, FaBell, FaSearch, FaCoffee } from 'react-icons/fa'; // Import your desired icons
+// import {  FaUser, FaCog, FaArrowRight, FaSignOutAlt, FaBell, FaSearch, FaCoffee } from 'react-icons/fa'; // Import your desired icons
 import {  BsPeople, BsGear } from "react-icons/bs";
 import { AiOutlineHome } from "react-icons/ai";
 import { TiContacts } from "react-icons/ti";
@@ -7,8 +7,8 @@ import { Link }from "react-router-dom";
 
 import "./Dashboard.css";
 
-import { SidebarContext } from '../lib/sidebarConext';
 import useScreenSize from '../lib/useScreenSize';
+import { SidebarContext } from '../context/sidebarContext';
 
 const sidebarItems = [
   {
