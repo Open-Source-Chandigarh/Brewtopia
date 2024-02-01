@@ -14,7 +14,8 @@ export default function Login() {
   const [password, setpassword] = useState("");
   const [loading, setloading] = useState(false);
   const [showPassword,setShowPassword]=useState(false);
-
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
   const cookies = new Cookies();
 
   //sending request to api for login
@@ -27,10 +28,12 @@ export default function Login() {
 
       if (!username || !password) {
         return toast.error("username and password are required");
+      }else if (username.length>0 && !emailRegex.test(username) ) {
+        return toast.error("Enter a valid email address");
       }
 
       setloading(true);
-      console.log(apiUrl);
+   
       //getting data from backend port
       await Axios.post(  apiUrl+"/getUser", {
         username: username,
@@ -75,7 +78,7 @@ export default function Login() {
             <input
               className="input"
               type="text"
-              placeholder="Username"
+              placeholder="Email"
               id="username"
               onChange={(e) => setusername(e.target.value)}
               onKeyDown={handleEnterKey}

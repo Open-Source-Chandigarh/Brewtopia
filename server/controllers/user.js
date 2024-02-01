@@ -28,6 +28,7 @@ const createUser = async (req, res) => {
     const hashedPassword = await bcryptjs.hash(password, salt).catch(err => console.log(err))
   
     user.password = hashedPassword;
+    user.Tokens=[];
     //creating new user in usermodel
     const newUser = new UserModel(user);
 
@@ -165,8 +166,6 @@ const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: '5m' });
 
   try {
     const info = await transporter.sendMail(mailOptions);
-   
-    console.log('Password reset email sent: ' + info.response);
     res.json({ success: true });
   } catch (error) {
     console.error('Error sending password reset email:', error);
@@ -176,29 +175,24 @@ const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: '5m' });
 
 const resetPassword=async(req,res)=>{
   const { username, newPassword,token } = req.body;
+  const salt = await bcryptjs.genSalt(11);
+    const hashedPassword = await bcryptjs.hash(newPassword, salt).catch(err => console.log(err));
+  
+   
   try{
     const result = await UserModel.updateOne(
       { username: username },
       {
         $set: {
-          password: newPassword,
-          // Create or update the 'Tokens' field
-         
+          password: hashedPassword,
         },
         $addToSet: {
           Tokens: token
         }
       }
     );
-    
- 
-
-
-
-  if (result.matchedCount === 1) {
-
-
-    res.json({status:true})
+     if (result.matchedCount === 1) {
+             res.json({status:true})
   } else {
     res.json({status:false})
 
