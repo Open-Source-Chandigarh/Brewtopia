@@ -32,6 +32,9 @@
 html {
   scroll-behavior: smooth;
 }
+body{
+  background: #ecd3bd;
+}
 
 .App {
   font-family: 'Poppins', sans-serif;
@@ -61,65 +64,6 @@ html {
   z-index: 999;
   background-color: var(--secondary-bg);
 }
-
-.filter__div{
-  position: fixed;
-  top: 13%;
-  left: 8px;
-  z-index: 999;
-}
-.filter__menu{
-  display: none;
-  transition: all 300ms ease ;
-}
-.active_filter__menu{
-  position: absolute;
-  z-index: 999;
-  border: 1px solid rgb(152, 98, 51);
-  height: 300px;
-  width: 180px;
-  margin-top: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 5px;
-  padding: 4px;
-  background: white;
-  border-radius: 12px;
-  transition: all 300ms ease ;
-
-}
-.active_filter__menu .category_div{
-  font-size: small;
-  width: 80%;
-  padding: 4px;
-  color: brown;
-  border-radius: 8px;
-  border: 1px solid bisque;
-  cursor: pointer;
-}
-.search_filter__input {
-  padding: 6px ;
-  width: 80%;
-  border-radius: 8px;
-  border: 1px solid bisque;
-  
-}
-.active_filter__menu button {
-  width: 80%;
-  padding: 4px;
-  background: #d7d4d4;
-  border-radius: 8px;
-  outline: 0;
-  border: 0;
-
-}
-.active_filter__menu input[type='range'] {
- 
-  width: 8rem;
-}
-
 
 .cartOrders{
   display: flex;
@@ -185,7 +129,7 @@ html {
   color: brown;
 }
 
-.sort-btn{
+/* .sort-btn{
   display: inline-block;
   padding: 10px;
   font-size: 16px;
@@ -199,7 +143,7 @@ html {
   background-color: brown;
   transition: background-color 0.3s, color 0.3s;
   margin-left: 5px;
-}
+} */
 
 .nav a {
   font-size: 3.2rem;

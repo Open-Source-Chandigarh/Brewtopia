@@ -56,7 +56,7 @@ export default function Sign() {
       password: password
     })
       .then((res) => {
-        if(res.data.username && res.data.password==res.data.confirmpassword){
+        if(res.data.username && res.data.password===res.data.confirmpassword){
           toast.success("registered successfully")
           Navigation("/login");
         }else{

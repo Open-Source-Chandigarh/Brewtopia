@@ -9,9 +9,9 @@ import { Toaster } from "react-hot-toast";
 import { Navigate } from "react-router-dom";
 import PaymentSuccess from "./paymentsuccess";
 import Dashboard from "./Admin/Dashboard";
-import Sidebar from "./Admin/Sidebar";
 import { SidebarProvider } from "./context/sidebarContext";
 import { FilterProvider } from "./context/FilterContext";
+import Search from "./components/Search";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -27,7 +27,9 @@ root.render(
         <Route exact path="/" element={user ? <App /> : <Navigate replace to="/login"/> } />
         <Route exact path="/login" element={user ? <Navigate replace to="/"/> : <Login/>} />
         <Route path="/sign-up" element={user ? <Navigate replace to="/"/>:<Sign/>}></Route>
-        <Route path="/paymentsuccess" element={<PaymentSuccess/>}></Route>
+            <Route path="/paymentsuccess" element={<PaymentSuccess />}></Route>
+        <Route path="/Search" element={<Search/>}></Route>
+            
         <Route path="/admin">
           <Route path="/admin/dashboard" element={<Dashboard/>}></Route>
         </Route>

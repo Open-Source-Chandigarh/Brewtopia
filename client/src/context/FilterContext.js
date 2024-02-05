@@ -12,7 +12,6 @@ const initialValue = {
 const FilterContext = createContext(initialValue);
 
 const FilterProvider = ({ children }) => {
-
     const [values, setValues] = useState(initialValue);
 
       const setFilterValuesState = (props) => {
@@ -68,7 +67,7 @@ const FilterProvider = ({ children }) => {
     };
 
     return (
-      <FilterContext.Provider value={{values, setFilterValuesState,}}>
+      <FilterContext.Provider value={{values, setFilterValuesState}}>
         {children}
       </FilterContext.Provider>
     );
