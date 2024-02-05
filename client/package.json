@@ -7,6 +7,8 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.4.0",
+    "jsonwebtoken": "^9.0.2",
+    "jwt-decode": "^4.0.0",
     "primeicons": "^6.0.1",
     "primereact": "^10.2.1",
     "react": "^18.2.0",
@@ -17,6 +19,7 @@
     "react-scripts": "5.0.1",
     "styled-components": "^6.1.6",
     "universal-cookie": "^4.0.4",
+    "util": "^0.12.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -44,6 +47,7 @@
     ]
   },
   "devDependencies": {
-    "react-router-dom": "^6.11.1"
+    "react-router-dom": "^6.11.1",
+    "webpack-cli": "^5.1.4"
   }
 }

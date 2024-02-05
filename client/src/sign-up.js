@@ -21,7 +21,8 @@ export default function Sign() {
   const [showPassword,setShowPassword]=useState(false);
   const [showConfirmPassword,setShowConfirmPassword]=useState(false);
   const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
   const cookies = new Cookies();
   let username_check = cookies.get('username');
   let name_check = cookies.get('name');
@@ -33,11 +34,13 @@ export default function Sign() {
     if(!name){
       return toast.error("Enter name");
     }else if(!username){
-      return toast.error("Enter username");
+      return toast.error("Enter Email");
     }else if(!password){
       return toast.error("Enter password");
     }else if(!confirmpassword){
       return toast.error("Enter confirm password");
+    }else if(username.length>0 && !emailRegex.test(username)){
+      return toast.error("Enter Valid email");
     }else if(password!==confirmpassword){
       return toast.error("Both the passwords are not matching");
     }else if(!passwordRegex.test(password.trim())){
@@ -50,7 +53,7 @@ export default function Sign() {
     setloading(true)
 
     //posting data to api
-    await Axios.post(apiUrl + "/createUser", {
+    await Axios.post(apiUrl+"/createUser", {
       name: name, 
       username: username,
       password: password
@@ -105,7 +108,7 @@ export default function Sign() {
         <input
           className="input"
           type="text"
-          placeholder="Username"
+          placeholder="Email"
           onChange={(e) => setusername(e.target.value)}
           onKeyDown={handleEnterKey}
         />

@@ -21,12 +21,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //allowed origins
-const allowedOrigin = process.env.ACCESS_URL;
+const allowedOrigin = process.env.ACCESS_URL
+
 
 // Use a middleware function to set the header dynamically
 app.use((req, res, next) => {
+ 
+  
 
   res.header("Access-Control-Allow-Origin", allowedOrigin);
+  
   // Set other CORS headers
   res.header("Access-Control-Allow-Credentials", true);
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
@@ -49,4 +53,8 @@ app.use(keysRouter);
 //server will be listening at port 5000
 app.listen( process.env.PORT, () => {
   console.log(`server is listening on ${process.env.PORT}`);
+});
+
+app.get('/', (req, res) => {
+  res.send('Hello, World!');
 });
