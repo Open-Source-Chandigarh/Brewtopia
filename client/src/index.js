@@ -9,7 +9,6 @@ import { Toaster } from "react-hot-toast";
 import { Navigate } from "react-router-dom";
 import PaymentSuccess from "./paymentsuccess";
 import Dashboard from "./Admin/Dashboard";
-import Sidebar from "./Admin/Sidebar";
 import { SidebarProvider } from "./context/sidebarContext";
 import { FilterProvider } from "./context/FilterContext";
 import Forgetpassword from "./Forgetpassword";
@@ -17,7 +16,7 @@ import ResetPassword from "./ResetPassword";
 import PasswordResetConfirmation from "./PasswordResetConfirmation";
 import EmailSentConfirmation from "./EmailSentConfirmation";
 import PasswordResetLinkExpired from "./PasswordResetLinkExpired";
-
+import Search from "./components/Search";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -39,6 +38,8 @@ root.render(
         <Route path="/emailconfirmation" element={<EmailSentConfirmation/>}></Route>
         <Route path="/resetpasswordconfirmation" element={<PasswordResetConfirmation/>}></Route>
         <Route path="/resetlinkexpired" element={<PasswordResetLinkExpired/>}></Route>
+            <Route path="/paymentsuccess" element={<PaymentSuccess />}></Route>
+        <Route path="/Search" element={<Search/>}></Route>
         <Route path="/admin">
           <Route path="/admin/dashboard" element={<Dashboard/>}></Route>
         </Route>
