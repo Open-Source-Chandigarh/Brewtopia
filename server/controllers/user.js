@@ -5,13 +5,18 @@ const Cookies =require("universal-cookie");
 const jwt = require('jsonwebtoken');
 const crypto = require("crypto");
 const { response } = require("express");
+
 require("dotenv").config();
+
 const createUser = async (req, res) => {
   try {
+
 
     //getting data from request body
     const user = req.body;
     const password = user.password;
+
+    console.log(user);
 
     if(!user || !password){
       res.json({error : "username and password is required"})

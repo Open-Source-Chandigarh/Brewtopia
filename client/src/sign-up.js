@@ -107,7 +107,7 @@ export default function Sign() {
         />
         <input
           className="input"
-          type="text"
+          type="email"
           placeholder="Email"
           onChange={(e) => setusername(e.target.value)}
           onKeyDown={handleEnterKey}

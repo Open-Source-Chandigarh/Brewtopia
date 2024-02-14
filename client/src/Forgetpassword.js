@@ -6,10 +6,6 @@ import { useNavigate } from 'react-router-dom';
 import Cookies from "universal-cookie";
 import LoaderBlack from "./Loaders/loaderblack";
 
-
-
-
-
 export default function Forgetpassword() {
 
   const Navigation=useNavigate();
