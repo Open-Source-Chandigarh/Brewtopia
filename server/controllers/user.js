@@ -70,7 +70,7 @@ const getUser = async (req, res) => {
     );
 
     // Incorrect password
-    if (!isValidPassword) {
+    if (!isValidhashedPassword) {
       return res.json({ error: "Incorrect password" });
     }
 
