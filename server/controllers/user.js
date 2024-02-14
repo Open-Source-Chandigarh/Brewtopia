@@ -31,9 +31,8 @@ const createUser = async (req, res) => {
 
     const salt = await bcryptjs.genSalt(11)
     const hashedPassword = await bcryptjs.hash(password, salt).catch(err => console.log(err))
-  
+
     user.password = hashedPassword;
-    user.Tokens=[];
     //creating new user in usermodel
     const newUser = new UserModel(user);
 
@@ -64,11 +63,11 @@ const getUser = async (req, res) => {
     if (!user) {
       return res.json({ error: "User not found" });
     }
-   
-    const isValidhashedPassword =  bcryptjs.compare(password.trim(), user.password.trim());
+
+    const isValidPassword = await bcryptjs.compare(password, user.password);
 
     // Incorrect password
-    if (!isValidhashedPassword) {
+    if (!isValidPassword) {
       return res.json({ error: "Incorrect password" });
     }
 
@@ -84,130 +83,4 @@ const getUser = async (req, res) => {
   }
 };
 
-// forget-password route
-const forgotPassword = async (req, res) => {
-  try {
-    const username = req.body.username;
-
-    if (!username) {
-      return res.status(400).json({ error: "Username is required" });
-    }
-
-    const user = await UserModel.findOne({ username: username });
-
-    if (!user) {
-      return res.json({ status: false });
-    }
-
-    return res.json({ status: true });
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({ error: "Internal Server Error" });
-  }
-};
-
-//nodemailer configuration
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.FROM_EMAIL_ADDRESS,
-    pass: process.env.GOOGLE_APP_PASSWORD
-  },
-});
-
-let resetdone=false;
-
-const markTokenAsConsumed=async (req,res)=>{
- const {token,username}=req.body;
- try{
- const user = await UserModel.findOne({
-  username: username,
-  Tokens: {
-    $elemMatch: {
-      $eq: token
-    }
-  }
-});
-if(user)
-res.status(200).json({ status: true, message: 'Token marked as consumed' });
-else{
-res.status(200).json({ status: false, message: 'Token marked as consumed' });
-
-}
-
- }
- catch(err){
-res.status(500).json({  message: 'Internal server error' });
-
-   console.log(err);
- }
-  
-}
-
-const sendEmail=async (req, res) => {
-  const { to, username } = req.body;
-
- 
-
- 
-
-
-  const payload={username:username,resetdone:resetdone}
-const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: '5m' });
-
-  const resetLink =process.env.ACCESS_URL+`/resetpassword?token=${token}`;
-  
-  const mailOptions = {
-    from: process.env.FROM_EMAIL_ADDRESS,
-    to: to,
-    subject: 'Password Reset',
-    html: `
-      <p>Hello ${username},</p>
-      <p>We received a request to reset your password. Click the link below to reset your password:</p>
-      <a href="${resetLink}" >Reset Password</a>
-      <p>If you didn't request a password reset, you can ignore this email.</p>
-    `,
-  };
-
-  try {
-    const info = await transporter.sendMail(mailOptions);
-    res.json({ success: true });
-  } catch (error) {
-    console.error('Error sending password reset email:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-};
-
-const resetPassword=async(req,res)=>{
-  const { username, newPassword,token } = req.body;
-  const salt = await bcryptjs.genSalt(11);
-    const hashedPassword = await bcryptjs.hash(newPassword, salt).catch(err => console.log(err));
-  
-   
-  try{
-    const result = await UserModel.updateOne(
-      { username: username },
-      {
-        $set: {
-          password: hashedPassword,
-        },
-        $addToSet: {
-          Tokens: token
-        }
-      }
-    );
-     if (result.matchedCount === 1) {
-             res.json({status:true})
-  } else {
-    res.json({status:false})
-
-  }
-}
-catch(error){
-  res.json({error:"Internal server error"})
-
-  console.log(error);
-}
-}
-
-module.exports = { createUser, getUser,forgotPassword,sendEmail,resetPassword ,markTokenAsConsumed};
+module.exports = { createUser, getUser };
