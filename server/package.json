@@ -21,7 +21,8 @@
     "express-rate-limit": "^7.1.5",
     "mongoose": "^7.3.3",
     "nodemailer": "^6.9.9",
-    "razorpay": "^2.8.6"
+    "razorpay": "^2.8.6",
+    "universal-cookie": "^7.0.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
