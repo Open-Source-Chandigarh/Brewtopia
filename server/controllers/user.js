@@ -27,12 +27,6 @@ const createUser = async (req, res) => {
       return res.json({ error: "Username already exists" });
     }
 
-<<<<<<< Updated upstream
-    const salt = await bcryptjs.genSalt(11)
-    const hashedPassword = await bcryptjs.hash(password, salt).catch(err => console.log(err))
-
-    user.password = hashedPassword;
-=======
     const salt = await bcryptjs.genSalt(11);
     const hashedPassword = await bcryptjs
       .hash(password, salt)
@@ -40,7 +34,6 @@ const createUser = async (req, res) => {
 
     user.password = hashedPassword;
     user.Tokens = [];
->>>>>>> Stashed changes
     //creating new user in usermodel
     const newUser = new UserModel(user);
 
@@ -71,14 +64,10 @@ const getUser = async (req, res) => {
       return res.json({ error: "User not found" });
     }
 
-<<<<<<< Updated upstream
-    const isValidPassword = await bcryptjs.compare(password, user.password);
-=======
     const isValidhashedPassword = bcryptjs.compare(
       password.trim(),
       user.password.trim()
     );
->>>>>>> Stashed changes
 
     // Incorrect password
     if (!isValidPassword) {
@@ -96,9 +85,6 @@ const getUser = async (req, res) => {
   }
 };
 
-<<<<<<< Updated upstream
-module.exports = { createUser, getUser };
-=======
 // forget-password route
 const forgotPassword = async (req, res) => {
   try {
@@ -227,4 +213,3 @@ module.exports = {
   resetPassword,
   markTokenAsConsumed,
 };
->>>>>>> Stashed changes
