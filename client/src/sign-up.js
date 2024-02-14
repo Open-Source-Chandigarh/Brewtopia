@@ -17,19 +17,12 @@ export default function Sign() {
   const [password, setpassword] = useState("");
   const [confirmpassword, setconfirmpassword] = useState("");
 
-<<<<<<< Updated upstream
-  const [loading,setloading] = useState(false);
-  const [showPassword,setShowPassword]=useState(false);
-  const [showConfirmPassword,setShowConfirmPassword]=useState(false);
-  const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-=======
   const [loading, setloading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const passwordRegex =
     /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
->>>>>>> Stashed changes
 
   const cookies = new Cookies();
   let username_check = cookies.get("username");
@@ -40,25 +33,15 @@ export default function Sign() {
 
     if (!name) {
       return toast.error("Enter name");
-<<<<<<< Updated upstream
-    }else if(!username){
-      return toast.error("Enter username");
-    }else if(!password){
-=======
     } else if (!username) {
       return toast.error("Enter Email");
     } else if (!password) {
->>>>>>> Stashed changes
       return toast.error("Enter password");
     } else if (!confirmpassword) {
       return toast.error("Enter confirm password");
-<<<<<<< Updated upstream
-    }else if(password!==confirmpassword){
-=======
     } else if (username.length > 0 && !emailRegex.test(username)) {
       return toast.error("Enter Valid email");
     } else if (password !== confirmpassword) {
->>>>>>> Stashed changes
       return toast.error("Both the passwords are not matching");
     } else if (!passwordRegex.test(password.trim())) {
       console.log(passwordRegex.test(password));
@@ -69,26 +52,6 @@ export default function Sign() {
       //display loader
       setloading(true);
 
-<<<<<<< Updated upstream
-    //display loader
-    setloading(true)
-
-    //posting data to api
-    await Axios.post(apiUrl + "/createUser", {
-      name: name, 
-      username: username,
-      password: password
-    })
-      .then((res) => {
-        if(res.data.username && res.data.password===res.data.confirmpassword){
-          toast.success("registered successfully")
-          Navigation("/login");
-        }else{
-          toast.error(res.data.error || "an error occured")
-          setloading(false);
-        }
-      }).catch((err)=>console.log(err))
-=======
       //posting data to api
       await Axios.post(apiUrl + "/createUser", {
         name: name,
@@ -108,7 +71,6 @@ export default function Sign() {
           }
         })
         .catch((err) => console.log(err));
->>>>>>> Stashed changes
     }
   };
 

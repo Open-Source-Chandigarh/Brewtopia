@@ -4,11 +4,7 @@ import LoaderBlack from "./Loaders/loaderblack";
 import Axios from "axios";
 import Cookies from "universal-cookie";
 import toast from "react-hot-toast";
-<<<<<<< Updated upstream
-import { IoEyeOutline,IoEyeOffOutline  } from "react-icons/io5";
-=======
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
->>>>>>> Stashed changes
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -16,12 +12,8 @@ export default function Login() {
   const [username, setusername] = useState("");
   const [password, setpassword] = useState("");
   const [loading, setloading] = useState(false);
-<<<<<<< Updated upstream
-  const [showPassword,setShowPassword]=useState(false);
-=======
   const [showPassword, setShowPassword] = useState(false);
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
->>>>>>> Stashed changes
 
   const cookies = new Cookies();
 
@@ -33,19 +25,12 @@ export default function Login() {
     try {
       if (!username || !password) {
         return toast.error("username and password are required");
-<<<<<<< Updated upstream
-      }
-
-      setloading(true);
-      console.log(apiUrl);
-=======
       } else if (username.length > 0 && !emailRegex.test(username)) {
         return toast.error("Enter a valid email address");
       }
 
       setloading(true);
 
->>>>>>> Stashed changes
       //getting data from backend port
       await Axios.post(apiUrl + "/getUser", {
         username: username,
@@ -98,33 +83,12 @@ export default function Login() {
           <div className="passwordinput">
             <input
               className="input"
-<<<<<<< Updated upstream
-              type="text"
-              placeholder="Username"
-              id="username"
-              onChange={(e) => setusername(e.target.value)}
-              onKeyDown={handleEnterKey}
-            />
-            <div className="passwordinput">
-            <input
-              className="input"
-              type= {showPassword ? "text":"password"}
-=======
               type={showPassword ? "text" : "password"}
->>>>>>> Stashed changes
               placeholder="Password"
               id="password"
               onChange={(e) => setpassword(e.target.value)}
               onKeyDown={handleEnterKey}
             />
-<<<<<<< Updated upstream
-            <button type="button" className="togglebutton" onClick={handleToggle}>{showPassword ? <IoEyeOffOutline size={16} />: <IoEyeOutline size={16} />}</button>
-            </div>
-            <p className="redirect">
-              Not a user ? <a href="/sign-up">sign up</a>
-            </p>
-=======
->>>>>>> Stashed changes
             <button
               type="button"
               className="togglebutton"

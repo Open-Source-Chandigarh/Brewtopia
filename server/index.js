@@ -1,7 +1,6 @@
 //requiring all the modules
 const express = require("express");
 const app = express();
-const cors = require("cors");
 
 const connectDb = require("./config/db.js")
 
@@ -15,13 +14,13 @@ require("dotenv").config();
 
 connectDb();
 
-app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 //for json stringify
 app.use(express.json());
 
 //allowed origins
 const allowedOrigin = process.env.ACCESS_URL;
+
 
 // Use a middleware function to set the header dynamically
 app.use((req, res, next) => {
