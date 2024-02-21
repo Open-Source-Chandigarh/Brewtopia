@@ -1,0 +1,8 @@
+addReviewers: true
+
+addAssignees: false
+
+reviewers:
+  - Varinder-Dhillon0
+
+numberOfReviewers: 1
