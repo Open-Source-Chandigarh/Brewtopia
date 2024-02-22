@@ -70,9 +70,12 @@ const Search = () => {
           </div>
         </nav>
         <section className="search__container">
-          {/**asdfderw */}
-            <FilterSidebar/>
-            {/**asdfderw */}
+          {/*Filter Sidebar starts*/}
+          <div className="sidebarFilter">
+            <FilterSidebar />
+          </div>
+
+          {/*Filter Sidebar ends */}
           <div className="search__products">
             {values.filteredProducts.length !== 0 ? (
               <div className="search_product-container">
