@@ -80,20 +80,23 @@ const FilterSidebar = () => {
         <hr></hr>
         <div className="select_category">
           <span className="category__heading">Category</span>
-          {categories.map((category) => (
-            <span
-              key={category} // Make sure to add a unique key when rendering a list of elements
-              className="category"
-              onClick={(e) =>
-                setFilterValuesState({
-                  ...values,
-                  category,
-                })
-              }
-            >
-              {category}
-            </span>
-          ))}
+          <div className="category__section">
+            {" "}
+            {categories.map((category) => (
+              <span
+                key={category}
+                className="category"
+                onClick={(e) =>
+                  setFilterValuesState({
+                    ...values,
+                    category,
+                  })
+                }
+              >
+                {category}
+              </span>
+            ))}
+          </div>
         </div>
 
         <hr></hr>
