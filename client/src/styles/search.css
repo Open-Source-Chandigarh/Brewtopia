@@ -20,10 +20,6 @@
   grid-template-columns: repeat(2, minmax(250px, 1fr));
   gap: 1rem;
 }
-.filter_Heading {
-  font-size: 1.7rem;
-  font-weight: 900;
-}
 .filter__menu {
   display: none;
   transition: all 300ms ease;
@@ -34,6 +30,13 @@
   align-items: center;
   gap: 4px;
   color: gray;
+}
+
+@media screen and(min-widh:767) {
+  .sidebarFilter {
+    height: 90vh;
+    width: 22vw;
+  }
 }
 .active_filter__menu {
   z-index: 999;
@@ -84,7 +87,6 @@
   width: 8rem;
 }
 
-
 .no__product {
   height: 100%;
   width: 80%;
@@ -105,17 +107,14 @@
 }
 @media only screen and (max-width: 768px) {
   .search_product-container {
-    padding: 1rem 0rem;
+    /* padding: 1rem 0rem; */
     grid-template-columns: repeat(1, minmax(250px, 1fr));
     gap: 0.5rem;
   }
-  .search__container {
-    height: 100%;
-    width: 100%;
-    padding-top: 0px;
-    display: flex;
-    flex-direction: column;
+  .sidebarFilter {
+    width: 40vw;
   }
+
   .active_filter__menu {
     width: 100%;
     border: none;
@@ -164,5 +163,21 @@
 @media only screen and (max-width: 468px) {
   .active_filter__menu input[type="range"] {
     width: 4rem;
+  }
+  .search__container {
+    background-color: #FFE8DB;
+    height: 100%;
+    width: 100%;
+    padding-top: 0px;
+    display: flex;
+    flex-direction: column;
+  }
+  .sidebarFilter{
+    width: 100vw;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .sidebarFilter {
+    width: 100vw;
   }
 }
