@@ -12,6 +12,11 @@ import Dashboard from "./Admin/Dashboard";
 import { SidebarProvider } from "./context/sidebarContext";
 import { FilterProvider } from "./context/FilterContext";
 import Search from "./components/Search";
+import Forgetpassword from "./Forgetpassword";
+import EmailSentConfirmation from "./EmailSentConfirmation";
+import PasswordResetConfirmation from "./PasswordResetConfirmation";
+import PasswordResetLinkExpired from "./PasswordResetLinkExpired";
+import ResetPassword from "./ResetPassword";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -27,7 +32,12 @@ root.render(
         <Route exact path="/" element={user ? <App /> : <Navigate replace to="/login"/> } />
         <Route exact path="/login" element={user ? <Navigate replace to="/"/> : <Login/>} />
         <Route path="/sign-up" element={user ? <Navigate replace to="/"/>:<Sign/>}></Route>
-            <Route path="/paymentsuccess" element={<PaymentSuccess />}></Route>
+        <Route path="/paymentsuccess" element={<PaymentSuccess />}></Route>
+        <Route path="/forgetpassword" element={<Forgetpassword />}></Route>
+        <Route path="/emailconfirmation" element={<EmailSentConfirmation />}></Route>
+        <Route path="/resetpassword" element={<ResetPassword />}></Route>
+        <Route path="/resetpasswordconfirmation" element={<PasswordResetConfirmation />}></Route>
+        <Route path="/resetlinkexpired" element={<PasswordResetLinkExpired />}></Route>
         <Route path="/Search" element={<Search/>}></Route>
             
         <Route path="/admin">

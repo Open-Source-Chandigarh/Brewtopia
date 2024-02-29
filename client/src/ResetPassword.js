@@ -1,10 +1,10 @@
 import { React, useState, useEffect } from "react";
 import "./styles/login.css";
-import { IoEyeOutline, IoEyeOffOutline, IoFlaskOutline } from "react-icons/io5";
+import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import toast from "react-hot-toast";
 import Cookies from "universal-cookie";
 import { jwtDecode } from "jwt-decode";
-import { useNavigate, useLocation, useParams } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import Axios from "axios";
 
@@ -46,7 +46,7 @@ function ResetPassword() {
             username: decodedToken.username,
           });
           if (response.status === 200) {
-            if (response.data.status === true) {
+            if (response.data.status == true) {
               Navigation("/resetlinkexpired");
             }
           }
