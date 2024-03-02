@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { hotclassics, chillers, delights, sweettooth } from "../menu.js";
+import { hotclassics, chillers, delights, sweettooth } from "../menuItems.js";
 import Product from "./product.js";
 import "../styles/search.css";
 import { FilterContext } from "../context/FilterContext";

@@ -64,10 +64,13 @@ const getUser = async (req, res) => {
       return res.json({ error: "User not found" });
     }
 
-    const isValidhashedPassword = bcryptjs.compare(
+
+    const isValidhashedPassword = await bcryptjs.compare(
       password.trim(),
       user.password.trim()
     );
+
+    console.log(isValidhashedPassword);
 
     // Incorrect password
     if (!isValidhashedPassword) {

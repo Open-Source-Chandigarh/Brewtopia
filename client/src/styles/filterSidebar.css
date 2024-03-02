@@ -1,52 +1,77 @@
+*{
+  color: black;
+}
 .search__sidebar {
-  /* background-color: #FFE8DB; */
-  height: 100%;
-  width: 100%;
-  box-shadow: 7px 0px 5px #c2a59a;
-  position: sticky;
-  top: 90px;
-  padding-left: 2.5%;
+  width: 18rem;
+  height: 100vh;
+  height: 104.79%;
+  background-color: var(--color-bg);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  overflow: hidden;
+
 }
 
 .filter__div {
   height: 100%;
   min-height: 450px;
   width: 100%;
-  background-color: #ffe8db;
+  background: rgba( 255, 255, 255, 0.25 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4.5px );
+  -webkit-backdrop-filter: blur( 4.5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  padding-top: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .filter_Heading {
   font-size: 1.8vw;
-  padding-left: 2%;
-  color: rgb(166, 92, 65);
   font-weight: bold;
+  margin-bottom: 13px;
+
+}
+
+.search__input_div{
+  display: flex;
+  align-items: center;
 }
 
 .search_filter__input {
-  border: 1px solid #d9b6ae;
   font-size: 1.3vw;
+  border: 0;
   border-radius: 15px;
-  width: 100%;
-  text-align: center;
-  background-color: #fef9f3;
-  margin: 10% 2% 8%;
+  width: 16vw;
+  padding: 8px;
+  background-color: #f1f1f1;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  color: rgb(168, 103, 79);
+  padding-left: 20px;
+  outline: none;
+  margin-bottom: 17px;
+}
+.search__input___btn{
+  background: #b38460;
+  border: 0;
+  border-radius: 50%;
+  width: 43px;
+  aspect-ratio: 1 / 1;
+  margin-left: -37px;
+  margin-top: -18px;
 }
 
 hr {
   width: 100%;
+  margin: 0 auto;
 }
-.search__input_div {
-  padding-left: 4%;
-}
+
 .search_filter__input::placeholder {
   color: gray;
-  text-transform: uppercase;
+  font-size: 16px;
 }
 
 .select_category {
@@ -54,36 +79,29 @@ hr {
   flex-direction: column;
   margin: 5% 0 7% 0;
 }
-.category__heading {
-  /* margin-left: %; */
-  padding-left: 4%;
-  font-size: 1.7vw;
-  color: rgb(168, 103, 79);
-  font-weight: bold;
-}
+
 .category__section {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  width: 175px;
+  height: 175px;
+  margin-left: 10%;
 }
 
 .category {
   font-size: 1vw;
   z-index: 1;
-  margin-left: 40%;
   text-transform: uppercase;
-  width: 110%;
   min-width: min-content;
-  padding: 3px;
-  padding-left: 5px;
-  border-radius: 12px;
+  border-radius: 49px;
   transition: all 0.2s ease-in;
-}
-
-.category:hover {
   cursor: pointer;
-  background-color: #54321e;
-  color: rgb(239, 205, 189);
-  font-size: 1.2rem;
+  background-color: #b38460;
+  color: white;
+  padding: 10px;
+  padding-left: 21px;
+  font-weight: 600;
 }
 
 .price__range {
@@ -172,39 +190,6 @@ input[type="range"]::-moz-range-thumb {
   box-shadow: -407px 0 0 400px #f50;
 }
 
-.rating__filter {
-  background-color: black;
-  width: 90%;
-  margin-top: 0;
-  display: flex;
-  margin-left: 5%;
-  justify-content: center;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.Rating__label {
-  color: rgb(168, 103, 79);
-  font-size: 24px;
-  margin: 7% 0% 0% 2%;
-  font-weight: bold;
-}
-
-.star-rating {
-  font-size: 10px;
-  cursor: pointer;
-  margin-left: 2%;
-}
-
-.star {
-  font-size: 2.4vw;
-  color: #79554198;
-  transition: color 0.3s;
-}
-
-.star.filled {
-  color: #f39c12;
-}
-
 @media screen and (max-width: 768px) {
   .filter_Heading {
     font-size: 1.8em;
@@ -213,26 +198,17 @@ input[type="range"]::-moz-range-thumb {
     font-size: 1.2em;
     width: 90%;
   }
-  .category__heading {
-    font-size: 1.4em;
-  }
   .category {
     font-size: 1.7vw;
   }
-  .category:hover {
+  /* .category:hover {
     font-size: 1.2rem;
-  }
+  } */
   .price__label {
     font-size: 1.4em;
   }
   .price__input {
     font-size: 0.8125em;
-  }
-  .Rating__label {
-    font-size: 1.4em;
-  }
-  .star {
-    font-size: 4.5vw;
   }
 }
 @media screen and (max-width: 426px) {
@@ -255,7 +231,5 @@ input[type="range"]::-moz-range-thumb {
     align-items: flex-start;
     margin-left: 2%;
   }
-  .star {
-    font-size: 8.5vw;
-  }
+
 }

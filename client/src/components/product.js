@@ -1,39 +1,46 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import "../styles/App.css";
 import toast from "react-hot-toast";
+import { cartContext } from "../context/CartContext";
 
-export default function Product(props) {
-  const { product, cartState, setCart, total, setTotal, searchedItems } = props;
+export default function Product({ product, searchedItems }) {
   const [clicked, setclicked] = useState(false);
 
+  const {cart , setCart , total , setTotal, updateservercart} = useContext(cartContext);
+
+
   //used to update total and cart items
-  const cart = () => {
+  const cartUpdate = async() => {
     if (clicked === false) {
-      setTotal(total + product.price);
-      setCart(
-        cartState.concat({
+      const newTotal = parseInt(total) + parseInt(product.price);
+      const newCart = cart.concat({
           name: product.name,
           photo: product.image,
           quantity: product.quantity,
           price: product.price,
-        })
-      );
-      setclicked(true);
+          count : product.count
+      });
 
+      // Update the state using promises for reliable ordering
+      await Promise.all([setTotal(newTotal), setCart(newCart)]);
+
+      await updateservercart(newCart);
+      setclicked(true);
       toast.success("Added to cart");
+      
     }
   };
 
   //on change in items of cart this function fires
   useEffect(() => {
     itemincart()? setclicked(true) : setclicked(false)
-  },[cartState,searchedItems])
+  },[cart,searchedItems])
   
   //checking if item is already in cart to give button 
   //clicked or not clicked state
   function itemincart(){
-    for(var i=0; i<cartState.length; i++){
-        if(cartState[i].name === product.name){
+    for(var i=0; i<cart.length; i++){
+        if(cart[i].name === product.name){
           return true
         };
     }
@@ -55,7 +62,7 @@ export default function Product(props) {
                 type="button"
                 id="add"
                 className={clicked ? "clicked" : "notclicked"}
-                onClick={() => cart()}
+                onClick={() => cartUpdate()}
               >
                 {clicked ? "Added ✔" : "Add +"}
               </button>

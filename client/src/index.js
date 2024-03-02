@@ -17,6 +17,9 @@ import EmailSentConfirmation from "./EmailSentConfirmation";
 import PasswordResetConfirmation from "./PasswordResetConfirmation";
 import PasswordResetLinkExpired from "./PasswordResetLinkExpired";
 import ResetPassword from "./ResetPassword";
+import Layout from "./components/Layout";
+import LoginProvider from "./context/LoginContext";
+import ShowProvider from "./context/showCartOrders";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -25,29 +28,38 @@ const user = cookies.get("username");
 
 root.render(
   <>
+  <LoginProvider>
   <FilterProvider>
   <SidebarProvider>
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={user ? <App /> : <Navigate replace to="/login"/> } />
+
+        {/* main route shopping page */}
+        <Route exact path="/" element={user ?<ShowProvider><Layout><App /></Layout></ShowProvider>: <Navigate replace to="/login"/> } />
+
+        {/* Login Routes */}
         <Route exact path="/login" element={user ? <Navigate replace to="/"/> : <Login/>} />
         <Route path="/sign-up" element={user ? <Navigate replace to="/"/>:<Sign/>}></Route>
+
+        {/* payment routes */}
         <Route path="/paymentsuccess" element={<PaymentSuccess />}></Route>
+
+        {/* password reset routes */}
         <Route path="/forgetpassword" element={<Forgetpassword />}></Route>
         <Route path="/emailconfirmation" element={<EmailSentConfirmation />}></Route>
         <Route path="/resetpassword" element={<ResetPassword />}></Route>
         <Route path="/resetpasswordconfirmation" element={<PasswordResetConfirmation />}></Route>
         <Route path="/resetlinkexpired" element={<PasswordResetLinkExpired />}></Route>
+
         <Route path="/Search" element={<Search/>}></Route>
-            
-        <Route path="/admin">
-          <Route path="/admin/dashboard" element={<Dashboard/>}></Route>
-        </Route>
+
+        {/* if no page found then navigate to /login */}
         <Route exact path="/*" element={user ? <Navigate replace to="/" /> : <Navigate replace to="/login" />} />
+        
       </Routes>
     </BrowserRouter>
     <Toaster
-      position="top-center"
+      position="bottom-right"
       reverseOrder={false}
       gutter={8}
       containerClassName=""
@@ -98,5 +110,6 @@ root.render(
     />
     </SidebarProvider>
     </FilterProvider>
+    </LoginProvider>
   </>
 );

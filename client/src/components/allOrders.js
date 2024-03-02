@@ -1,29 +1,34 @@
 import Order from "./order";
 import { GoChecklist } from "react-icons/go";
 import { AiOutlineCloseCircle } from "react-icons/ai";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Axios  from "axios";
 import {ReactComponent as Rolling} from "../Loaders/RollingLoadersvg.svg"
+import { loginContext } from "../context/LoginContext";
+import { showContext } from "../context/showCartOrders";
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
-export default function AllOrders({username, setshowOrders}){
+export default function AllOrders(){
 
     const[orders, setOrders] = useState([]);
     const [loading,setloading] = useState(true);
+    const {email} = useContext(loginContext)
+    const {setshowOrders} = useContext(showContext)
+    console.log(email)
 
     useEffect(() => {
         
         async function fetchOrders() {
             const AllOrders = await Axios.post(apiUrl + "/getOrders", {
-                username: username
+                username : email
             });
             setOrders(AllOrders.data);
             setloading(false);
         }
         fetchOrders();
 
-      },[username]);
+      },[email]);
 
     return(
         <div className="ordersBack">

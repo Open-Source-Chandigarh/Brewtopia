@@ -7,6 +7,6 @@ const {cartLimiter} = require("../middleware/rateLimiter");
 router.post("/getCart", cartLimiter, getCart);
 
 //used for updating cart
-router.post("/updateCart", cartLimiter, updateCart);
+router.post("/updateCart", updateCart);
 
 module.exports = router;

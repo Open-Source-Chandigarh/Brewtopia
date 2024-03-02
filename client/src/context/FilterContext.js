@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
-import { chillers, delights, hotclassics, sweettooth } from "../menu";
+import { chillers, delights, hotclassics, sweettooth } from "../menuItems";
+
 const allItems = [...hotclassics, ...chillers, ...delights, ...sweettooth];
 const initialValue = {
   minPrice: Number,
@@ -9,6 +10,8 @@ const initialValue = {
   category: "",
   filteredProducts: allItems,
 };
+
+
 const FilterContext = createContext(initialValue);
 
 const FilterProvider = ({ children }) => {

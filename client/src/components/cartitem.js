@@ -1,23 +1,31 @@
 import "../styles/App.css";
 import toast from "react-hot-toast";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import { cartContext } from "../context/CartContext";
 
-export default function CartItem({ item, cart, setCart }) {
+export default function CartItem({ item }) {
   const [counter, setCounter] = useState(item.count || 1);
+  const {cart , setCart,updateservercart} = useContext(cartContext);
 
   useEffect(() => {
     // Update the count in the parent cart state
-    setCart((prevCart) =>
-      prevCart.map((object) =>
-        object.name === item.name ? { ...object, count: counter } : object
-      )
+    const currentCart = cart; // Access current cart value
+
+    // Create a new cart with updated count
+    const newCart = currentCart.map((object) =>
+      object.name === item.name ? { ...object, count: counter } : object
     );
+  
+    setCart(newCart);
+    updateservercart(newCart);
+    
   }, [counter, item.name, setCart]);
 
   const removeItem = () => {
     const newCart = cart.filter((object) => object.name !== item.name);
     setCart(newCart);
+    updateservercart(newCart);
     toast.error("Removed from cart");
   };
 
@@ -51,27 +59,6 @@ export default function CartItem({ item, cart, setCart }) {
             +
           </button>
       </div>
-      {/* <div className="range">
-      <button className="redbtn"
-          type="button"
-          onClick={() =>
-            setCounter((prevCounter) => Math.max(prevCounter - 1, 1))} style={{borderRadius: "20px", fontWeight: "600"}}
-            >
-          -
-        </button>
-        <p style={{fontWeight: "600", fontSize: "medium" }}>{counter}</p>
-        <button className="greenbtn"
-          type="button"
-          onClick={() => setCounter((prevCounter) => prevCounter + 1)} style={{borderRadius: "20px", fontWeight: "600"}}
-        >
-          +
-        </button>
-      </div> */}
-      {/* <div>
-        <button className="redbtn" type="button" onClick={removeItem} style={{borderRadius: "20px", fontWeight: "600", fontSize: "medium"}}>
-          <MdDeleteOutline></MdDeleteOutline>
-        </button>
-      </div> */}
     </div>
   );
 }

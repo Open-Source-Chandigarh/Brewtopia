@@ -61,8 +61,22 @@ body{
   align-items: center;
   -webkit-backdrop-filter: blur(13px);
   backdrop-filter: blur(13px);
-  z-index: 999;
+  z-index: 99;
   background-color: var(--secondary-bg);
+}
+
+.LayoutWrap{
+  display: flex;
+  width: 100%;
+  margin-top: 0px;
+}
+
+
+.filtersidebar{ 
+  height: 100vh;
+  position: sticky;
+  width: 30%;
+  top: 76px;
 }
 
 .cartOrders{
@@ -218,7 +232,6 @@ body{
 
 .main {
   text-align: center;
-  margin-top: 48px;
 }
 
 #product1,

@@ -24,6 +24,8 @@ const updateCart = async (req,res) =>{
     const username = req.body.username;
     const total = req.body.cartTotal;
 
+    console.log(total)
+
     //finding user in database and updating cart and carttotal
     await UserModel.findOneAndUpdate({username: username}, {cart: cart, cartTotal : total});
 
