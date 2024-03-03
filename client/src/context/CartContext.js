@@ -11,27 +11,22 @@ export const cartContext = createContext();
 const apiUrl = process.env.REACT_APP_API_URL;
 
 export default function CartProvider({ children }) {
-
     //for cart added items track
     const [total, setTotal] = useState(0);
     const [cart, setCart] = useState([]);
     const [totalItems, settotalItems] = useState();
-    const {email} = useContext(loginContext);
+    const { email } = useContext(loginContext);
 
-    const updateTotal = (cart, totalitem) =>{
+    const updateTotal = (cart, totalitem) => {
         let total = 0;
-        console.log(cart);
         cart?.forEach((item) => {
-            console.log(parseInt(item.count))
             total += parseInt(item.price) * parseInt(item.count);
         });
-        console.log(cart);
         setTotal(parseInt(total));
         settotalItems(totalitem);
-    }
+    };
 
-    const updateservercart = async(newCart) =>{
-        
+    const updateservercart = async (newCart) => {
         updateTotal(newCart, newCart.length);
 
         //posting server with updated cart
@@ -40,7 +35,7 @@ export default function CartProvider({ children }) {
             cart: newCart,
             cartTotal: total,
         });
-    }
+    };
 
     //updating server cart and also updating total on server side
     // useEffect(() => {
@@ -54,14 +49,23 @@ export default function CartProvider({ children }) {
                 username: email,
             });
             setCart(cart.data);
-            updateTotal(cart.data , cart.data.length);
+            updateTotal(cart.data, cart.data.length);
         };
         servercart();
     }, [email]);
 
-    return(
-        <cartContext.Provider value={{cart , setCart , total,setTotal , totalItems , updateservercart}}>
+    return (
+        <cartContext.Provider
+            value={{
+                cart,
+                setCart,
+                total,
+                setTotal,
+                totalItems,
+                updateservercart,
+            }}
+        >
             {children}
         </cartContext.Provider>
-    ) 
+    );
 }
