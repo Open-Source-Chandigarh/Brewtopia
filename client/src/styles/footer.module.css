@@ -1,4 +1,3 @@
-
 .footerContainer {
     color: #fef3da;
     padding: 2rem;
@@ -21,9 +20,9 @@
 h2 {
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
-    color: #54290C;
+    color: var(--primary-text-color);
     font-weight: 900;
-    font-family: poppinso,sans-serif;
+    font-family: poppinso, sans-serif;
 }
 
 .socialIcons {
@@ -32,7 +31,7 @@ h2 {
 }
 
 .iconLink {
-    color: #54290C;
+    color: #54290c;
     transition: color 0.3s ease;
 }
 
@@ -50,10 +49,11 @@ h2 {
     padding: 2px;
     padding-left: 6px;
     padding-right: 6px;
-    background-color: #54290C;
+    background-color: #54290c;
 }
 
-.navLink:hover, .iconLink:hover{
+.navLink:hover,
+.iconLink:hover {
     color: #fef3da;
 }
 

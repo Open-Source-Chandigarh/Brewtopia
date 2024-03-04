@@ -1,6 +1,6 @@
 import Footer from "./footer";
 import Navbar from "./navbar";
-import FilterSidebar from "./FilterSidebar";
+// import FilterSidebar from "./FilterSidebar";
 import ShowProvider from "../context/showCartOrders";
 import CartProvider from "../context/CartContext";
 import { showContext } from "../context/showCartOrders";
@@ -22,9 +22,9 @@ export default function Layout({ children }) {
 
                 <Navbar />
                 <div className="LayoutWrap">
-                    <div className="filtersidebar">
+                    {/* <div className="filtersidebar">
                         <FilterSidebar />
-                    </div>
+                    </div> */}
                     <div style={{ margin: "0 auto" }}>{children}</div>
                 </div>
                 <Footer />

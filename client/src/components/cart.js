@@ -105,12 +105,10 @@ export default function Cart() {
                 >
                     <h2>My Cart</h2>
                     <AiOutlineCloseCircle
+                        fill="var(--text-color)"
                         onClick={() => setshowCart(false)}
                         style={{
-                            // position: "absolute",
-                            // right: "24px",
-                            // top: "20px",
-                            color: "#54290C",
+                            // color: "var(--text-color)",
                             fontSize: "26px",
                             cursor: "pointer",
                         }}
@@ -170,7 +168,7 @@ export default function Cart() {
                                 <p
                                     style={{
                                         fontWeight: "100",
-                                        color: "white",
+                                        color: "var(--secondary-text-color)",
                                         letterSpacing: "3px",
                                         paddingLeft: "20px",
                                         margin: "0 auto",
