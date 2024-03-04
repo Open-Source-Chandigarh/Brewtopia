@@ -9,26 +9,26 @@ import AllOrders from "./allOrders";
 import Cart from "./cart";
 
 export default function Layout({ children }) {
-  const { showCart, showOrders } = useContext(showContext);
+    const { showCart, showOrders } = useContext(showContext);
 
-  return (
-    <>
-    <CartProvider>
-        {/* Showing all orders as popup */}
-        {showOrders && <AllOrders />}
+    return (
+        <>
+            <CartProvider>
+                {/* Showing all orders as popup */}
+                {showOrders && <AllOrders />}
 
-        {/* showing cart items as popup */}
-        {showCart && <Cart />}
-        
-        <Navbar />
-            <div className="LayoutWrap">
-            <div className="filtersidebar">
-                <FilterSidebar />
-            </div>
-            <div className="mainbar">{children}</div>
-            </div>
-        <Footer />
-    </CartProvider>
-    </>
-  );
+                {/* showing cart items as popup */}
+                {showCart && <Cart />}
+
+                <Navbar />
+                <div className="LayoutWrap">
+                    <div className="filtersidebar">
+                        <FilterSidebar />
+                    </div>
+                    <div style={{ margin: "0 auto" }}>{children}</div>
+                </div>
+                <Footer />
+            </CartProvider>
+        </>
+    );
 }
