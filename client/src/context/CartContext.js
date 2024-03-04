@@ -14,25 +14,26 @@ export default function CartProvider({ children }) {
     //for cart added items track
     const [total, setTotal] = useState(0);
     const [cart, setCart] = useState([]);
-    const [totalItems, settotalItems] = useState();
+    const [totalItems, settotalItems] = useState(0);
     const { email } = useContext(loginContext);
 
-    const updateTotal = (cart, totalitem) => {
+    const updateTotal = (cart) => {
         let total = 0;
+        let totalItems = 0;
         cart?.forEach((item) => {
-            if(item.count){
+            if (item.count) {
                 total += parseInt(item.price) * parseInt(item.count);
-            }else{
-                total += parseInt(item.price)
+                totalItems += item.count;
+            } else {
+                total += parseInt(item.price);
             }
-            
         });
         setTotal(parseInt(total));
-        settotalItems(totalitem);
+        settotalItems(totalItems);
     };
 
     const updateservercart = async (newCart) => {
-        updateTotal(newCart, newCart.length);
+        updateTotal(newCart);
         //posting server with updated cart
         await Axios.post(apiUrl + "/updateCart", {
             username: email,
@@ -53,7 +54,8 @@ export default function CartProvider({ children }) {
                 username: email,
             });
             setCart(cart.data);
-            updateTotal(cart.data, cart.data.length);
+            updateTotal(cart.data);
+            settotalItems(cart.data.length);
         };
         servercart();
     }, [email]);
@@ -67,6 +69,7 @@ export default function CartProvider({ children }) {
                 setTotal,
                 totalItems,
                 updateservercart,
+                settotalItems,
             }}
         >
             {children}

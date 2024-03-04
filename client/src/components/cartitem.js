@@ -1,32 +1,13 @@
 import "../styles/App.css";
 import toast from "react-hot-toast";
-import { useState, useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { cartContext } from "../context/CartContext";
+import Quantity from "./quantity";
 
 export default function CartItem({ item }) {
     const [counter, setCounter] = useState(item.count || 1);
     const { cart, setCart, updateservercart } = useContext(cartContext);
-
-    useEffect(() => {
-        // Update the count in the parent cart state
-        const currentCart = cart; // Access current cart value
-
-        // Create a new cart with updated count
-        const newCart = currentCart.map((object) =>
-            object.name === item.name ? { ...object, count: counter } : object
-        );
-
-        setCart(newCart);
-        updateservercart(newCart);
-    }, [counter, item.name, setCart]);
-
-    const removeItem = () => {
-        const newCart = cart.filter((object) => object.name !== item.name);
-        setCart(newCart);
-        updateservercart(newCart);
-        toast.error("Removed from cart");
-    };
 
     return (
         <>
@@ -36,7 +17,7 @@ export default function CartItem({ item }) {
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",
-                    border: "1px dashed #54290c",
+                    border: "1px dashed var(--border-color)",
                     height: "85px",
                     borderRadius: "10px",
                     width: "95%",
@@ -135,73 +116,11 @@ export default function CartItem({ item }) {
                             alignItems: "end",
                         }}
                     >
-                        <div
-                            style={{
-                                display: "flex",
-                            }}
-                        >
-                            <button
-                                className="redbtn"
-                                type="button"
-                                onClick={() => {
-                                    setCounter((prevCounter) => {
-                                        const newCounter = Math.max(
-                                            prevCounter - 1,
-                                            1
-                                        ); // Ensure the counter doesn't go below 1
-                                        return newCounter;
-                                    });
-                                    if (counter === 1) {
-                                        removeItem(); // Call removeItem() when counter becomes 1
-                                    }
-                                }}
-                                style={{
-                                    // marginTop: "20%",
-                                    background: "#54290C",
-                                    border: "1px solid #54290c",
-                                    // borderStyle: "solid none solid solid",
-                                    borderTopLeftRadius: "2px",
-                                    borderBottomLeftRadius: "2px",
-                                    fontWeight: "600",
-                                    height: "25px",
-                                    color: "#fff",
-                                }}
-                            >
-                                -
-                            </button>
-
-                            <p
-                                style={{
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                    fontWeight: "400",
-                                    border: "1px solid #54290c",
-                                    borderStyle: "solid none",
-                                    width: "30px",
-                                }}
-                            >
-                                {counter}
-                            </p>
-                            <button
-                                className="greenbtn"
-                                type="button"
-                                onClick={() =>
-                                    setCounter((prevCounter) => prevCounter + 1)
-                                }
-                                style={{
-                                    background: "#54290C",
-                                    border: "1px solid #54290c",
-                                    // borderStyle: "solid solid solid none",
-                                    borderTopRightRadius: "2px",
-                                    borderBottomRightRadius: "2px",
-                                    fontWeight: "600",
-                                    color: "white",
-                                }}
-                            >
-                                +
-                            </button>
-                        </div>
+                        <Quantity
+                            counter={counter}
+                            item={item}
+                            setCounter={setCounter}
+                        />
                         {/* <p
                             style={{
                                 margin: "3% 0 0 0",
