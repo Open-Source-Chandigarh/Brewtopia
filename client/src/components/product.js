@@ -13,6 +13,7 @@ export default function Product({ product, searchedItems }) {
   const cartUpdate = async() => {
     if (clicked === false) {
       const newTotal = parseInt(total) + parseInt(product.price);
+      
       const newCart = cart.concat({
           name: product.name,
           photo: product.image,
@@ -20,7 +21,7 @@ export default function Product({ product, searchedItems }) {
           price: product.price,
           count : product.count
       });
-
+      console.log(newTotal , newCart );
       // Update the state using promises for reliable ordering
       await Promise.all([setTotal(newTotal), setCart(newCart)]);
 

@@ -20,7 +20,12 @@ export default function CartProvider({ children }) {
     const updateTotal = (cart, totalitem) => {
         let total = 0;
         cart?.forEach((item) => {
-            total += parseInt(item.price) * parseInt(item.count);
+            if(item.count){
+                total += parseInt(item.price) * parseInt(item.count);
+            }else{
+                total += parseInt(item.price)
+            }
+            
         });
         setTotal(parseInt(total));
         settotalItems(totalitem);
@@ -28,7 +33,6 @@ export default function CartProvider({ children }) {
 
     const updateservercart = async (newCart) => {
         updateTotal(newCart, newCart.length);
-
         //posting server with updated cart
         await Axios.post(apiUrl + "/updateCart", {
             username: email,
