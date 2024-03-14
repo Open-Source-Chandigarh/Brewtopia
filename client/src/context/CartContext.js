@@ -40,12 +40,6 @@ export default function CartProvider({ children }) {
             cartTotal: total,
         });
     };
-
-    //updating server cart and also updating total on server side
-    // useEffect(() => {
-
-    // }, [cart , total, email]); //whenever cart changes these requests will be made to server
-
     useEffect(() => {
         //request to server for cart
         const servercart = async () => {
